@@ -1,0 +1,102 @@
+User Stories
+
+User Story 1
+-----------------------------------------
+As a user, 
+So that I can tell when the app is loaded and ready, 
+I want a starting screen to display.
+
+Given an Android device that has our app but is not running it,
+When the app is launched,
+Then a start screen will appear on the phone.
+
+User Story 2
+-----------------------------------------
+As a user, 
+So that I can keep track of my data,
+I want to create an associated profile if I do not already have one.
+
+Given a user on the welcome screen who does not have login credentials,
+When they advance off of the login screen,
+Then they will be prompted to make an account.
+
+User Story 3
+-----------------------------------------
+As a user,
+So that I can compare my score with other people,
+I want access to a leaderboard with scoring information.
+
+Given a user with a registered account in the menu screen,
+When the user selects the leaderboard button,
+Then they will be taken to a screen displaying the leaderboard.
+
+User Story 4
+-----------------------------------------
+As a user,
+So that I can know when I unlock achievements/badges,
+I want to see a pop up as they are unlocked.
+
+Given a user near the end of an achievement,
+When the user completes the achievement,
+Then a pop up with the reward is displayed.
+
+User Story 5
+-----------------------------------------
+As a user,
+So that I can understand the content of the coming level,
+I want a brief tutorial to show me the basics.
+
+Given a user about to start a new level,
+When they proceede to the new level,
+Then they will be brought to the tutorial for that level.
+
+User Story 6
+-----------------------------------------
+As a user,
+So that I can secure my information,
+I want to be required to manually input my password for each login.
+
+Given a user with a registered account and android device containing our app,
+When they launch the app,
+Then they will be prompted for login credentials 
+
+User Story 7
+-----------------------------------------
+As a user,
+So that I do not get stuck in one portion of a level,
+I want access to a hint icon/button that will help.
+
+Given a user participating in a level,
+When they press the hint button/icon,
+Then the screen displays a hint for the level.
+
+User Story 8
+-----------------------------------------
+As a user,
+So that I can end excess/extra tabs in the app,
+I want to be able to close excess tabs/pop-ups with a button
+
+Given a user with an additional window overlaying their screen,
+When they select the close button,
+Then the window of the button will dissapear. 
+
+User Story 9
+-----------------------------------------
+As a user,
+So that I will be proficient in a level's skill before proceeding,
+I want to have a score of at least an 80% before being allowed to continue.
+
+Given a user attempting to complete a level,
+When their score >= 80%,
+Then they will be allowed to complete the level.
+
+User Story 10
+-----------------------------------------
+As a user,
+So that I can have a clean start on the app,
+I want to be able to reset all of my data.
+
+Given a registed user with account information in the menu screen,
+When they navigate to the settings, and select the reset account button,
+Then their account information will be reset.
+
