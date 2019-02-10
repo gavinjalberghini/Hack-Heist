@@ -1,0 +1,9 @@
+Pre-Sprint
+02-03-2019: Group Meeting - Discord
+            Work for 02-07-2019
+
+Responsibilities 
+Austen: 2d unity research
+Joe: logos, develop group and game icon then research unity 2d development
+Sinead: research junit tests and create app questions
+Gavin: research how going to run database and start to look at saving and loading onto the phone (restoring session/save)
