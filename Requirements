@@ -1,0 +1,45 @@
+GENERAL
+- Code used for learning within the app must be psuedocode and Java.
+- A short tutorial option should be included (either for each level [can be via youtube video] or for the game in general)
+- Multiple forms of gamification are required
+- Must in some way be customized for VCU
+- Must have documentation on how to use the app 
+- A reward system must be included other than required badges (realized at developers discretion)
+- A completion reward will be sent to the User upon them completing the game
+- Some type of customer support must be included
+- A timeout should force the app to quit for security reasons
+- When a user leaves the app for any reason, save the state of the game
+- Overall progress should be included with feedback to the user
+
+CONCEPTS/LEVELS
+- Concepts covered include Elementary Programming, Selections, Mathematical Functions,
+  Characters, Strings, Loops, Methods, Single-Dimensional Arrays  
+- Concepts must be displayed in the order given above
+- There must be a way to test out of concepts
+- Concepts must be replayable/repeatable
+
+QUESTION  
+- Questions should be designed so that users are not writing methods or classes, only 
+  answering short answer, ect...
+- Questions must have varying structure (types varied at developers discretion)
+- Some questions (at developers discretion) should have hints available to the user in
+  case they get stuck
+- Questions should be randomized so that brute force attempts do not work
+- Answer choice locations must be randomized
+- 80% correct answers are required for level progression
+
+USER
+- Users must be able to reset their data
+- Users must be able to delete their account
+- Users are required to re-enter their username every time they launch the app
+- Users should recieve some type of feedback as they progress through the app
+- Users must be able to send an info dump to theirselves via email (levels that have been 
+  completed along with the skills that the user has mastered)
+- Users must have a unique username
+- Users must have some way to provide feedback about the app
+- Users should be able to recover their password/username should they forget
+
+DATABASE
+- Required information for a user is Email, Name, Username, Password
+- Must have some form of data security
+- Email or username can be used to login
