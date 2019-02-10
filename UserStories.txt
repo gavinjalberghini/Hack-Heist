@@ -100,3 +100,155 @@ Given a registed user with account information in the menu screen,
 When they navigate to the settings, and select the reset account button,
 Then their account information will be reset.
 
+User Story 11
+----------------------------------------- 
+As a user,
+So that I can practice a skill more,
+I want to be able to replay each single level - even if I have a passing score.
+
+Given a user that has completed a level,
+When they complete a level,
+Then there will be an option to repeat the level.
+
+
+User Story 12
+-----------------------------------------
+As a user,
+So that I can see what topics are covered in different levels,
+I want to be able to view higher levels before completing previous ones.
+
+Given a user that has not completed a prerequisite level,
+When prompted to choose which level to play,
+Then there will be the option to view more advanced levels content.
+
+
+User Story 13
+-----------------------------------------
+As a user,
+So that I do not have to spend time on a concept that I am knowledgable about,
+I want to be able to test out of a concept.
+
+Given a user with knowledge about a certain topic,
+When the user has entered a concept
+Then there will be an option to test out of that concept.
+
+
+User Story 14
+-----------------------------------------
+As a novice programmer,
+So that I can learn without the answer being given away,
+I want to type in the answer to a question in a empty text field.
+
+Given a User navigates to a question area,
+When they are asked to answer a question, 
+Then a text field will appear with the phone's keyboard to answer that question.
+
+
+User Story 15
+-----------------------------------------
+As a user,
+So that I can answer questions provided to me,
+I want to be able to drag and drop potential answers into available fields.
+
+Given a user answering questions about a topic,
+When prompted with a question about the particular concept,
+Then the user will be able to drag answer options into the open field(s).
+
+
+User Story 16
+-----------------------------------------
+As a user,
+So that I can answer questions provided to me,
+I want to be able to choose an answer from multiple choices.
+
+Given a user answering questions about a topic,
+When prompter with a question about a particular concept,
+Then the user will be provided answer options to click on.
+
+
+User Story 17
+-----------------------------------------
+As a user,
+So that I can practice the material before being tested on the concept,
+I want there to be an optional tutorial before each topic.
+
+Given a user that is at the beginning of a topic,
+When the screen has loaded,
+Then the user will be asked if they would like to view a tutorial before beginning.
+
+
+User Story 18
+-----------------------------------------
+As a user,
+So that my information and progress remain secure,
+I want the app to timeout after a certain amount of time (inactivity).
+
+Given a user that has the app open,
+When the user has not interacted with the game for a certain amount of time,
+Then the game will save the current data and log the user out of the game.
+
+
+User Story 19
+-----------------------------------------
+As a user,
+So that my progress is not lost,
+I want the app to save my progress everytime I leave the application.
+
+Given a user that is interacting with the app,
+When they switch their screen to a different application,
+Then the current state of the game will be saved.
+
+
+User Story 20
+-----------------------------------------
+As a user,
+So that I can recover access to my account,
+I want to be able to recover my password.
+
+Given a user that has forgotten their password,
+When prompted to sign in,
+Then there will be the option to recover their password using their email.
+
+
+User Story 21
+-----------------------------------------
+As a user,
+So that I can have record of my accomplishments,
+I want a certificate of completion sent to my email when I have finished the game.
+
+Given a user that has completed the game,
+When all levels have been passed with a sufficient score,
+Then the user will receive an email with a certificate of completion. 
+
+
+User Story 22
+-----------------------------------------
+As a user,
+So that I can personalize my account,
+I want to be able to choose my own username.
+
+Given a user that is creating an account,
+When the user is prompted for their personal information,
+Then there will be a field for them to enter a personalized username. 
+
+
+User Story 23
+-----------------------------------------
+As a user,
+So that I can continue my progress in the game,
+I want a forgot username option.
+
+Given a user that has forgotten their username,
+When prompted to login,
+Then there will be an option to recover their username through their email.
+
+
+User Story 24
+-----------------------------------------
+As a user,
+So that I may delete personal informationg from the game,
+I want there to be a delete account option.
+
+Given a user that no longer wants to play the game,
+When the user is logged into their account,
+Then there will be an option to delete the account that they are logged into.
