@@ -7,3 +7,12 @@ Austen: 2d unity research
 Joe: logos, develop group and game icon then research unity 2d development
 Sinead: research junit tests and create app questions
 Gavin: research how going to run database and start to look at saving and loading onto the phone (restoring session/save)
+
+02-10-2019 Group Meeting - Library
+		Work for 02-13-2019
+
+Responsibilities
+Joe: Finished logo for game and a level sketch/layout
+Austen: develop pipeline for bringing 2d unity scenes into android 
+Gavin: requirements document and user stories
+Sinead: user stories and app questions
