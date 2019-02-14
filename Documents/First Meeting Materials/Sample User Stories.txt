@@ -1,0 +1,50 @@
+User Story
+-----------------------------------------
+As a user, 
+So that I can keep track of my data,
+I want to create an associated profile if I do not already have one.
+
+Given a user on the welcome screen who does not have login credentials,
+When they advance off of the login screen,
+Then they will be prompted to make an account.
+
+User Story
+-----------------------------------------
+As a user,
+So that I can secure my information,
+I want to be required to manually input my password for each login.
+
+Given a user with a registered account and android device containing our app,
+When they launch the app,
+Then they will be prompted for login credentials 
+
+User Story
+-----------------------------------------
+As a user,
+So that I can have record of my accomplishments,
+I want a certificate of completion sent to my email when I have finished the game.
+
+Given a user that has completed the game,
+When all levels have been passed with a sufficient score,
+Then the user will receive an email with a certificate of completion. 
+
+User Story
+-----------------------------------------
+As a user,
+So that I can personalize my account,
+I want to be able to choose my own username.
+
+Given a user that is creating an account,
+When the user is prompted for their personal information,
+Then there will be a field for them to enter a personalized username. 
+
+User Story
+-----------------------------------------
+As a user,
+So that I can see what topics are covered in different levels,
+I want to be able to view higher levels before completing previous ones.
+
+Given a user that has not completed a prerequisite level,
+When prompted to choose which level to play,
+Then there will be the option to view more advanced levels content.
+
