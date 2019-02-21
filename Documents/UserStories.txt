@@ -7,11 +7,11 @@ So that I can tell when the app is loaded and ready,
 I want a starting screen to display.
 
 Given an Android device that has our app but is not running it,
-When the user clicks on the app icon 
+When the novice programmer clicks on the app icon 
 and a loading screen appears 
 and the loading screen disappears 
 and the welcome screen appears,
-Then the user will see the main screen 
+Then the novice programmer will see the main screen 
 with the game logo, the login button, the help button, the start button, the info button, and the leadership button.
 
 User Story 2
@@ -20,7 +20,7 @@ As a novice programmer,
 So that I can keep track of my data,
 I want to create an associated profile if I do not already have one.
 
-Given a user on the welcome screen who does not have login credentials,
+Given a novice programmer on the welcome screen who does not have login credentials,
 When they click on the login button and see the fields for username and password, and the buttons for login and signup,
 Then they will select the singup button
 When the signup page appears with fields for name, username, email, password, and confirm password,
@@ -32,8 +32,8 @@ As a novice programmer,
 So that I can compare my score with other people,
 I want access to a leaderboard with scoring information.
 
-Given a user with a registered account in the menu screen,
-When the user is on the main page with login button, the help button, the start button, the info button, and the leaderboard button,
+Given a novice programmer with a registered account in the menu screen,
+When the novice programmer is on the main page with login button, the help button, the start button, the info button, and the leaderboard button,
 then they select the leaderboard button,
 when the leaderoard page appears with the usernames and ranks of the users,
 Then they will be able to view their scores in comparison to other users.
@@ -44,18 +44,18 @@ As a novice programmer,
 So that I can know when I unlock achievements/badges,
 I want to see a pop up as they are unlocked.
 
-Given a user near the end of an achievement,
-When the user is prompted with a question that would allow them to complete the achievement,
+Given a novice programmer near the end of an achievement,
+When the novice programmer is prompted with a question that would allow them to complete the achievement,
 when they provide the correct answer in the correct format for the given question,
-then the user will see a pop up on the screen displaying "congratulations".
+then the novice programmer will see a pop up on the screen displaying "congratulations".
 
-User Story 5 - General 2
+***User Story 5 - General 2
 -----------------------------------------
 As a novice programmer,
 So that I can understand the content of the coming level,
 I want a brief tutorial to show me the basics.
 
-Given a user about to start a new level, ********JOE: What will this look like?********
+Given a novice programmer about to start a new level, ********JOE: What will this look like?********
 When they proceede to the new level,
 Then they will be brought to the tutorial for that level.
 
@@ -65,10 +65,10 @@ As a novice programmer,
 So that I can secure my information,
 I want to be required to manually input my password for each login.
 
-Given a user with a registered account and android device containing our app,
-When the app has loaded and the user selects the login button on the home screen, 
-then the user will see empty username and password fields, along with the login button,
-when the user enters their username and password in the appropriate fields and hits the login button,
+Given a novice programmer with a registered account and android device containing our app,
+When the app has loaded and the novice programmer selects the login button on the home screen, 
+then the novice programmer will see empty username and password fields, along with the login button,
+when the novice programmer enters their username and password in the appropriate fields and hits the login button,
 then they will be logged into their account and be able to select a level to play.
 
 User Story 7 - Question 3
@@ -77,67 +77,74 @@ As a novice programmer,
 So that I do not get stuck in one portion of a level,
 I want access to a hint icon/button that will help.
 
-Given a user has selected a level to work on,
+Given a novice programmer has selected a level to work on,
 When they are presented with the first question, 
 then there will be a hint button/icon that they may click on,
 when the hint button is clicked,
 Then the screen displays a pop up with a hint for the level.
 
-User Story 8
+***User Story 8
 -----------------------------------------
-As a user,
+As a novice programmer,
 So that I can end excess/extra tabs in the app,
 I want to be able to close excess tabs/pop-ups with a button
 
-Given a user with an additional window overlaying their screen,
+Given a novice programmer with an additional window overlaying their screen,
 When they select the close button,
 Then the window of the button will dissapear. 
 
-User Story 9
+***User Story 9 - Question 6
 -----------------------------------------
-As a user,
+As a novice programmer,
 So that I will be proficient in a level's skill before proceeding,
 I want to have a score of at least an 80% before being allowed to continue.
 
-Given a user attempting to complete a level,
-When their score >= 80%,
-Then they will be allowed to complete the level.
+Given a novice programmer answering the final question on a level (topic),
+When they have answered at least 80% of the provided question for that topic correctly,
+Then they will see an option on the screen, allowing them to continue on to the next level,
+When they select to continue on to the next level,
+Then they will have completed the level
 
-User Story 10
+User Story 10 - User 1
 -----------------------------------------
-As a user,
+As a novice programmer,
 So that I can have a clean start on the app,
 I want to be able to reset all of my data.
 
-Given a registed user with account information in the menu screen,
-When they navigate to the settings, and select the reset account button,
-Then their account information will be reset.
+Given a registed user that is on the menu screen and who has with account information
+When they click on the the settings button, they will see options to __________________________.
+When they click on the account reset button,
+Then all of their account scoring information will be reset back to zero.
 
-User Story 11
+User Story 11 - Concepts/Levels 4
 ----------------------------------------- 
-As a user,
+As a novice programmer,
 So that I can practice a skill more,
 I want to be able to replay each single level - even if I have a passing score.
 
-Given a user that has completed a level,
-When they complete a level,
-Then there will be an option to repeat the level.
+Given a novice programmer that has answered all 10 questions for a level, 
+When they have answered the final question, 
+Then the screen will display an option to repeat the level, regardless of passing score,
+When the novice programmer selects the replay button on the screen,
+Then the novice programmer will be brought back to the beginning of the level to begin again.
 
 
 User Story 12
 -----------------------------------------
-As a user,
+As a novice programmer,
 So that I can see what topics are covered in different levels,
 I want to be able to view higher levels before completing previous ones.
 
-Given a user that has not completed a prerequisite level,
-When prompted to choose which level to play,
-Then there will be the option to view more advanced levels content.
+Given a novice programmer that has not completed a prerequisite level,
+When the novice programmer is on the select level page with preview views of each level,
+then the novice programmer will be able to select any level of their choosing,
+When they select a level,
+Then they will be able to see the concepts covered in more advanced levels.
 
 
 User Story 13
 -----------------------------------------
-As a user,
+As a novice programmer,
 So that I do not have to spend time on a concept that I am knowledgable about,
 I want to be able to test out of a concept.
 
@@ -159,7 +166,7 @@ Then a text field will appear with the phone's keyboard to answer that question.
 
 User Story 15
 -----------------------------------------
-As a user,
+As a novice programmer,
 So that I can answer questions provided to me,
 I want to be able to drag and drop potential answers into available fields.
 
@@ -170,7 +177,7 @@ Then the user will be able to drag answer options into the open field(s).
 
 User Story 16
 -----------------------------------------
-As a user,
+As a novice programmer,
 So that I can answer questions provided to me,
 I want to be able to choose an answer from multiple choices.
 
@@ -181,7 +188,7 @@ Then the user will be provided answer options to click on.
 
 User Story 17
 -----------------------------------------
-As a user,
+As a novice programmer,
 So that I can practice the material before being tested on the concept,
 I want there to be an optional tutorial before each topic.
 
@@ -192,7 +199,7 @@ Then the user will be asked if they would like to view a tutorial before beginni
 
 User Story 18
 -----------------------------------------
-As a user,
+As a novice programmer,
 So that my information and progress remain secure,
 I want the app to timeout after a certain amount of time (inactivity).
 
@@ -203,7 +210,7 @@ Then the game will save the current data and log the user out of the game.
 
 User Story 19
 -----------------------------------------
-As a user,
+As a novice programmer,
 So that my progress is not lost,
 I want the app to save my progress everytime I leave the application.
 
@@ -214,7 +221,7 @@ Then the current state of the game will be saved.
 
 User Story 20
 -----------------------------------------
-As a user,
+As a novice programmer,
 So that I can recover access to my account,
 I want to be able to recover my password.
 
@@ -225,7 +232,7 @@ Then there will be the option to recover their password using their email.
 
 User Story 21
 -----------------------------------------
-As a user,
+As a novice programmer,
 So that I can have record of my accomplishments,
 I want a certificate of completion sent to my email when I have finished the game.
 
@@ -236,7 +243,7 @@ Then the user will receive an email with a certificate of completion.
 
 User Story 22
 -----------------------------------------
-As a user,
+As a novice programmer,
 So that I can personalize my account,
 I want to be able to choose my own username.
 
@@ -247,7 +254,7 @@ Then there will be a field for them to enter a personalized username.
 
 User Story 23
 -----------------------------------------
-As a user,
+As a novice programmer,
 So that I can continue my progress in the game,
 I want a forgot username option.
 
@@ -258,7 +265,7 @@ Then there will be an option to recover their username through their email.
 
 User Story 24
 -----------------------------------------
-As a user,
+As a novice programmer,
 So that I may delete personal informationg from the game,
 I want there to be a delete account option.
 
