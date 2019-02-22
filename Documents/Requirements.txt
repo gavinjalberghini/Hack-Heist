@@ -1,3 +1,5 @@
+REQUIREMENTS BY CLIENT
+
 GENERAL
 - Code used for learning within the app must be psuedocode and Java.
 - A short tutorial option should be included (either for each level [can be via youtube video] or for the game in general)
@@ -43,3 +45,28 @@ DATABASE
 - Required information for a user is Email, Name, Username, Password
 - Must have some form of data security
 - Email or username can be used to login
+
+------------------------------------------------------------------------------------------------------------------------------
+
+REQUIREMENT BY DEV-TEAM
+
+GENERAL
+- The completion of a question produces a change in the level that allows the user to progress further
+- There will be a information screen that gives a quick background of the dev team
+- If you select the menu icon in game you will see your menu options
+  - Selecting invintory shows all of the security passes, badges, and progression that you have collected
+  - Continue returns you to the game 
+  - Floor plans (sends to over view page)
+  - User settings (sends to settings)
+  - Controls (sends to help)
+CONCEPTS/LEVELS
+- The last level will be a boss level summarizing all of the information from the floors below
+QUESTIONS
+- Questions are triggered when a user's character interacts with another sprite (terminal or robot)
+- Assistance on questions are displayed when a user's character interacts with another sprite (person)
+USER
+- Users will have a security question that allows them to retrieve their password
+- Users will have the option to change their password
+DATABASE
+- Game states will be saved and uploaded to the DB and be associated with a unique user
+- Leaderboard information will be stored on the DB and sent to the user's device on request
