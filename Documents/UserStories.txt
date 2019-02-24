@@ -62,7 +62,7 @@ Given a user that is on the home screen,
 When they click on the help button,
 Then they will be redirected to the help screen.
 When they are on the help screen,
-then they will be able to see how to navigate and interact with the game, and see how to track their current level progress - there will also be a button to replay that tutorial.
+Then they will be able to see how to navigate and interact with the game, and see how to track their current level progress - there will also be a button to replay that tutorial.
 When they click on the replay tutorial button,
 Then they will be brought through the step by step tutorial on how to use the game.
 
@@ -76,11 +76,11 @@ So that I know how to find my way around the app,
 I want there to be some form of documentation on how to use the app.
 
 
-Given a novice programmer that is laying a level,
-When they click on the ingame menu button in the top right corner of the app,
-Then will be brought to the ingame menu and see the options ___________________.
-When the user clicks on the help button,
-They they will be brought back to the help page to learn how to navigate the game, again.
+Given a novice programmer that is playing a level,
+When they click on the in-game menu button in the top right corner of the app,
+Then they will be brought to the in-game menu and see the Quick Help, Content Overview, Floor Plans, and Main Menu buttons.
+When the user clicks on the Quick Help button,
+Then they will be shown the quick help pop up.
 
 
 
@@ -158,29 +158,31 @@ Then the application should save the current data and quit in order to secure th
 
 User Story - General 10
 -------------------------------------------------------------------------
-As a novice programmer playing HackHeist,
+As a novice programmer playing Hack.Heist,
 So that my progress is not lost,
 I want the app to save my progress every time I leave the application.
 
 
 Given a user that is interacting with the app,
-When they double click their home button to switch their screen to a different application,
-Then the current state of the game will be saved.
+When they switch their screen to a different application,
+Then the current state of the game will be saved and uploaded to the database.
 
 
 
 
 User Story - General 11
 -------------------------------------------------------------------------
-As a novice programmer playing HackHeist,
+As a novice programmer playing Hack.Heist,
 So that I am aware of how I have done in the app overall so far,
 I want user feedback to include overall progress of the game.
 
 
 Given a user who wants feedback,
 When they select the ingame menu button in the top right corner of the level screen, 
-Then they will see the options for their level completion percentage, their badges, the floor plans, user settings, controls, tutorial, and an "Email Me Progress Report".
-When the user clicks on the email me progress report button,
+Then they will be shown the in-game menu, including the inventory button.
+When the user clicks on thje inventory button,
+Then they will be take nto the inventory screen, containing the user's inventory and the "Email Progres!" button,
+Then the user clicks the "Email Progress!" button,
 Then the application will send an email to the user with with full details of their progress from previous levels, the current level, and the overall success in the game. 
 
 
@@ -260,7 +262,7 @@ User Story - Question 2
 -------------------------------------------------------------------------
 As a novice programmer playing HackHeist,
 So that I can practice answering coding questions in more than one way,
-I want to having questions presented to me in multiple structures.
+I want to have questions presented to me in multiple structures.
 
 
 Given a user playing a level and answering questions about a topic,
@@ -277,18 +279,18 @@ then a keyboard will appear for the user to type in their answer.
 
 User Story - Question 3
 -------------------------------------------------------------------------
-As a novice programmer signed into HackHesit,
+As a novice programmer playing Hack.Heist,
 So that I do not get stuck in one portion of a level,
 I want access to hints that will assist me in answering questions, if need be.
 
 
 Given a user that has clicked on continue adventure from the logged in home page,
 When the user has clicked out of the option to take the tutorial,
-Then he will interact with two robots to get hints on the topic that is about to be tested.
+Then he will interact with a person to get hints on the topic that is about to be tested.
 When he has moved on to the first computer to answer a question,
 Then there will be an additional hint button displayed in the bottom left hand corner.
 When the user clicks on the hint button,
-Then the user will be reminded of the hints that the first two robots gave them.
+Then the user will be reminded of the hint that was given.
 
 
 
@@ -313,7 +315,7 @@ User Story - Question 5
 -------------------------------------------------------------------------
 As a novice programmer playing HackHeist,
 So that I am not able to brute force the level,
-I want to have randomized question locations.
+I want to have randomized answer locations.
 
 
 Given a novice programmer that is replaying a level,
@@ -408,24 +410,6 @@ Then they will battery percentage will update to reflect the percentage of how m
 
 User Story - User 5
 -------------------------------------------------------------------------
-As a novice programmer playing Hack.Heist,
-So that I can have record of my current accomplishments and levels completed,
-I want there to be a way to send me a progress report.
-
-
-Given a novice programmer that is playing Hack.Heist,
-When they are on a level,
-Then they will see a ingame menu icon in the top right corner of the screen,
-When the user clicks on the ingame menu icon, 
-Then the user will be displayed the button options battery percentage, badges, floor, plan, user setting, controls, tutorial, and email me progress report.
-When the user selects email me progress report,
-Then the user will receive an email of their accomplishments and the levels completed.
-
-
-
-
-User Story - User 6
--------------------------------------------------------------------------
 As a freshman at VCU playing Hack.Heist,
 So that I can use a name that I have come up with myself,
 I want to be able to create a username to sign into my account with.
@@ -442,7 +426,7 @@ Then the user will be able to enter whatever username they wish, assuming it has
 
 
 
-User Story - User 7
+User Story - User 6
 -------------------------------------------------------------------------
 As a novice programmer playing Hack.Heist,
 So that I can express to the developers my opinion on their app,
@@ -460,7 +444,7 @@ Then a keyboard will appear and they will be able to type out their comment.
 
 
 
-User Story - User 8
+User Story - User 7
 -------------------------------------------------------------------------
 As a novice programmer playing Hack.Heist,
 So that I can continue my progress in the game even if I forget my username,
@@ -479,7 +463,7 @@ Then they will be sent an email with their username.
 
 
 
-User Story - User 8
+User Story - User 7
 -------------------------------------------------------------------------
 As a novice programmer playing Hack.Heist,
 So that I can continue my progress in the game even if I forget my password,
@@ -495,6 +479,47 @@ Then they will be asked to enter their email and answer a security question and 
 When the user fills out the fields and clicks the submit button,
 Then they will be sent an email with their password.
 
+
+
+
+User Story - Database 1
+-------------------------------------------------------------------------
+As a developer for the Hack.Heist game,
+So that I can ensure that all of the required information for an account has been provided,
+I want to not allow user to sign up without providing all of the required information.
+
+
+Given a user on the sign up screen of the Hack.Heist game,
+When they click on the sigh up button on the screen,
+if they have left required fields on the screen blank,
+Then they will be propted to complete all empty fields correctly.
+
+
+
+User Story - Database 2
+-------------------------------------------------------------------------
+As a user with an account in the Hack.Heist game,
+So that my account information stays private,
+I want to have some form of data security for the information.
+
+
+Given someone trying to obtain data from the server,
+if they are able to take data from the server,
+Then the data they get will be encrypted.
+
+
+
+
+User Story - Database 3
+-------------------------------------------------------------------------
+As a user with an account in the Hack.Heist game,
+So that I have multiple ways to login to the game,
+I want to be able to login using either my Email or username.
+
+
+Given a user with an account attempting to login to the Hact.Heist game,
+When they enter either their Email or unique username along with their password,
+Then they will be allowed to login to the game.
 
 
 
@@ -670,6 +695,119 @@ Then they press the interact button near a sprite that is a human,
 Then the external link that the sprite owns will be displayed
 
 
+
+
+User Story - Dev REQ Concepts/Levels 1
+-------------------------------------------------------------------------
+As a novice programmer playing the Hack.Heist game,
+So that I can show that I have learned while playing the game,
+I want a Boss level that will challenge me to use all of the skills taught in the game.
+
+
+Given a novice programmer with an account on the last level of the Hack.Heist game,
+When they interact with the Boss sprite on that level,
+Then they will be presented with a series of questions summarizing the information from the previous levels,
+When they correctly answer 80% of the questions presented,
+Then they will have defeated the Boss.
+
+
+
+
+User Story - Dev REQ Questions 1
+-------------------------------------------------------------------------
+As a user playing the Hack.Heist game,
+So that I can answer quastions and progress through the game,
+I want the questions to appear when I interact with a terminal or robot sprite.
+
+
+Given a user in a level of the Hack.Heist game,
+When the user walks up to a robot or terminal sprite,
+When they Press the button to interact with the sprite they are in front of,
+Then the sprite will present them with a question to answer in order to progress through the game.
+
+
+
+
+User Story - Dev REQ Questions 2
+-------------------------------------------------------------------------
+As a user playing the Hack.Heist game,
+So that I can recieve assistance when I get stuck on a quastion in the game,
+I want assistance for quastions to appear when I interact with a person sprite.
+
+
+Give a user in a level of the Hack.Heist game that is stuck on a question,
+When the user walks up to a person sprite in the game,
+When they press the button to interact with the sprite,
+The sprite will present them with assistance for the question that they are on.
+
+
+
+
+User Story - Dev REQ User 1
+-------------------------------------------------------------------------
+As a user with an account in the Hack.Heist game,
+So that my password is secure,
+I want a security question that has to be answered before I can see my password.
+
+
+Given a user on the login screen who has forgotten their password,
+when they click on the forgot password button on that screen,
+Then they are taken to a new screen with their security question,
+When they correctly answer their security question,
+Then they are sent an email containing their password.
+
+
+
+
+User Story - Dev REQ User 2
+-------------------------------------------------------------------------
+As a user with an account in the Hack.Heist game,
+So that I can ensure my password stays secure,
+I want to be able to change the password ascociated with my account.
+
+
+Given a user launching the Hack.Heist app,
+When the welcome screen loads and the user clicks on the login button,
+Then they enter their username and password and click the login button,
+Then they select the user settings button, 
+Then they select the change password button,
+Then they enter their old password and new password and click the submit button,
+Then the new password will overwrite the old one in the database.
+
+
+
+
+User Story - Dev REQ Database 1
+-------------------------------------------------------------------------
+As a user for the Hack.Heist game,
+So that I can save my progress,
+I want a button that will save my game state.
+
+
+Given a user in the in-game menu,
+When the user clicks the save button in the menu,
+Then their game state will saved and uploaded to the database,
+Then their game state will be associated with their unique account.
+
+
+
+
+User Story - Dev REQ Database 2
+-------------------------------------------------------------------------
+As a player of the Hack.Heist game,
+So that I can view my progress in relation to other players, 
+I want to view leaderbord information.
+
+
+Given a user in the main menu of the Hack.Heist game,
+When they click the leaderboard button,
+Then the app will requast leaderbord data from the database,
+When the data has been recieved by the device,
+Then the user will be taken to a screen that displays the leaderbord information.
+
+
+
+
 User Story - Additional 1
 -------------------------------------------------------------------------
 As a novice programmer opening the Hack.Heist app,
@@ -697,3 +835,56 @@ Given a novice programmer with a registered account,
 When the novice programmer is logged in and on the homescreen with the button options continue adventure, leaderboards, forgot how to play, user settings, and leave a rating,
 When they select on the leaderboards button,
 Then they will be brought to the leaderboard page, where they can view theres and other people’s scores in comparison to each other.
+
+
+
+
+User Story - Additional 3
+-------------------------------------------------------------------------
+As a user playing Hack.Heist,
+So that I can login to the game,
+I want a login button.
+
+
+Given a user on the login screen of the Hack.Heist game,
+When they have entered their username and password into the corresponding fields,
+When they click on the login button,
+Then they will be logged into the game and directed to the Main Menu.
+
+
+
+
+User Story - Additional 4
+-------------------------------------------------------------------------
+As a user playing Hack.Heist,
+So that I can recieve help with how to work the game and its features,
+I want a help button on the main menu.
+
+
+
+
+Given a user launching the Hack.Heist app,
+When the welcome screen is displayed,
+When they click on the help button on the main menu,
+Then they will be taken to the Help Screen.
+
+
+
+
+User Story - Additonal 5
+-------------------------------------------------------------------------
+As a user with a Hack.Heist account,
+So that I can secure my password,
+I woould like to set a security quastion for my account.
+
+
+Given a user launching the Hack.Heist app,
+When the welcome screen loads and the user clicks on the login button,
+Then they enter their username and password and click the login button,
+Then they select the user settings button, 
+Then the user selects the set security quastion button,
+Then they are brought to the set security question screen,
+When they select the security question and inout their answer and their password, 
+When they click the submit button,
+Then their new security question will be set.
+
