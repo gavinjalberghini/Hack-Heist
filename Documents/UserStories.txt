@@ -832,40 +832,6 @@ When they select on the leaderboards button,
 Then they will be brought to the leaderboard page, where they can view there’s and other people’s scores in comparison to each other.
 
 
-
-
-User Story - Additional 3
--------------------------------------------------------------------------
-As a user playing Hack.Heist,
-So that I can login to the game,
-I want a login button.
-
-
-Given a user on the login screen of the Hack.Heist game,
-When they have entered their username and password into the corresponding fields,
-When they click on the login button,
-Then they will be logged into the game and directed to the Main Menu.
-
-
-
-
-User Story - Additional 4
--------------------------------------------------------------------------
-As a user playing Hack.Heist,
-So that I can receive help with how to work the game and its features,
-I want a help button on the main menu.
-
-
-
-
-Given a user launching the Hack.Heist app,
-When the welcome screen is displayed,
-When they click on the help button on the main menu,
-Then they will be taken to the Help Screen.
-
-
-
-
 User Story - Additional 5
 -------------------------------------------------------------------------
 As a user with a Hack.Heist account,
