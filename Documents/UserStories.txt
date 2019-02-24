@@ -14,14 +14,14 @@ When they press the login button,
 Then they will be redirected to the login page where they enter their username and password and click login,
 then they will be prompted to choose a level to work on,
 when they have selected level 1,
-then the Level 1 activity will open and they will be asked a series of questions in varying formats about java and general programming
+then the Level 1 activity will open, and they will be asked a series of questions in varying formats about java and general programming
 
 
 
 
 User Story - General 2
 -------------------------------------------------------------------------
-As a registered user for in HackHeist that is logged in,
+As a registered user for in Hack.Heist that is logged in,
 So that I can understand the content of the coming level,
 I want a brief tutorial to show me the basics.
 
@@ -36,12 +36,12 @@ then the user will be shown an external link to tutorials about the content for 
 
 User Story - General 4
 -------------------------------------------------------------------------
-As a freshman at VCU playing HackHeist,
+As a freshman at VCU playing Hack.Heist,
 So that I can interact with a game that resembles my school,
 I want the game to somehow be related to VCU.
 
 
-Given a freshman at VCU playing HackHeist on their android device,
+Given a freshman at VCU playing Hack.Heist on their android device,
 When they open the app to the startup page,
 Then they will see the game icon of Brandt Hall in the top center of the screen, along with the button option login, signup, help, and info.
 When the player is playing a level, 
@@ -52,7 +52,7 @@ then their character will also be Rodney the Ram.
 
 User Story - General 5
 -------------------------------------------------------------------------
-As a novice programmer playing HackHeist,
+As a novice programmer playing Hack.Heist,
 So that I know how to find my way around the app,
 I want there to be some form of documentation on how to use the app.
 
@@ -66,7 +66,7 @@ Then they will be able to see how to navigate and interact with the game, and se
 
 User Story - General 5
 -------------------------------------------------------------------------
-As a novice programmer playing HackHeist,
+As a novice programmer playing Hack.Heist,
 So that I know how to find my way around the app,
 I want there to be some form of documentation on how to use the app.
 
@@ -84,20 +84,20 @@ Then they will be shown the quick help pop up containing navigation tips.
 
 User Story - General 6
 -------------------------------------------------------------------------
-As a novice programmer playing HackHeist,
+As a novice programmer playing Hack.Heist,
 So that I am aware of my achievements throughout levels,
 I want there to be a rewards system during each level. 
 
 
 Given a novice programmer who is playing the game,
-When they have answered all of the questions on a concept correctly,
+When they have answered all the questions on a concept correctly,
 Then they will earn a badge for 100% success,
 When a level is completed in under ten minutes,
 Then they will earn a badge for speed. 
-When the user wants to view all of their badges, they will click on the ingame menu button in the top right corner,
-Then they will be brought to the ingame menu button and see an inventory button.
+When the user wants to view all their badges, they will click on the in-game menu button in the top right corner,
+Then they will be brought to the in-game menu button and see an inventory button.
 When they select on the inventory button, 
-Then all of their achievements will be displayed. 
+Then all their achievements will be displayed. 
  
 
 
@@ -105,7 +105,7 @@ Then all of their achievements will be displayed.
 
 User Story - General 7
 -------------------------------------------------------------------------
-As a novice programmer playing HackHeist,
+As a novice programmer playing Hack.Heist,
 So that I can have record of my accomplishments,
 I want a certificate of completion sent to my email when I have finished the game.
 
@@ -121,16 +121,16 @@ Then the user will receive an email with a certificate of completion.
 
 User Story - General 8
 -------------------------------------------------------------------------
-As a novice programmer playing HackHeist,
+As a novice programmer playing Hack.Heist,
 So that I can receive help if I am stuck on the app,
 I want some sort of customer support system.
 
 
 Given a user that has become stuck on a level in the app,
-When the user hits the back button in the top left hand corner of the level,
+When the user hits the back button in the top left-hand corner of the level,
 Then they will land on the home page.
-When they click on the back button in the top left hand corner again,
-Then they will be on the start up, where they will see buttons for login, sign up, help, and info.
+When they click on the back button in the top left-hand corner again,
+Then they will be on the startup, where they will see buttons for login, sign up, help, and info.
 When they click on the help button and are directed to the help page,
 Then there will be an option to send a message to the developers of the app to ask questions.
 
@@ -139,14 +139,14 @@ Then there will be an option to send a message to the developers of the app to a
 
 User Story - General 9
 -------------------------------------------------------------------------
-As a novice programmer playing HackHeist,
+As a novice programmer playing Hack.Heist,
 So that no one else can access my data,
 When the application times out in should force the app to close.
 
 
 Given a user in the middle of playing the game,
 When the user has not interacted with the game for five minutes, 
-Then the application should save the current data and quit in order to secure the user's account and information.
+Then the application should save the current data and quit to secure the user's account and information.
 
 
 
@@ -178,7 +178,7 @@ Then they will be shown the in-game menu, including the inventory button.
 When the user clicks on the inventory button,
 Then they will be taken to the inventory screen, containing the user's inventory and the "Email Progress!" button,
 Then the user clicks the "Email Progress!" button,
-Then the application will send an email to the user with with full details of their progress from previous levels, the current level, and the overall success in the game. 
+Then the application will send an email to the user with full details of their progress from previous levels, the current level, and the overall success in the game. 
 
 
 
@@ -314,8 +314,7 @@ I want to have randomized answer locations.
 
 
 Given a novice programmer that is replaying a level,
-When the user has receiver hints from the two robots in front of him,
-Then the user will proceed to the first computer to his right,
+When the user proceeds to the first computer to his right,
 When the user is prompted to ask the first question,
 Then the answer to the questions will be in a random location, different from the first time the user saw it.
 
@@ -830,6 +829,40 @@ Given a novice programmer with a registered account,
 When the novice programmer is logged in and on the home screen with the button options continue adventure, leaderboards, forgot how to play, user settings, and leave a rating,
 When they select on the leaderboards button,
 Then they will be brought to the leaderboard page, where they can view there’s and other people’s scores in comparison to each other.
+
+
+
+
+User Story - Additional 3
+-------------------------------------------------------------------------
+As a user playing Hack.Heist,
+So that I can login to the game,
+I want a login button.
+
+
+Given a user on the login screen of the Hack.Heist game,
+When they have entered their username and password into the corresponding fields,
+When they click on the login button,
+Then they will be logged into the game and directed to the Main Menu.
+
+
+
+
+User Story - Additional 4
+-------------------------------------------------------------------------
+As a user playing Hack.Heist,
+So that I can receive help with how to work the game and its features,
+I want a help button on the main menu.
+
+
+
+
+Given a user launching the Hack.Heist app,
+When the welcome screen is displayed,
+When they click on the help button on the main menu,
+Then they will be taken to the Help Screen.
+
+
 
 
 User Story - Additional 5
