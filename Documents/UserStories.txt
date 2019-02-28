@@ -882,3 +882,90 @@ When they select the security question and enter their answer and their password
 When they click the submit button,
 Then their new security question will be set.
 
+
+
+User Story
+------------------------------------------------------
+As a novice prgorammer playing Hack.Heist,
+So that I can navigate and interact with each level,
+I want there to be movement and interaction buttons to allow me to do so.
+
+Given a user has selected to play level one on HackHeist,
+When the user has selected out of the tutorial option,
+Then the user will see the level screen with the bottom portion of the screen having forward, backward, left, and right buttons and an interaction button on the right.
+
+
+User Story
+------------------------------------------------------
+As a novice programmer playing Hack.Heist,
+So that I can learn about elementary programming,
+I want there to be a level covering this topic. 
+
+Given a user that has just finished the tutorial at the beginning of the game,
+When I exit the final encounter with the robot,
+Then I will see the level and be able to freely navigate it. 
+
+
+User Story
+------------------------------------------------------
+As a novice programmer playing Hack.Heist,
+So that I can learn about selections,
+I want there to be a level covering this topic. 
+
+Given a user that has finished level one,
+When I get to the elevator and press the button for level 2,
+Then the elevator will close and bring them to level 2,
+When I step out of the elevator,
+Then I will see a maze with interactable elements that teach me about selections.
+
+
+User Story
+------------------------------------------------------
+As a novice programmer playing Hack.Heist,
+So that I can learn about Mathematical functions, character, and strings,
+I want there to be a level covering this topic. 
+
+Given a user that has finished level two,
+When I get to the elevator and press the button for level 3,
+Then the elevator will close and bring them to level 3,
+When I step out of the elevator,
+Then I will see a maze with interactable elements that teach me about mathematical functions, characters, and strings.
+
+
+User Story
+------------------------------------------------------
+As a novice programmer playing Hack.Heist,
+So that I can learn about loops,
+I want there to be a level covering this topic. 
+
+Given a user that has finished level three,
+When I get to the elevator and press the button for level 4,
+Then the elevator will close and bring them to level 4,
+When I step out of the elevator,
+Then I will see a maze with interactable elements that teach me about loops.
+
+
+User Story
+------------------------------------------------------
+As a novice programmer playing Hack.Heist,
+So that I can learn about methods,
+I want there to be a level covering this topic. 
+
+Given a user that has finished level four,
+When I get to the elevator and press the button for level 5,
+Then the elevator will close and bring them to level 5,
+When I step out of the elevator,
+Then I will see a maze with interactable elements that teach me about methods.
+
+
+User Story
+------------------------------------------------------
+As a novice programmer playing Hack.Heist,
+So that I can learn about single-dimensional arrays,
+I want there to be a level covering this topic. 
+
+Given a user that has finished level five,
+When I get to the elevator and press the button for level 6,
+Then the elevator will close and bring them to level 6,
+When I step out of the elevator,
+Then I will see a maze with interactable elements that teach me about single-dimensional arrays.
