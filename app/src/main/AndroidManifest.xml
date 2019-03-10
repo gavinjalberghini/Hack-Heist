@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SetSecurityQuestion"></activity>
+        <activity android:name=".Forgot"></activity>
+        <activity android:name=".SetSecurityQuestion" />
         <activity android:name=".UserSettings" />
         <activity android:name=".Welcome" />
         <activity android:name=".MainMenu" />
