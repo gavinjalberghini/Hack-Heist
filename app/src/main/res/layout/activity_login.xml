@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Login">
+
+    <EditText
+        android:id="@+id/txt_Username"
+        android:layout_width="314dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="8dp"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="Username / Email"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+
+    <EditText
+        android:id="@+id/txt_Password"
+        android:layout_width="314dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="Password"
+        android:inputType="textPersonName|textPassword"
+        app:layout_constraintEnd_toEndOf="@+id/txt_Username"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/txt_Username"
+        app:layout_constraintTop_toBottomOf="@+id/txt_Username" />
+
+    <Button
+        android:id="@+id/btn_Login"
+        android:layout_width="165dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="96dp"
+        android:text="Login"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/txt_Password"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_SignUp" />
+
+    <TextView
+        android:id="@+id/lbl_SighUp"
+        android:layout_width="159dp"
+        android:layout_height="22dp"
+        android:layout_marginTop="32dp"
+        android:gravity="center"
+        android:text="Don't have an account?"
+        app:layout_constraintEnd_toEndOf="@+id/txt_Password"
+        app:layout_constraintTop_toBottomOf="@+id/txt_Password" />
+
+    <Button
+        android:id="@+id/btn_SignUp"
+        android:layout_width="128dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="8dp"
+        android:text="Sign Up Here"
+        app:layout_constraintEnd_toEndOf="@+id/lbl_SighUp"
+        app:layout_constraintStart_toStartOf="@+id/lbl_SighUp"
+        app:layout_constraintTop_toBottomOf="@+id/lbl_SighUp" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="158dp"
+        android:layout_height="151dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btn_Login"
+        app:layout_constraintHorizontal_bias="0.421"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_Password"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/ram_logo" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="259dp"
+        android:layout_height="199dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="120dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/game_logo" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="76dp"
+        android:layout_height="81dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toStartOf="@+id/imageView3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/team_logo" />
+
+</android.support.constraint.ConstraintLayout>
