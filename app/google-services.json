@@ -1,27 +1,35 @@
 {
   "project_info": {
-    "project_number": "587984871796",
-    "firebase_url": "https://hackheist.firebaseio.com",
-    "project_id": "hackheist",
-    "storage_bucket": "hackheist.appspot.com"
+    "project_number": "111365277085",
+    "firebase_url": "https://hhdb-37954.firebaseio.com",
+    "project_id": "hhdb-37954",
+    "storage_bucket": "hhdb-37954.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:587984871796:android:8ee4be3158b7f62a",
+        "mobilesdk_app_id": "1:111365277085:android:8ee4be3158b7f62a",
         "android_client_info": {
           "package_name": "edu.vcu.mymail.alberghinig.hackheist"
         }
       },
       "oauth_client": [
         {
-          "client_id": "587984871796-59n9osjk06514cu4id09qr9t676psa8g.apps.googleusercontent.com",
+          "client_id": "111365277085-art21neprv67uvtc3jlud2cgn9q6vg54.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "edu.vcu.mymail.alberghinig.hackheist",
+            "certificate_hash": "0feafa94736c19dbd64ade5cd309a2c4c0531e86"
+          }
+        },
+        {
+          "client_id": "111365277085-6ndcgfhclirvq6p2h5muboajkccqge2h.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDrb4OMw0Cld5EES1k8MWAaEbGw1BqZvXo"
+          "current_key": "AIzaSyD3FWQuDHUSGdkw1NON1QEbzuhDS41Ch7A"
         }
       ],
       "services": {
@@ -29,8 +37,13 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "111365277085-6ndcgfhclirvq6p2h5muboajkccqge2h.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         },
         "ads_service": {
           "status": 2
