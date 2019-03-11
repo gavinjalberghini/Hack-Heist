@@ -7,127 +7,127 @@
     android:layout_height="fill_parent"
     android:fillViewport="true">
 
-<android.support.constraint.ConstraintLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".Login">
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".Login">
 
-    <EditText
-        android:id="@+id/Login_UsernameOrEmailInputField"
-        android:layout_width="314dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="8dp"
-        android:ems="10"
-        android:gravity="center"
-        android:hint="Username / Email"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.493"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Login_MainLogoImage" />
+        <EditText
+            android:id="@+id/Login_UsernameOrEmailInputField"
+            android:layout_width="314dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="8dp"
+            android:ems="10"
+            android:gravity="center"
+            android:hint="Username / Email"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.493"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Login_MainLogoImage" />
 
-    <EditText
-        android:id="@+id/Login_PasswordInputField"
-        android:layout_width="314dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        android:gravity="center"
-        android:hint="Password"
-        android:inputType="textPersonName|textPassword"
-        app:layout_constraintEnd_toEndOf="@+id/Login_UsernameOrEmailInputField"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/Login_UsernameOrEmailInputField"
-        app:layout_constraintTop_toBottomOf="@+id/Login_UsernameOrEmailInputField" />
+        <EditText
+            android:id="@+id/Login_PasswordInputField"
+            android:layout_width="314dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:ems="10"
+            android:gravity="center"
+            android:hint="Password"
+            android:inputType="textPersonName|textPassword"
+            app:layout_constraintEnd_toEndOf="@+id/Login_UsernameOrEmailInputField"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/Login_UsernameOrEmailInputField"
+            app:layout_constraintTop_toBottomOf="@+id/Login_UsernameOrEmailInputField" />
 
-    <Button
-        android:id="@+id/Login_LoginButton"
-        android:layout_width="165dp"
-        android:layout_height="47dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="96dp"
-        android:text="Login"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/Login_PasswordInputField"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Login_SignupButton" />
+        <Button
+            android:id="@+id/Login_LoginButton"
+            android:layout_width="165dp"
+            android:layout_height="47dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="96dp"
+            android:text="Login"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/Login_PasswordInputField"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Login_SignupButton" />
 
-    <TextView
-        android:id="@+id/Login_SignupDisplayTipView"
-        android:layout_width="159dp"
-        android:layout_height="22dp"
-        android:layout_marginTop="32dp"
-        android:gravity="center"
-        android:text="Don't have an account?"
-        app:layout_constraintEnd_toEndOf="@+id/Login_PasswordInputField"
-        app:layout_constraintTop_toBottomOf="@+id/Login_PasswordInputField" />
+        <TextView
+            android:id="@+id/Login_SignupDisplayTipView"
+            android:layout_width="159dp"
+            android:layout_height="22dp"
+            android:layout_marginTop="32dp"
+            android:gravity="center"
+            android:text="Don't have an account?"
+            app:layout_constraintEnd_toEndOf="@+id/Login_PasswordInputField"
+            app:layout_constraintTop_toBottomOf="@+id/Login_PasswordInputField" />
 
-    <Button
-        android:id="@+id/Login_SignupButton"
-        android:layout_width="128dp"
-        android:layout_height="36dp"
-        android:layout_marginTop="8dp"
-        android:text="Sign Up Here"
-        app:layout_constraintEnd_toEndOf="@+id/Login_SignupDisplayTipView"
-        app:layout_constraintStart_toStartOf="@+id/Login_SignupDisplayTipView"
-        app:layout_constraintTop_toBottomOf="@+id/Login_SignupDisplayTipView" />
+        <Button
+            android:id="@+id/Login_SignupButton"
+            android:layout_width="128dp"
+            android:layout_height="36dp"
+            android:layout_marginTop="8dp"
+            android:text="Sign Up Here"
+            app:layout_constraintEnd_toEndOf="@+id/Login_SignupDisplayTipView"
+            app:layout_constraintStart_toStartOf="@+id/Login_SignupDisplayTipView"
+            app:layout_constraintTop_toBottomOf="@+id/Login_SignupDisplayTipView" />
 
-    <ImageView
-        android:id="@+id/Login_VCURamImage"
-        android:layout_width="158dp"
-        android:layout_height="151dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/Login_LoginButton"
-        app:layout_constraintHorizontal_bias="0.421"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Login_PasswordInputField"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/ram_logo" />
+        <ImageView
+            android:id="@+id/Login_VCURamImage"
+            android:layout_width="158dp"
+            android:layout_height="151dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/Login_LoginButton"
+            app:layout_constraintHorizontal_bias="0.421"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Login_PasswordInputField"
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@drawable/ram_logo" />
 
-    <ImageView
-        android:id="@+id/Login_MainLogoImage"
-        android:layout_width="259dp"
-        android:layout_height="199dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="120dp"
-        android:layout_marginEnd="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/game_logo" />
+        <ImageView
+            android:id="@+id/Login_MainLogoImage"
+            android:layout_width="259dp"
+            android:layout_height="199dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="120dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/game_logo" />
 
-    <ImageView
-        android:id="@+id/Login_TeamLogoImage"
-        android:layout_width="76dp"
-        android:layout_height="81dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        app:layout_constraintEnd_toStartOf="@+id/Login_MainLogoImage"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/team_logo" />
+        <ImageView
+            android:id="@+id/Login_TeamLogoImage"
+            android:layout_width="76dp"
+            android:layout_height="81dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toStartOf="@+id/Login_MainLogoImage"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/team_logo" />
 
-    <ImageButton
-        android:id="@+id/Login_BackButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/Login_MainLogoImage"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@android:drawable/btn_dialog" />
+        <ImageButton
+            android:id="@+id/Login_BackButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/Login_MainLogoImage"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@android:drawable/btn_dialog" />
 
-</android.support.constraint.ConstraintLayout>
+    </android.support.constraint.ConstraintLayout>
 </ScrollView>

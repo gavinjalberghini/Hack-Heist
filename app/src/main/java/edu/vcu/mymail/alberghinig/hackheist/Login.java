@@ -24,11 +24,7 @@ public class Login extends AppCompatActivity {
         View.OnClickListener switchToSignupScreen = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                try{
-                    //TODO launch signup screen
-                } catch(Exception e){
-
-                }
+                //TODO switch to signup screen
             }
         };
 
@@ -42,8 +38,11 @@ public class Login extends AppCompatActivity {
 
                     //TODO verify credientials
 
-                } catch(Exception e){
+                    Intent I = new Intent(getApplicationContext(), MainMenu.class);
+                    startActivity(I);
 
+                } catch(Exception e){
+                    //failure logging in
                 }
             }
         };
@@ -57,6 +56,7 @@ public class Login extends AppCompatActivity {
         };
 
         backButton.setOnClickListener(goBackEvent);
+        loginButton.setOnClickListener(loginQuery);
     }
 
 }
