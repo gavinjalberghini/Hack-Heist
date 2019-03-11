@@ -1,10 +1,12 @@
 package edu.vcu.mymail.alberghinig.hackheist;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 
 public class Login extends AppCompatActivity {
 
@@ -13,10 +15,11 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        final EditText usernameOrEmailTextBox = findViewById(R.id.txt_Username);
-        final EditText passwordTextBox = findViewById(R.id.txt_Password);
-        final Button switchToSignupButton = findViewById(R.id.btn_SignUp);
-        final Button loginButton = findViewById(R.id.btn_Login);
+        final EditText usernameOrEmailTextBox = findViewById(R.id.Login_UsernameOrEmailInputField);
+        final EditText passwordTextBox = findViewById(R.id.Login_PasswordInputField);
+        final Button switchToSignupButton = findViewById(R.id.Login_SignupButton);
+        final Button loginButton = findViewById(R.id.Login_LoginButton);
+        final ImageButton backButton = findViewById(R.id.LoginBackButton);
 
         View.OnClickListener switchToSignupScreen = new View.OnClickListener() {
             @Override
@@ -44,6 +47,16 @@ public class Login extends AppCompatActivity {
                 }
             }
         };
+
+        View.OnClickListener goBackEvent = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent I = new Intent(getApplicationContext(), MainMenu.class);
+                startActivity(I);
+            }
+        };
+
+        backButton.setOnClickListener(goBackEvent);
     }
 
 }

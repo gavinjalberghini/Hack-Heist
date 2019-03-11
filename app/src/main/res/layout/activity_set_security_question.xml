@@ -1,13 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:fillViewport="true">
+
+<android.support.constraint.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SetSecurityQuestion">
 
     <EditText
-        android:id="@+id/SecurityQuestionBox"
+        android:id="@+id/SetSecurityQuestion_QuestionInputField"
         android:hint="@string/security_question_hint"
         android:layout_width="293dp"
         android:layout_height="150dp"
@@ -26,7 +32,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/SecurityAnswerBox"
+        android:id="@+id/SetSecurityQuestion_AnswerInputField"
         android:layout_width="314dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -41,10 +47,10 @@
         android:text=""
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/SecurityQuestionBox" />
+        app:layout_constraintTop_toBottomOf="@+id/SetSecurityQuestion_QuestionInputField" />
 
     <EditText
-        android:id="@+id/PasswordEntryBox"
+        android:id="@+id/SetSecurityQuestion_PasswordInputField"
         android:layout_width="311dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -56,10 +62,10 @@
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/SecurityAnswerBox" />
+        app:layout_constraintTop_toBottomOf="@+id/SetSecurityQuestion_AnswerInputField" />
 
     <Button
-        android:id="@+id/SQ_SubmitButton"
+        android:id="@+id/SetSecurityQuestion_SubmitButton"
         android:layout_width="300dp"
         android:layout_height="76dp"
         android:layout_marginStart="8dp"
@@ -70,11 +76,11 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/PasswordEntryBox" />
+        app:layout_constraintTop_toBottomOf="@+id/SetSecurityQuestion_PasswordInputField" />
 
     <ImageView
-        android:id="@+id/imageView8"
-        android:layout_width="325dp"
+        android:id="@+id/SetSecurityQuestion_VCUImage"
+        android:layout_width="263dp"
         android:layout_height="87dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="32dp"
@@ -84,5 +90,18 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/vcu_logo" />
 
+    <ImageButton
+        android:id="@+id/SetSecurityQuestion_BackButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/SetSecurityQuestion_VCUImage"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/btn_dialog" />
+
 
 </android.support.constraint.ConstraintLayout>
+</ScrollView>

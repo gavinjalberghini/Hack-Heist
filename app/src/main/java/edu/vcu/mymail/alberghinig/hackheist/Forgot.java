@@ -1,11 +1,13 @@
 package edu.vcu.mymail.alberghinig.hackheist;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ImageButton;
 
 public class Forgot extends AppCompatActivity {
 
@@ -14,13 +16,22 @@ public class Forgot extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forgot);
 
-        final EditText securityQuestionAnswer = findViewById(R.id.SecurityQuestionAnswerBox);
-        final EditText emailEntryBox = findViewById(R.id.EmailInputBox);
-        final CheckBox usernameCheckBox = findViewById(R.id.UsernameCheckBox);
-        final CheckBox passwordCheckBox = findViewById(R.id.PasswordCheckBox);
+        final EditText securityQuestionAnswer = findViewById(R.id.Forgot_SecurityQuestionAnswerInputField);
+        final EditText emailEntryBox = findViewById(R.id.Forgot_EmailInputField);
+        final CheckBox usernameCheckBox = findViewById(R.id.Forgot_UsernameCheckBox);
+        final CheckBox passwordCheckBox = findViewById(R.id.Forgot_PasswordCheckBox);
         final Button submitInfoRequestButton = findViewById(R.id.SubmitForgotInfoButton);
-        final Button sendSecurityQuestionButton = findViewById(R.id.SendSecurityQuestionButton);
+        final Button sendSecurityQuestionButton = findViewById(R.id.Forgot_SendSecurityQuestionButton);
+        final ImageButton backButton = findViewById(R.id.ForgotBackButton);
 
+
+        View.OnClickListener goBackEvent = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent I = new Intent(getApplicationContext(), Welcome.class);
+                startActivity(I);
+            }
+        };
 
         View.OnClickListener sendSecurityQuestionToEmailEvent = new View.OnClickListener() {
             @Override

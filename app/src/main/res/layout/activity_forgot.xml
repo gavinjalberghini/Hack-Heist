@@ -1,13 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:fillViewport="true">
+
+<android.support.constraint.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Forgot">
 
     <TextView
-        android:id="@+id/FlavorTextForgotInfo"
+        android:id="@+id/Forgot_FlavorTextView"
         android:layout_width="306dp"
         android:layout_height="119dp"
         android:layout_marginStart="8dp"
@@ -22,7 +28,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/SecurityQuestionAnswerBox"
+        android:id="@+id/Forgot_SecurityQuestionAnswerInputField"
         android:layout_width="301dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -36,10 +42,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.446"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/SendSecurityQuestionButton" />
+        app:layout_constraintTop_toBottomOf="@+id/Forgot_SendSecurityQuestionButton" />
 
     <CheckBox
-        android:id="@+id/UsernameCheckBox"
+        android:id="@+id/Forgot_UsernameCheckBox"
         android:layout_width="155dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -49,10 +55,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/SecurityQuestionAnswerBox" />
+        app:layout_constraintTop_toBottomOf="@+id/Forgot_SecurityQuestionAnswerInputField" />
 
     <CheckBox
-        android:id="@+id/PasswordCheckBox"
+        android:id="@+id/Forgot_PasswordCheckBox"
         android:layout_width="153dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -61,10 +67,10 @@
         android:text="Password"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/UsernameCheckBox" />
+        app:layout_constraintTop_toBottomOf="@+id/Forgot_UsernameCheckBox" />
 
     <Button
-        android:id="@+id/SubmitForgotInfoButton"
+        android:id="@+id/Forgot_SubmitButton"
         android:layout_width="211dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -73,10 +79,10 @@
         android:text="Submit Information Request"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/PasswordCheckBox" />
+        app:layout_constraintTop_toBottomOf="@+id/Forgot_PasswordCheckBox" />
 
     <EditText
-        android:id="@+id/EmailInputBox"
+        android:id="@+id/Forgot_EmailInputField"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -88,10 +94,10 @@
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/FlavorTextForgotInfo" />
+        app:layout_constraintTop_toBottomOf="@+id/Forgot_FlavorTextView" />
 
     <Button
-        android:id="@+id/SendSecurityQuestionButton"
+        android:id="@+id/Forgot_SendSecurityQuestionButton"
         android:layout_width="304dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -101,11 +107,11 @@
         android:text="Send My Security Question"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/EmailInputBox" />
+        app:layout_constraintTop_toBottomOf="@+id/Forgot_EmailInputField" />
 
     <ImageView
-        android:id="@+id/imageView9"
-        android:layout_width="292dp"
+        android:id="@+id/Forgot_VCUImage"
+        android:layout_width="272dp"
         android:layout_height="106dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="24dp"
@@ -114,4 +120,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/vcu_logo" />
+
+    <ImageButton
+        android:id="@+id/Forgot_BackButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/Forgot_VCUImage"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/btn_dialog" />
 </android.support.constraint.ConstraintLayout>
+</ScrollView>

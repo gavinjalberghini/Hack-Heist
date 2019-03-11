@@ -1,4 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:fillViewport="true">
+
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -7,47 +14,47 @@
     tools:context=".Welcome">
 
     <Button
-        android:id="@+id/but_Login"
+        android:id="@+id/Welcome_LoginButton"
         android:layout_width="157dp"
         android:layout_height="56dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
         android:text="Login"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/Welcome_TitleImage" />
 
     <Button
-        android:id="@+id/but_Signup"
+        android:id="@+id/Welcome_SignupButton"
         android:layout_width="157dp"
         android:layout_height="56dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="16dp"
         android:text="Signup"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/Welcome_TitleImage" />
 
     <Button
-        android:id="@+id/but_Information"
+        android:id="@+id/Welcome_InfoButton"
         android:layout_width="157dp"
         android:layout_height="56dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
         android:text="Information"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/but_Login" />
+        app:layout_constraintTop_toBottomOf="@+id/Welcome_LoginButton" />
 
     <Button
-        android:id="@+id/but_Help"
+        android:id="@+id/Welcome_HelpButton"
         android:layout_width="157dp"
         android:layout_height="56dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="16dp"
         android:text="Help"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/but_Signup" />
+        app:layout_constraintTop_toBottomOf="@+id/Welcome_SignupButton" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/Welcome_TitleImage"
         android:layout_width="275dp"
         android:layout_height="90dp"
         android:layout_marginStart="8dp"
@@ -55,40 +62,44 @@
         android:layout_marginEnd="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView5"
+        app:layout_constraintTop_toBottomOf="@+id/Welcome_MainLogoImage"
         app:srcCompat="@drawable/hack_heist_logo" />
 
     <Button
-        android:id="@+id/but_forgot"
+        android:id="@+id/Welcome_ForgotButton"
         android:layout_width="wrap_content"
         android:layout_height="56dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="68dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="8dp"
         android:text="Forgot Something?"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/but_Information" />
+        app:layout_constraintTop_toBottomOf="@+id/Welcome_InfoButton" />
 
     <ImageView
-        android:id="@+id/imageView5"
+        android:id="@+id/Welcome_MainLogoImage"
         android:layout_width="211dp"
         android:layout_height="223dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="32dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/game_logo"
-        tools:layout_editor_absoluteX="100dp" />
+        app:srcCompat="@drawable/game_logo" />
 
     <ImageView
-        android:id="@+id/imageView6"
+        android:id="@+id/Welcome_TeamImage"
         android:layout_width="89dp"
         android:layout_height="80dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        app:layout_constraintEnd_toStartOf="@+id/imageView5"
+        app:layout_constraintEnd_toStartOf="@+id/Welcome_MainLogoImage"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/team_logo" />
 </android.support.constraint.ConstraintLayout>
+</ScrollView>
