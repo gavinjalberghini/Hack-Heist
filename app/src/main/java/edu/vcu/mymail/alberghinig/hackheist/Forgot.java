@@ -20,9 +20,9 @@ public class Forgot extends AppCompatActivity {
         final EditText emailEntryBox = findViewById(R.id.Forgot_EmailInputField);
         final CheckBox usernameCheckBox = findViewById(R.id.Forgot_UsernameCheckBox);
         final CheckBox passwordCheckBox = findViewById(R.id.Forgot_PasswordCheckBox);
-        final Button submitInfoRequestButton = findViewById(R.id.SubmitForgotInfoButton);
+        final Button submitInfoRequestButton = findViewById(R.id.Forgot_SubmitButton);
         final Button sendSecurityQuestionButton = findViewById(R.id.Forgot_SendSecurityQuestionButton);
-        final ImageButton backButton = findViewById(R.id.ForgotBackButton);
+        final ImageButton backButton = findViewById(R.id.Forgot_BackButton);
 
 
         View.OnClickListener goBackEvent = new View.OnClickListener() {
@@ -87,6 +87,7 @@ public class Forgot extends AppCompatActivity {
 
         submitInfoRequestButton.setOnClickListener(requestInformationEvent);
         sendSecurityQuestionButton.setOnClickListener(sendSecurityQuestionToEmailEvent);
+        backButton.setOnClickListener(goBackEvent);
 
     }
 

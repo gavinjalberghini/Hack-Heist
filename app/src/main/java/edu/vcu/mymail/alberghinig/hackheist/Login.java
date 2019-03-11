@@ -19,7 +19,7 @@ public class Login extends AppCompatActivity {
         final EditText passwordTextBox = findViewById(R.id.Login_PasswordInputField);
         final Button switchToSignupButton = findViewById(R.id.Login_SignupButton);
         final Button loginButton = findViewById(R.id.Login_LoginButton);
-        final ImageButton backButton = findViewById(R.id.LoginBackButton);
+        final ImageButton backButton = findViewById(R.id.Login_BackButton);
 
         View.OnClickListener switchToSignupScreen = new View.OnClickListener() {
             @Override
@@ -51,7 +51,7 @@ public class Login extends AppCompatActivity {
         View.OnClickListener goBackEvent = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent I = new Intent(getApplicationContext(), MainMenu.class);
+                Intent I = new Intent(getApplicationContext(), Welcome.class);
                 startActivity(I);
             }
         };

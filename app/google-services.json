@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "587984871796",
+    "firebase_url": "https://hackheist.firebaseio.com",
+    "project_id": "hackheist",
+    "storage_bucket": "hackheist.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:587984871796:android:8ee4be3158b7f62a",
+        "android_client_info": {
+          "package_name": "edu.vcu.mymail.alberghinig.hackheist"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "587984871796-59n9osjk06514cu4id09qr9t676psa8g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDrb4OMw0Cld5EES1k8MWAaEbGw1BqZvXo"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

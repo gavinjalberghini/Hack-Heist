@@ -21,8 +21,8 @@ public class SetSecurityQuestion extends AppCompatActivity {
         final EditText securityQuestion = findViewById(R.id.SetSecurityQuestion_QuestionInputField);
         final EditText securityQuestionAnswer = findViewById(R.id.SetSecurityQuestion_AnswerInputField);
         final EditText password = findViewById(R.id.SetSecurityQuestion_PasswordInputField);
-        final Button submitSecurityUpdateButton = findViewById(R.id.SQ_SubmitButton);
-        final ImageButton backButton = findViewById(R.id.SetSecurityQuestionBackButton);
+        final Button submitSecurityUpdateButton = findViewById(R.id.SetSecurityQuestion_SubmitButton);
+        final ImageButton backButton = findViewById(R.id.SetSecurityQuestion_BackButton);
         securityQuestion.setImeOptions(EditorInfo.IME_ACTION_DONE);
         securityQuestion.setRawInputType(InputType.TYPE_CLASS_TEXT);
 

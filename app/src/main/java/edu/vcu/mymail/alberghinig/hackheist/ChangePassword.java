@@ -18,8 +18,8 @@ public class ChangePassword extends AppCompatActivity {
         final EditText oldPassword = findViewById(R.id.ChangePassword_OldPasswordInputField);
         final EditText newPassword = findViewById(R.id.ChangePassword_NewPasswordInputField);
         final EditText newPasswordConformation = findViewById(R.id.ChangePassword_NewPasswordConfirmInputField);
-        final Button submitPasswordUpdateButton = findViewById(R.id.SubmitPasswordChange);
-        final ImageButton backButton = findViewById(R.id.ChangePasswordBackButton);
+        final Button submitPasswordUpdateButton = findViewById(R.id.ChangePassword_SubmitButton);
+        final ImageButton backButton = findViewById(R.id.ChangePassword_BackButton);
 
         View.OnClickListener goBackEvent = new View.OnClickListener() {
             @Override

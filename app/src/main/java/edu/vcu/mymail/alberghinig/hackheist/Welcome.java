@@ -16,8 +16,8 @@ public class Welcome extends AppCompatActivity {
         Button loginButton = findViewById(R.id.Welcome_LoginButton);
         Button signUpButton = findViewById(R.id.Welcome_SignupButton);
         Button infoButton = findViewById(R.id.Welcome_InfoButton);
-        Button helpButton = findViewById(R.id.but_Help);
-        Button forgotButton = findViewById(R.id.but_forgot);
+        Button helpButton = findViewById(R.id.Welcome_HelpButton);
+        Button forgotButton = findViewById(R.id.Welcome_ForgotButton);
 
         View.OnClickListener loginEvent = new View.OnClickListener() {
             @Override

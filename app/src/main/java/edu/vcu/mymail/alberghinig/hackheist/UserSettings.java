@@ -14,21 +14,12 @@ public class UserSettings extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_settings);
 
-        Button forgotButton = findViewById(R.id.us_btn_forgot);
         Button resetAccountInfoButton = findViewById(R.id.UserSettings_ResetDataButton);
-        Button deleteAccountButton = findViewById(R.id.us_btn_delete_account);
+        Button deleteAccountButton = findViewById(R.id.UserSettings_DeleteAccountButton);
         Button setSecurityQuestionButton = findViewById(R.id.UserSettings_SetSecurityQuestionButton);
         Button changePasswordButton = findViewById(R.id.UserSettings_ChangePasswordButton);
         Button leaveAReviewButton = findViewById(R.id.UserSettings_LeaveReviewButton);
-        ImageButton backButton = findViewById(R.id.UserSettingsBackButton);
-
-        View.OnClickListener forgotEvent = new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent I = new Intent(getApplicationContext(), Forgot.class);
-                startActivity(I);
-            }
-        };
+        ImageButton backButton = findViewById(R.id.UserSettings_BackButton);
 
         View.OnClickListener resetEvent = new View.OnClickListener() {
             @Override
@@ -77,7 +68,6 @@ public class UserSettings extends AppCompatActivity {
 
         backButton.setOnClickListener(goBackEvent);
         changePasswordButton.setOnClickListener(changePasswordEvent);
-        forgotButton.setOnClickListener(forgotEvent);
         setSecurityQuestionButton.setOnClickListener(setSecurityQEvent);
         resetAccountInfoButton.setOnClickListener(resetEvent);
         deleteAccountButton.setOnClickListener(deleteEvent);
