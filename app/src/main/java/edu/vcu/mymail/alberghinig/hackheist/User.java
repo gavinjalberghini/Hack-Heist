@@ -1,23 +1,17 @@
 package edu.vcu.mymail.alberghinig.hackheist;
 
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
+
 
 public class User {
 
-    private FirebaseDatabase database = FirebaseDatabase.getInstance();
-    private DatabaseReference dbNode = database.getReference("hhdb-37954/Users/UserInfo");
     private static String name;
     private static String username;
     private static String email;
     private static String password;
     private static String securityQuestion;
     private static String securityQuestionAnswer;
-    private static Boolean[] badges = new Boolean[30];
+    private static Boolean[] badges = new Boolean[20];
     private static Boolean[] keyCards = new Boolean[7];
     private static double progress;
 
@@ -131,10 +125,9 @@ public class User {
     public void saveUserState() {
 
         try{
-            DatabaseReference usersRef = dbNode.child("users");
-            Map<String, User> users = new HashMap<>();
-            users.put(this.getUsername(), this);
-            usersRef.setValue(users);
+
+
+
         }catch(Exception e){
             e.printStackTrace();
         }
