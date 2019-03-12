@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 public class Login extends AppCompatActivity {
 
@@ -24,26 +25,37 @@ public class Login extends AppCompatActivity {
         View.OnClickListener switchToSignupScreen = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //TODO switch to signup screen
+                Intent I = new Intent(getApplicationContext(), SignUp.class);
+                startActivity(I);
             }
         };
 
         View.OnClickListener loginQuery = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                try{
 
+                Toast errorPopUp = Toast.makeText(getApplicationContext(), "", Toast.LENGTH_LONG);
+
+                try{
                     String usernameOrEmail = usernameOrEmailTextBox.getText().toString();
                     String password = passwordTextBox.getText().toString();
-
-                    //TODO verify credientials
-
-                    Intent I = new Intent(getApplicationContext(), MainMenu.class);
-                    startActivity(I);
-
                 } catch(Exception e){
-                    //failure logging in
+                    errorPopUp.setText("Invalid input");
+                    errorPopUp.show();
+                    return;
                 }
+
+                String usernameOrEmail = usernameOrEmailTextBox.getText().toString();
+                String password = passwordTextBox.getText().toString();
+
+                //TODO verify credientials
+
+                if(!isValidLoginCredentials(usernameOrEmail, password))
+                    return;
+
+                Intent I = new Intent(getApplicationContext(), MainMenu.class);
+                startActivity(I);
+
             }
         };
 
@@ -57,6 +69,13 @@ public class Login extends AppCompatActivity {
 
         backButton.setOnClickListener(goBackEvent);
         loginButton.setOnClickListener(loginQuery);
+        switchToSignupButton.setOnClickListener(switchToSignupScreen);
+    }
+
+    private boolean isValidLoginCredentials(String userOrEmail, String password){
+        boolean isValid = false;
+
+        return isValid;
     }
 
 }

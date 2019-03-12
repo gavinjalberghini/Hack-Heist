@@ -120,7 +120,7 @@
         android:layout_marginEnd="8dp"
         android:ems="10"
         android:gravity="center"
-        android:hint="Security Question"
+        android:hint="@string/security_question"
         android:inputType="textPersonName"
         android:singleLine="false"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
@@ -137,13 +137,14 @@
         android:layout_marginEnd="8dp"
         android:ems="10"
         android:gravity="center"
-        android:hint="Security Question Answer"
+        android:hint="@string/security_question_answer"
         android:inputType="textPersonName"
         android:singleLine="false"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/SignUp_SecurityQuestionInputField" />
+        app:layout_constraintTop_toBottomOf="@+id/SignUp_SecurityQuestionInputField"
+        android:importantForAutofill="no" tools:targetApi="o" />
 
     <ImageView
         android:id="@+id/SignUp_CreateAccountButtonImage"
@@ -158,7 +159,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/SignUp_SecurityQuestionAnswerInputField"
-        app:layout_constraintVertical_bias="0.531" />
+        app:layout_constraintVertical_bias="0.531"
+        android:contentDescription="@string/todo" />
 
     <Button
         android:id="@+id/SignUp_CreateAccountButton"
@@ -184,7 +186,8 @@
         android:layout_marginEnd="8dp"
         android:src="@android:drawable/btn_dialog"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="@string/todo" />
 
 </android.support.constraint.ConstraintLayout>
 </ScrollView>

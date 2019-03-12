@@ -6,4 +6,17 @@
     <string name="password_hint">Password</string>
     <string name="title_activity_forgot">ForgotActivity</string>
     <string name="title_activity_login">Login</string>
+    <string name="login">Login</string>
+    <string name="signup">Signup</string>
+    <string name="information">Information</string>
+    <string name="help">Help</string>
+    <string name="forgot_something">Forgot Something?</string>
+    <string name="change_password">Change Password</string>
+    <string name="delete_account">Delete Account</string>
+    <string name="set_security_question">Set Security Question</string>
+    <string name="leave_a_review">Leave A Review</string>
+    <string name="reset_data">Reset Data</string>
+    <string name="todo">TODO</string>
+    <string name="security_question_answer">Security Question Answer</string>
+    <string name="security_question">Security Question</string>
 </resources>

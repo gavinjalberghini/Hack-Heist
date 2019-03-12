@@ -44,7 +44,8 @@ public class MainMenu extends AppCompatActivity {
         View.OnClickListener helpEvent = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //TODO: Implement help page
+                Intent I = new Intent(getApplicationContext(), Help.class);
+                startActivity(I);
             }
         };
 

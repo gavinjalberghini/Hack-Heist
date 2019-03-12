@@ -36,13 +36,10 @@ public class Forgot extends AppCompatActivity {
         View.OnClickListener sendSecurityQuestionToEmailEvent = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                try{
-                    final String email = emailEntryBox.getText().toString();
-                    //TODO check if email is linked to account, if not show toast
-                    //TODO if valid email then send security question
-                } catch(Exception e){
+                try{final String email = emailEntryBox.getText().toString();} catch(Exception e){}
 
-                }
+                //TODO check if email is linked to account, if not show toast
+                //TODO if valid email then send security question
             }
         };
 
