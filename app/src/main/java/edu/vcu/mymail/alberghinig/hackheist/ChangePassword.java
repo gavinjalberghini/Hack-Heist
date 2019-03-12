@@ -67,6 +67,7 @@ public class ChangePassword extends AppCompatActivity {
         };
 
         backButton.setOnClickListener(goBackEvent);
+        submitPasswordUpdateButton.setOnClickListener(submitPasswordChange);
 
     }
 }
