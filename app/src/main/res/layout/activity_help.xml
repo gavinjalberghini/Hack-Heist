@@ -23,7 +23,7 @@
         app:srcCompat="@android:drawable/btn_dialog" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/Help_PhoneImage"
         android:layout_width="194dp"
         android:layout_height="242dp"
         android:layout_marginStart="5dp"
@@ -37,37 +37,29 @@
         app:srcCompat="@drawable/blank_phone_screen_two" />
 
     <TextView
-        android:id="@+id/interactionText"
-        android:layout_width="wrap_content"
-        android:layout_height="15dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="96dp"
-        android:layout_marginBottom="8dp"
-        android:text="Intercation"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/navigationText"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
-        app:layout_constraintVertical_bias="0.012" />
-
-    <TextView
-        android:id="@+id/navigationText"
+        android:id="@+id/Help_InteractionTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="43dp"
+        android:text="Intercation"
+        app:layout_constraintEnd_toEndOf="@+id/Help_PhoneImage"
+        app:layout_constraintTop_toBottomOf="@+id/Help_PhoneImage" />
+
+    <TextView
+        android:id="@+id/Help_NavigationTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
         android:text="Navigation"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/interactionText"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintStart_toStartOf="@+id/Help_PhoneImage"
+        app:layout_constraintTop_toBottomOf="@+id/Help_PhoneImage"
         app:layout_constraintVertical_bias="0.0" />
 
     <ProgressBar
-        android:id="@+id/progressBar"
+        android:id="@+id/Help_ProgressBar"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="79dp"
         android:layout_height="35dp"
@@ -77,78 +69,71 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.205"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/navigationText"
+        app:layout_constraintTop_toBottomOf="@+id/Help_NavigationTextView"
         app:layout_constraintVertical_chainStyle="spread_inside" />
 
     <TextView
-        android:id="@+id/currentLevelProgressText"
+        android:id="@+id/Help_CurrentLevelProgressTextView"
         android:layout_width="wrap_content"
-        android:layout_height="16dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="15dp"
+        android:layout_marginEnd="24dp"
         android:text="Current Level Progress"
-        app:layout_constraintBottom_toTopOf="@+id/keyCardText"
+        app:layout_constraintBottom_toBottomOf="@+id/Help_ProgressBar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.445"
-        app:layout_constraintStart_toEndOf="@+id/progressBar"
-        app:layout_constraintTop_toBottomOf="@+id/interactionText" />
+        app:layout_constraintStart_toEndOf="@+id/Help_ProgressBar"
+        app:layout_constraintTop_toTopOf="@+id/Help_ProgressBar" />
 
     <TextView
         android:id="@+id/keyCardText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
         android:layout_marginEnd="152dp"
-        android:layout_marginBottom="15dp"
         android:text="Key Card"
-        app:layout_constraintBottom_toTopOf="@+id/questionTerminalText"
+        app:layout_constraintBottom_toBottomOf="@+id/Help_KeyCardImage"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/currentLevelProgressText"
-        app:layout_constraintVertical_bias="0.538" />
+        app:layout_constraintTop_toTopOf="@+id/Help_KeyCardImage" />
 
     <TextView
-        android:id="@+id/questionTerminalText"
+        android:id="@+id/Help_QuestionTerminalTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
         android:layout_marginEnd="92dp"
         android:text="Question Terminal"
+        app:layout_constraintBottom_toBottomOf="@+id/Help_QuestionImage"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/keyCardText" />
+        app:layout_constraintTop_toTopOf="@+id/Help_QuestionImage" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/Help_QuestionImage"
         android:layout_width="30dp"
         android:layout_height="41dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:scaleType="centerInside"
-        app:layout_constraintEnd_toStartOf="@+id/questionTerminalText"
+        app:layout_constraintEnd_toStartOf="@+id/Help_QuestionTerminalTextView"
         app:layout_constraintHorizontal_bias="0.573"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3"
+        app:layout_constraintTop_toBottomOf="@+id/Help_KeyCardImage"
         app:srcCompat="@drawable/question_box" />
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/Help_KeyCardImage"
         android:layout_width="81dp"
         android:layout_height="39dp"
         android:layout_marginStart="72dp"
         android:layout_marginTop="8dp"
         android:scaleType="centerInside"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/progressBar"
+        app:layout_constraintTop_toBottomOf="@+id/Help_ProgressBar"
         app:srcCompat="@drawable/keycard" />
 
     <EditText
-        android:id="@+id/question_for_dev"
+        android:id="@+id/Review_ReviewCommentInputField"
         android:layout_width="314dp"
         android:layout_height="257dp"
         android:layout_marginTop="8dp"
-        android:background="@color/colorAccent"
         android:hint="Enter Quesiton For Developers"
         android:imeOptions="actionDone"
         android:inputType="textMultiLine"
@@ -158,10 +143,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dev_question_text" />
+        app:layout_constraintTop_toBottomOf="@+id/Help_QuestionsForDevsTextView" />
 
     <Button
-        android:id="@+id/submit_button"
+        android:id="@+id/Review_SubmitButton"
         android:layout_width="325dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -170,10 +155,10 @@
         android:text="Submit"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/question_for_dev" />
+        app:layout_constraintTop_toBottomOf="@+id/Review_ReviewCommentInputField" />
 
     <TextView
-        android:id="@+id/dev_question_text"
+        android:id="@+id/Help_QuestionsForDevsTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -183,7 +168,7 @@
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+        app:layout_constraintTop_toBottomOf="@+id/Help_QuestionImage" />
 
 </android.support.constraint.ConstraintLayout>
 </ScrollView>

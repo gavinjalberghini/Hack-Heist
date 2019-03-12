@@ -19,4 +19,9 @@
     <string name="todo">TODO</string>
     <string name="security_question_answer">Security Question Answer</string>
     <string name="security_question">Security Question</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="password">Password</string>
+    <string name="name">Name</string>
+    <string name="username">Username</string>
+    <string name="email">Email</string>
 </resources>
