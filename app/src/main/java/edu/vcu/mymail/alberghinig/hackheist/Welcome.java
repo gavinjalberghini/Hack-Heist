@@ -38,16 +38,16 @@ public class Welcome extends AppCompatActivity {
         View.OnClickListener infoEvent = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Intent I = new Intent(getApplicationContext(), Info.class);
-//                startActivity(I);
+                Intent I = new Intent(getApplicationContext(), DevInformation.class);
+                startActivity(I);
             }
         };
 
         View.OnClickListener helpEvent = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Intent I = new Intent(getApplicationContext(), Help.class);
-//                startActivity(I);
+                Intent I = new Intent(getApplicationContext(), Help.class);
+                startActivity(I);
             }
         };
 

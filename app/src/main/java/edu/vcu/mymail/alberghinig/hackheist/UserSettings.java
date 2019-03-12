@@ -54,7 +54,8 @@ public class UserSettings extends AppCompatActivity {
         View.OnClickListener leaveReviewEvent = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent I = new Intent(getApplicationContext(), Review.class);
+                startActivity(I);
             }
         };
 
