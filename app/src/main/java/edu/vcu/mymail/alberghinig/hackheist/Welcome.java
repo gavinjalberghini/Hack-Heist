@@ -30,8 +30,8 @@ public class Welcome extends AppCompatActivity {
         View.OnClickListener signupEvent = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Intent I = new Intent(getApplicationContext(), SignUp.class);
-//                startActivity(I);
+                Intent I = new Intent(getApplicationContext(), SignUp.class);
+                startActivity(I);
             }
         };
 
