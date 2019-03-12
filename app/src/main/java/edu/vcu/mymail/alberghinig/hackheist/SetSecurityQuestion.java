@@ -11,8 +11,6 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
-
-
 public class SetSecurityQuestion extends AppCompatActivity {
 
     @Override
@@ -55,27 +53,22 @@ public class SetSecurityQuestion extends AppCompatActivity {
                 String securityQuestionString = "";
                 String securityQuestionAnswerString = "";
                 String passwordString = "";
-                boolean failureFlag = false;
 
                 try{
                     securityQuestionString = securityQuestion.getText().toString();
                     securityQuestionAnswerString = securityQuestionAnswer.getText().toString();
                     passwordString = password.getText().toString();
                 } catch (Exception e){
-                    failureFlag = true;
                     missingEntryPopUp.show();
+                    return;
                 }
 
-                if(!failureFlag){
-
-                    //compare inputed password to the current users password
-                    //if the passwords match:
-                    //update the database
-                    //display toast for correct submission
-                    //otherwise:
-                    //display toast for invalid password
-
-                }
+                //compare inputed password to the current users password
+                //if the passwords match:
+                //update the database
+                //display toast for correct submission
+                //otherwise:
+                //display toast for invalid password
 
             }
         };
