@@ -10,6 +10,9 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.util.regex.Pattern;
 
 public class SignUp extends AppCompatActivity {
@@ -28,7 +31,6 @@ public class SignUp extends AppCompatActivity {
         final EditText confirmPasswordTextField = findViewById(R.id.SignUp_ConfirmPasswordInputField);
         final EditText securityQuestionTextField = findViewById(R.id.SignUp_SecurityQuestionInputField);
         final EditText securityQuestionAnswerTextField = findViewById(R.id.SignUp_SecurityQuestionAnswerInputField);
-
 
         View.OnClickListener createAccountQuery = new View.OnClickListener() {
             @Override
@@ -88,7 +90,8 @@ public class SignUp extends AppCompatActivity {
                     return;
                 }
 
-                //TODO Send info to database
+                User userInstance = new User(true);
+                userInstance.buildNewUser(name, username, password, email, securityQuestion, securityQuestionAnswer);
 
                 Intent I = new Intent(getApplicationContext(), MainMenu.class);
                 startActivity(I);

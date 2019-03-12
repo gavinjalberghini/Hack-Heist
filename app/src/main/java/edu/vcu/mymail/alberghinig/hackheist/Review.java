@@ -19,14 +19,14 @@ public class Review extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_review);
 
-        final RatingBar ratingBar = findViewById(R.id.ratingBar);
+        final RatingBar ratingBar = findViewById(R.id.Review_RatingBar);
         //final int ratingNumber = 0;//ratingBar.getNumStars();
 
-        final EditText reviewAnswer = findViewById(R.id.question_for_dev);
+        final EditText reviewAnswer = findViewById(R.id.Review_ReviewCommentInputField);
         reviewAnswer.setImeOptions(EditorInfo.IME_ACTION_DONE);
         reviewAnswer.setRawInputType(InputType.TYPE_CLASS_TEXT);
         final ImageButton backButton = findViewById(R.id.Review_BackButton);
-        final Button submitButton = findViewById(R.id.submit_button);
+        final Button submitButton = findViewById(R.id.Review_SubmitButton);
 
         final Toast successPopUp = Toast.makeText(getApplicationContext(),
                 "Thank You!",

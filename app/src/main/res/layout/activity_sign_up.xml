@@ -11,7 +11,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     tools:context=".SignUp">
 
     <ImageView
@@ -24,7 +24,8 @@
         android:src="@drawable/sign_up_menu_image"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/SignUp_BackButton" />
+        app:layout_constraintTop_toBottomOf="@+id/SignUp_BackButton"
+        android:contentDescription="@string/todo" />
 
     <EditText
         android:id="@+id/SignUp_EmailInputField"
@@ -35,13 +36,14 @@
         android:layout_marginEnd="8dp"
         android:ems="10"
         android:gravity="center"
-        android:hint="Email"
-        android:inputType="textPersonName"
+        android:hint="@string/email"
+        android:inputType="text"
         android:singleLine="false"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/SignUp_TopBanner" />
+        app:layout_constraintTop_toBottomOf="@+id/SignUp_TopBanner"
+        android:importantForAutofill="no" tools:targetApi="o" />
 
     <EditText
         android:id="@+id/SignUp_UsernameInputField"
@@ -52,13 +54,14 @@
         android:layout_marginEnd="8dp"
         android:ems="10"
         android:gravity="center"
-        android:hint="Username"
-        android:inputType="textPersonName"
+        android:hint="@string/username"
+        android:inputType="text"
         android:singleLine="false"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/SignUp_EmailInputField" />
+        app:layout_constraintTop_toBottomOf="@+id/SignUp_EmailInputField"
+        android:importantForAutofill="no" tools:targetApi="o" />
 
     <EditText
         android:id="@+id/SignUp_NameInputField"
@@ -69,13 +72,14 @@
         android:layout_marginEnd="8dp"
         android:ems="10"
         android:gravity="center"
-        android:hint="Name"
-        android:inputType="textPersonName"
+        android:hint="@string/name"
+        android:inputType="text"
         android:singleLine="false"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/SignUp_UsernameInputField" />
+        app:layout_constraintTop_toBottomOf="@+id/SignUp_UsernameInputField"
+        android:importantForAutofill="no" tools:targetApi="o" />
 
     <EditText
         android:id="@+id/SignUp_PasswordInputField"
@@ -86,13 +90,14 @@
         android:layout_marginEnd="8dp"
         android:ems="10"
         android:gravity="center"
-        android:hint="Password"
-        android:inputType="textPersonName"
+        android:hint="@string/password"
+        android:inputType="text"
         android:singleLine="false"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/SignUp_NameInputField" />
+        app:layout_constraintTop_toBottomOf="@+id/SignUp_NameInputField"
+        android:importantForAutofill="no" tools:targetApi="o" />
 
     <EditText
         android:id="@+id/SignUp_ConfirmPasswordInputField"
@@ -103,13 +108,14 @@
         android:layout_marginEnd="8dp"
         android:ems="10"
         android:gravity="center"
-        android:hint="Confirm Password"
-        android:inputType="textPersonName"
+        android:hint="@string/confirm_password"
+        android:inputType="text"
         android:singleLine="false"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/SignUp_PasswordInputField" />
+        app:layout_constraintTop_toBottomOf="@+id/SignUp_PasswordInputField"
+        android:importantForAutofill="no" tools:targetApi="o" />
 
     <EditText
         android:id="@+id/SignUp_SecurityQuestionInputField"
@@ -121,12 +127,13 @@
         android:ems="10"
         android:gravity="center"
         android:hint="@string/security_question"
-        android:inputType="textPersonName"
+        android:inputType="text"
         android:singleLine="false"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/SignUp_ConfirmPasswordInputField" />
+        app:layout_constraintTop_toBottomOf="@+id/SignUp_ConfirmPasswordInputField"
+        android:importantForAutofill="no" tools:targetApi="o" />
 
     <EditText
         android:id="@+id/SignUp_SecurityQuestionAnswerInputField"
@@ -138,7 +145,7 @@
         android:ems="10"
         android:gravity="center"
         android:hint="@string/security_question_answer"
-        android:inputType="textPersonName"
+        android:inputType="text"
         android:singleLine="false"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         app:layout_constraintEnd_toEndOf="parent"

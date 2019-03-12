@@ -2,28 +2,32 @@ package edu.vcu.mymail.alberghinig.hackheist;
 
 import java.util.Arrays;
 
+
 public class User {
 
-    private static String uniqueID;
+    private static String name;
     private static String username;
     private static String email;
     private static String password;
     private static String securityQuestion;
     private static String securityQuestionAnswer;
-    private static Boolean[] badges;
-    private static Boolean[] keyCards;
+    private static Boolean[] badges = new Boolean[20];
+    private static Boolean[] keyCards = new Boolean[7];
     private static double progress;
 
-    public User(){
+
+    public User(boolean clear){
+        if(clear)
+            clearCurrentUserData();
 
     }
 
-    public String getUniqueID() {
-        return uniqueID;
+    public static String getName() {
+        return name;
     }
 
-    public void setUniqueID(String uniqueID) {
-        this.uniqueID = uniqueID;
+    public static void setName(String name) {
+        User.name = name;
     }
 
     public String getUsername() {
@@ -91,10 +95,10 @@ public class User {
     }
 
     private void clearCurrentUserData() {
-        setUniqueID("");
         setUsername("");
         setPassword("");
         setEmail("");
+        setName("");
         setSecurityQuestion("");
         setSecurityQuestionAnswer("");
         Arrays.fill(badges, null);
@@ -102,11 +106,31 @@ public class User {
         setProgress(0.0);
     }
 
-    private void loadUser() {
+    public void buildNewUser(String name, String username, String password, String email,
+                             String securityQ, String securityQA){
+        clearCurrentUserData();
+        setName(name);
+        setUsername(username);
+        setPassword(password);
+        setEmail(email);
+        setSecurityQuestion(securityQ);
+        setSecurityQuestionAnswer(securityQA);
+        saveUserState();
+    }
+
+    public void loadUserState(String username) {
 
     }
 
-    private void saveUser() {
+    public void saveUserState() {
+
+        try{
+
+
+
+        }catch(Exception e){
+            e.printStackTrace();
+        }
 
     }
 }
