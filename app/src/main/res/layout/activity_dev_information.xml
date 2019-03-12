@@ -25,6 +25,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
+        android:text="THe HackHeist development team consists of four Computer Science students at the Virginia Commonwealth University School of Engineering."
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/DevInformation_TeamAboutImage" />
