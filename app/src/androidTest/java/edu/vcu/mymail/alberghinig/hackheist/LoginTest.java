@@ -32,12 +32,23 @@ import static org.junit.Assert.*;
  * @see <a href="http://d.android.com/tools/testing">Testing documentation</a>
  */
 @RunWith(AndroidJUnit4.class)
-public class ExampleInstrumentedTest {
-    @Test
-    public void useAppContext() {
-        // Context of the app under test.
-        Context appContext = InstrumentationRegistry.getTargetContext();
+public class LoginTest {
 
-        assertEquals("edu.vcu.mymail.alberghinig.hackheist", appContext.getPackageName());
+    @Rule
+    public IntentsTestRule<Login> loginIntentsTestRule = new IntentsTestRule<Login>(Login.class);
+
+    /*@Test
+    public void loginPageLoginButton() {
+        //Check the login button on the start up screen goes to the help page
+        Espresso.onView(withId(R.id.Login_LoginButton)).perform(click());
+        intended(hasComponent(hasClassName(MainMenu.class.getName())));
+    }*/
+
+    @Test
+    public void loginPageSignupButton() {
+        //Check the sign up button on the start up screen goes to the help page
+        Espresso.onView(withId(R.id.Login_SignupButton)).perform(click());
+        intended(hasComponent(hasClassName(SignUp.class.getName())));
     }
+
 }
