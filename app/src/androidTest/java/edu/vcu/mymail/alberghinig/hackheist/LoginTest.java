@@ -25,6 +25,7 @@ import static android.support.test.espresso.assertion.ViewAssertions.matches;
 import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
+import static java.lang.Thread.sleep;
 import static org.hamcrest.core.AllOf.allOf;
 import static org.junit.Assert.*;
 
@@ -39,14 +40,22 @@ public class LoginTest {
     @Rule
     public IntentsTestRule<Login> loginIntentsTestRule = new IntentsTestRule<Login>(Login.class);
 
+    private void pauseTestFor(long milliseconds) {
+        try {
+            Thread.sleep(milliseconds);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
     @Test
     public void loginPageLoginButton() {
         //Check the login button on the start up screen goes to the help page
         Espresso.onView(withId(R.id.Login_UsernameOrEmailInputField)).perform(clearText(), typeText("abd@gmail.com"));
-        //pauseTestFor(500);
-        Espresso.onView(withId(R.id.Login_PasswordInputField)).perform(clearText(), typeText("12345678"));
-        //pauseTestFor(500);
-        Espresso.onView(withId(R.id.Login_LoginButton)).perform(click());
+        pauseTestFor(500);
+        Espresso.onView(withId(R.id.Login_PasswordInputField)).perform(scrollTo(), clearText(), typeText("12345678"));
+        pauseTestFor(500);
+        Espresso.onView(withId(R.id.Login_LoginButton)).perform(scrollTo(), click());
         intended(hasComponent(hasClassName(MainMenu.class.getName())));
     }
 
