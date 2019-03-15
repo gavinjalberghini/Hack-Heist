@@ -50,7 +50,7 @@ public class LoginTest {
 
     @Test
     public void loginPageLoginButton() {
-        //Check the login button on the start up screen goes to the help page
+        //Check the login button on the login screen goes to the main menu page
         Espresso.onView(withId(R.id.Login_UsernameOrEmailInputField)).perform(clearText(), typeText("abd@gmail.com"));
         pauseTestFor(500);
         Espresso.onView(withId(R.id.Login_PasswordInputField)).perform(scrollTo(), clearText(), typeText("12345678"));
@@ -61,7 +61,7 @@ public class LoginTest {
 
     @Test
     public void loginPageSignupButton() {
-        //Check the sign up button on the start up screen goes to the help page
+        //Check the sign up button on the login screen goes to the sign up page
         Espresso.onView(withId(R.id.Login_SignupButton)).perform(click());
         intended(hasComponent(hasClassName(SignUp.class.getName())));
     }

@@ -46,28 +46,28 @@ public class WelcomeTest {
 
     @Test
     public void welcomePageLoginButton() {
-        //Check the login button on the start up screen goes to the help page
+        //Check the login button on the start up screen goes to the login page
         Espresso.onView(withId(R.id.Welcome_LoginButton)).perform(click());
         intended(hasComponent(hasClassName(Login.class.getName())));
     }
 
     @Test
     public void welcomePageSignUpButton() {
-        //Check the sign up button on the start up screen goes to the help page
+        //Check the sign up button on the start up screen goes to the sign up page
         Espresso.onView(withId(R.id.Welcome_SignupButton)).perform(click());
         intended(hasComponent(hasClassName(SignUp.class.getName())));
     }
 
     @Test
     public void welcomePageInfoButton() {
-        //Check the info button on the start up screen goes to the help page
+        //Check the info button on the start up screen goes to the information page
         Espresso.onView(withId(R.id.Welcome_InfoButton)).perform(click());
         intended(hasComponent(hasClassName(DevInformation.class.getName())));
     }
 
     @Test
     public void welcomePageForgotButton() {
-        //Check the forgot button on the start up screen goes to the help page
+        //Check the forgot button on the start up screen goes to the forgot page
         Espresso.onView(withId(R.id.Welcome_ForgotButton)).perform(scrollTo(), click());
         intended(hasComponent(hasClassName(Forgot.class.getName())));
     }

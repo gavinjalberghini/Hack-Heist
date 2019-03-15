@@ -42,35 +42,35 @@ public class UserSettingsTest {
 
     @Test
     public void settingsPageChangePasswordButton() {
-        //Check the forgot button on the start up screen goes to the help page
+        //Check the change password button on the settings screen goes to the change password page
         Espresso.onView(withId(R.id.UserSettings_ChangePasswordButton)).perform(click());
         intended(hasComponent(hasClassName(ChangePassword.class.getName())));
     }
 
     @Test
     public void settingsPageSecurityQuestionButton() {
-        //Check the forgot button on the start up screen goes to the help page
+        //Check the set security question button on the settings screen goes to the set security question page
         Espresso.onView(withId(R.id.UserSettings_SetSecurityQuestionButton)).perform(click());
         intended(hasComponent(hasClassName(SetSecurityQuestion.class.getName())));
     }
 
     @Test
     public void settingsPageReviewButton() {
-        //Check the forgot button on the start up screen goes to the help page
+        //Check the leave review button on the settings screen goes to the leave review page
         Espresso.onView(withId(R.id.UserSettings_LeaveReviewButton)).perform(scrollTo(), click());
         intended(hasComponent(hasClassName(Review.class.getName())));
     }
 
     /*@Test
     public void settingsPageResetDataButton() {
-        //Check the forgot button on the start up screen goes to the help page
+        //Check the reset data button on the settings screen goes to the main menu page
         Espresso.onView(withId(R.id.UserSettings_ResetDataButton)).perform(scrollTo(), click());
         intended(hasComponent(hasClassName(MainMenu.class.getName())));
     }
 
     @Test
     public void settingsPageDeleteAccountButton() {
-        //Check the forgot button on the start up screen goes to the help page
+        //Check the delete account button on the settings screen goes to the welcome page
         Espresso.onView(withId(R.id.UserSettings_DeleteAccountButton)).perform(scrollTo(), click());
         intended(hasComponent(hasClassName(Welcome.class.getName())));
     }*/
