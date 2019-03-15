@@ -12,7 +12,9 @@ import org.junit.runner.RunWith;
 
 import android.support.test.espresso.Espresso;
 
+import static android.support.test.espresso.action.ViewActions.clearText;
 import static android.support.test.espresso.action.ViewActions.scrollTo;
+import static android.support.test.espresso.action.ViewActions.typeText;
 import static android.support.test.espresso.intent.Intents.*;
 import static android.support.test.espresso.intent.matcher.ComponentNameMatchers.hasClassName;
 import static android.support.test.espresso.intent.matcher.IntentMatchers.hasComponent;
@@ -37,12 +39,16 @@ public class LoginTest {
     @Rule
     public IntentsTestRule<Login> loginIntentsTestRule = new IntentsTestRule<Login>(Login.class);
 
-    /*@Test
+    @Test
     public void loginPageLoginButton() {
         //Check the login button on the start up screen goes to the help page
+        Espresso.onView(withId(R.id.Login_UsernameOrEmailInputField)).perform(clearText(), typeText("abd@gmail.com"));
+        //pauseTestFor(500);
+        Espresso.onView(withId(R.id.Login_PasswordInputField)).perform(clearText(), typeText("12345678"));
+        //pauseTestFor(500);
         Espresso.onView(withId(R.id.Login_LoginButton)).perform(click());
         intended(hasComponent(hasClassName(MainMenu.class.getName())));
-    }*/
+    }
 
     @Test
     public void loginPageSignupButton() {
