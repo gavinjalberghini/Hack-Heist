@@ -41,6 +41,13 @@ public class UserSettingsTest {
     public IntentsTestRule<UserSettings> settingsIntentsTestRule = new IntentsTestRule<UserSettings>(UserSettings.class);
 
     @Test
+    public void userSettingsPageBackButton() {
+        //Check the back button
+        Espresso.onView(withId(R.id.UserSettings_BackButton)).perform(scrollTo(), click());
+        intended(hasComponent(hasClassName(MainMenu.class.getName())));
+    }
+
+    @Test
     public void settingsPageChangePasswordButton() {
         //Check the change password button on the settings screen goes to the change password page
         Espresso.onView(withId(R.id.UserSettings_ChangePasswordButton)).perform(click());

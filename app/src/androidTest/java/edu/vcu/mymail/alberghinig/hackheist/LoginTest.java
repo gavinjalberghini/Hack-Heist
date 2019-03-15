@@ -40,6 +40,14 @@ public class LoginTest {
     @Rule
     public IntentsTestRule<Login> loginIntentsTestRule = new IntentsTestRule<Login>(Login.class);
 
+    @Test
+    public void loginPageBackButton() {
+        //Check the back button
+        Espresso.onView(withId(R.id.Login_BackButton)).perform(scrollTo(), click());
+        intended(hasComponent(hasClassName(Welcome.class.getName())));
+    }
+
+
     private void pauseTestFor(long milliseconds) {
         try {
             Thread.sleep(milliseconds);
