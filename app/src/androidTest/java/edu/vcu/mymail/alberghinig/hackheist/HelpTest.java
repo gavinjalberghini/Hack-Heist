@@ -35,35 +35,15 @@ import static org.junit.Assert.*;
  * @see <a href="http://d.android.com/tools/testing">Testing documentation</a>
  */
 @RunWith(AndroidJUnit4.class)
-public class LoginTest {
-
+public class HelpTest {
     @Rule
-    public IntentsTestRule<Login> loginIntentsTestRule = new IntentsTestRule<Login>(Login.class);
-
-    private void pauseTestFor(long milliseconds) {
-        try {
-            Thread.sleep(milliseconds);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-    }
+    public IntentsTestRule<Help> helpIntentsTestRule = new IntentsTestRule<Help>(Help.class);
 
     @Test
-    public void loginPageLoginButton() {
-        //Check the login button on the start up screen goes to the help page
-        Espresso.onView(withId(R.id.Login_UsernameOrEmailInputField)).perform(clearText(), typeText("abd@gmail.com"));
-        pauseTestFor(500);
-        Espresso.onView(withId(R.id.Login_PasswordInputField)).perform(scrollTo(), clearText(), typeText("12345678"));
-        pauseTestFor(500);
-        Espresso.onView(withId(R.id.Login_LoginButton)).perform(scrollTo(), click());
-        intended(hasComponent(hasClassName(MainMenu.class.getName())));
-    }
-
-    @Test
-    public void loginPageSignupButton() {
-        //Check the sign up button on the start up screen goes to the help page
-        Espresso.onView(withId(R.id.Login_SignupButton)).perform(click());
-        intended(hasComponent(hasClassName(SignUp.class.getName())));
+    public void helpPageBackButton() {
+        //Check the back button
+        Espresso.onView(withId(R.id.Help_BackButton)).perform(scrollTo(), click());
+        intended(hasComponent(hasClassName(Welcome.class.getName())));
     }
 
 }
