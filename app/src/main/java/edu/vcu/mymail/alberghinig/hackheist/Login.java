@@ -73,7 +73,7 @@ public class Login extends AppCompatActivity {
     }
 
     private boolean isValidLoginCredentials(String userOrEmail, String password){
-        boolean isValid = false;
+        boolean isValid = true;
 
         return isValid;
     }
