@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.InputType;
+import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
@@ -43,6 +44,18 @@ public class Review extends AppCompatActivity {
         View.OnClickListener clearScreen = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                Intent i = new Intent(Intent.ACTION_SEND);
+                i.setType("message/rfc822");
+                i.putExtra(Intent.EXTRA_EMAIL  , new String[]{"gavinjalberghini@gmail.com"});
+                i.putExtra(Intent.EXTRA_SUBJECT, "subject of email");
+                i.putExtra(Intent.EXTRA_TEXT   , "body of email");
+                try {
+                    startActivity(Intent.createChooser(i, "Send mail..."));
+                } catch (android.content.ActivityNotFoundException ex) {
+                    Toast.makeText(Review.this, "There are no email clients installed.", Toast.LENGTH_SHORT).show();
+                }
+
                 reviewAnswer.getText().clear();
                 ratingBar.setRating(0);
                 successPopUp.show();
