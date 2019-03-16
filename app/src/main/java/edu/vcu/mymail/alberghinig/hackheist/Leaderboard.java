@@ -35,6 +35,26 @@ public class Leaderboard extends AppCompatActivity {
 
         ImageButton backButton = findViewById(R.id.Leaderboard_BackButton);
 
+        TextView rankBox1 = findViewById(R.id.Leaderboard_Rank1TextView);
+        TextView rankBox2 = findViewById(R.id.Leaderboard_Rank2TextView);
+        TextView rankBox3 = findViewById(R.id.Leaderboard_Rank3TextView);
+        TextView rankBox4 = findViewById(R.id.Leaderboard_Rank4TextView);
+        TextView rankBox5 = findViewById(R.id.Leaderboard_Rank5TextView);
+
+        TextView userBox1 = findViewById(R.id.Leaderboard_Username1TextView);
+        TextView userBox2 = findViewById(R.id.Leaderboard_Username2TextView);
+        TextView userBox3 = findViewById(R.id.Leaderboard_Username3TextView);
+        TextView userBox4 = findViewById(R.id.Leaderboard_Username4TextView);
+        TextView userBox5 = findViewById(R.id.Leaderboard_Username5TextView);
+
+        TextView scoreBox1 = findViewById(R.id.Leaderboard_Score1TextView);
+        TextView scoreBox2 = findViewById(R.id.Leaderboard_Score2TextView);
+        TextView scoreBox3 = findViewById(R.id.Leaderboard_Score3TextView);
+        TextView scoreBox4 = findViewById(R.id.Leaderboard_Score4TextView);
+        TextView scoreBox5 = findViewById(R.id.Leaderboard_Score5TextView);
+
+
+
         View.OnClickListener goBackEvent = new View.OnClickListener() {
             @Override
             public void onClick(View v) {

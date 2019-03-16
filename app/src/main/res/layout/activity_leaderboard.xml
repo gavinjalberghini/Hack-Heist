@@ -40,7 +40,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Leaderboard_VCULogoImage"
-        app:srcCompat="@drawable/Leaderboard_Heading" />
+        app:srcCompat="@drawable/leaderboard_heading" />
 
     <ImageView
         android:id="@+id/imageView2"
@@ -52,7 +52,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView"
-        app:srcCompat="@drawable/Leaderboard_tableHeader" />
+        app:srcCompat="@drawable/leaderboard_table_header" />
 
     <ImageView
         android:id="@+id/imageView3"
@@ -67,7 +67,7 @@
         app:srcCompat="@drawable/team_logo" />
 
     <TextView
-        android:id="@+id/Leaderboard_rank1TextView"
+        android:id="@+id/Leaderboard_Rank1TextView"
         android:layout_width="86dp"
         android:layout_height="47dp"
         android:layout_marginStart="12dp"
@@ -84,7 +84,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
     <TextView
-        android:id="@+id/leaderboard_rank2_ScoreTextView4"
+        android:id="@+id/Leaderboard_Score2TextView"
         android:layout_width="86dp"
         android:layout_height="47dp"
         android:layout_marginTop="8dp"
@@ -98,10 +98,10 @@
         android:textSize="30sp"
         app:autoSizeMinTextSize="@android:dimen/notification_large_icon_height"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/leaderboard_rank1_ScoreTextView" />
+        app:layout_constraintTop_toBottomOf="@+id/Leaderboard_Score1TextView" />
 
     <TextView
-        android:id="@+id/leaderboard_rank4_ScoreTextView3"
+        android:id="@+id/Leaderboard_Score4TextView"
         android:layout_width="86dp"
         android:layout_height="47dp"
         android:layout_marginTop="8dp"
@@ -116,11 +116,11 @@
         app:autoSizeMinTextSize="@android:dimen/notification_large_icon_height"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.714"
-        app:layout_constraintStart_toEndOf="@+id/leaderboard_Rank1_UsernameTextView4"
-        app:layout_constraintTop_toBottomOf="@+id/leaderboard_rank3_ScoreTextView2" />
+        app:layout_constraintStart_toEndOf="@+id/Leaderboard_Username4TextView"
+        app:layout_constraintTop_toBottomOf="@+id/Leaderboard_Score3TextView" />
 
     <TextView
-        android:id="@+id/leaderboard_rank5_ScoreTextView5"
+        android:id="@+id/Leaderboard_Score5TextView"
         android:layout_width="86dp"
         android:layout_height="47dp"
         android:layout_marginTop="8dp"
@@ -134,10 +134,10 @@
         android:textSize="30sp"
         app:autoSizeMinTextSize="@android:dimen/notification_large_icon_height"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/leaderboard_rank4_ScoreTextView3" />
+        app:layout_constraintTop_toBottomOf="@+id/Leaderboard_Score4TextView" />
 
     <TextView
-        android:id="@+id/leaderboard_rank5_ScoreTextView"
+        android:id="@+id/Leaderboard_ScoreUserTextView"
         android:layout_width="86dp"
         android:layout_height="47dp"
         android:layout_marginTop="24dp"
@@ -152,11 +152,11 @@
         app:autoSizeMinTextSize="@android:dimen/notification_large_icon_height"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/leaderboard_RankUser_UsernameTextView6"
-        app:layout_constraintTop_toBottomOf="@+id/leaderboard_rank5_ScoreTextView5" />
+        app:layout_constraintStart_toEndOf="@+id/Leaderboard_UsernameUserTextView"
+        app:layout_constraintTop_toBottomOf="@+id/Leaderboard_Score5TextView" />
 
     <TextView
-        android:id="@+id/leaderboard_rank3_ScoreTextView2"
+        android:id="@+id/Leaderboard_Score3TextView"
         android:layout_width="86dp"
         android:layout_height="47dp"
         android:layout_marginTop="8dp"
@@ -170,10 +170,10 @@
         android:textSize="30sp"
         app:autoSizeMinTextSize="@android:dimen/notification_large_icon_height"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/leaderboard_rank2_ScoreTextView4" />
+        app:layout_constraintTop_toBottomOf="@+id/Leaderboard_Score2TextView" />
 
     <TextView
-        android:id="@+id/leaderboard_rank1_ScoreTextView"
+        android:id="@+id/Leaderboard_Score1TextView"
         android:layout_width="86dp"
         android:layout_height="47dp"
         android:layout_marginTop="8dp"
@@ -190,7 +190,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
     <TextView
-        android:id="@+id/Leaderboard_Rank1_UsernameTextView"
+        android:id="@+id/Leaderboard_Username1TextView"
         android:layout_width="218dp"
         android:layout_height="47dp"
         android:layout_marginTop="8dp"
@@ -202,12 +202,12 @@
         android:textColor="@android:color/secondary_text_light_nodisable"
         android:textSize="30sp"
         app:autoSizeMinTextSize="@android:dimen/notification_large_icon_height"
-        app:layout_constraintEnd_toStartOf="@+id/leaderboard_rank2_ScoreTextView4"
-        app:layout_constraintStart_toEndOf="@+id/Leaderboard_rank1TextView"
+        app:layout_constraintEnd_toStartOf="@+id/Leaderboard_Score2TextView"
+        app:layout_constraintStart_toEndOf="@+id/Leaderboard_Rank1TextView"
         app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
     <TextView
-        android:id="@+id/leaderboard_Rank1_UsernameTextView2"
+        android:id="@+id/Leaderboard_Username2TextView"
         android:layout_width="218dp"
         android:layout_height="47dp"
         android:layout_marginTop="8dp"
@@ -219,13 +219,13 @@
         android:textColor="@android:color/secondary_text_light_nodisable"
         android:textSize="30sp"
         app:autoSizeMinTextSize="@android:dimen/notification_large_icon_height"
-        app:layout_constraintEnd_toStartOf="@+id/leaderboard_rank2_ScoreTextView4"
+        app:layout_constraintEnd_toStartOf="@+id/Leaderboard_Score2TextView"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/Leaderboard_rank1TextView"
-        app:layout_constraintTop_toBottomOf="@+id/Leaderboard_Rank1_UsernameTextView" />
+        app:layout_constraintStart_toEndOf="@+id/Leaderboard_Rank1TextView"
+        app:layout_constraintTop_toBottomOf="@+id/Leaderboard_Username1TextView" />
 
     <TextView
-        android:id="@+id/leaderboard_Rank1_UsernameTextView4"
+        android:id="@+id/Leaderboard_Username4TextView"
         android:layout_width="218dp"
         android:layout_height="47dp"
         android:layout_marginTop="8dp"
@@ -237,13 +237,13 @@
         android:textColor="@android:color/secondary_text_light_nodisable"
         android:textSize="30sp"
         app:autoSizeMinTextSize="@android:dimen/notification_large_icon_height"
-        app:layout_constraintEnd_toStartOf="@+id/leaderboard_rank2_ScoreTextView4"
+        app:layout_constraintEnd_toStartOf="@+id/Leaderboard_Score2TextView"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/Leaderboard_rank1TextView"
-        app:layout_constraintTop_toBottomOf="@+id/leaderboard_Rank1_UsernameTextView3" />
+        app:layout_constraintStart_toEndOf="@+id/Leaderboard_Rank1TextView"
+        app:layout_constraintTop_toBottomOf="@+id/Leaderboard_Username3TextView" />
 
     <TextView
-        android:id="@+id/leaderboard_Rank1_UsernameTextView5"
+        android:id="@+id/Leaderboard_Username5TextView"
         android:layout_width="218dp"
         android:layout_height="47dp"
         android:layout_marginTop="8dp"
@@ -256,13 +256,13 @@
         android:textColor="@android:color/secondary_text_light_nodisable"
         android:textSize="30sp"
         app:autoSizeMinTextSize="@android:dimen/notification_large_icon_height"
-        app:layout_constraintEnd_toStartOf="@+id/leaderboard_rank5_ScoreTextView5"
+        app:layout_constraintEnd_toStartOf="@+id/Leaderboard_Score5TextView"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/Leaderboard_rank1TextView"
-        app:layout_constraintTop_toBottomOf="@+id/leaderboard_Rank1_UsernameTextView4" />
+        app:layout_constraintStart_toEndOf="@+id/Leaderboard_Rank1TextView"
+        app:layout_constraintTop_toBottomOf="@+id/Leaderboard_Username4TextView" />
 
     <TextView
-        android:id="@+id/leaderboard_RankUser_UsernameTextView6"
+        android:id="@+id/Leaderboard_UsernameUserTextView"
         android:layout_width="218dp"
         android:layout_height="47dp"
         android:layout_marginTop="24dp"
@@ -274,11 +274,11 @@
         android:textColor="@android:color/secondary_text_light_nodisable"
         android:textSize="30sp"
         app:autoSizeMinTextSize="@android:dimen/notification_large_icon_height"
-        app:layout_constraintStart_toEndOf="@+id/leaderboard_rankUserTextView"
-        app:layout_constraintTop_toBottomOf="@+id/leaderboard_Rank1_UsernameTextView5" />
+        app:layout_constraintStart_toEndOf="@+id/Leaderboard_RankUserTextView"
+        app:layout_constraintTop_toBottomOf="@+id/Leaderboard_Username5TextView" />
 
     <TextView
-        android:id="@+id/leaderboard_Rank1_UsernameTextView3"
+        android:id="@+id/Leaderboard_Username3TextView"
         android:layout_width="218dp"
         android:layout_height="47dp"
         android:layout_marginTop="8dp"
@@ -290,13 +290,13 @@
         android:textColor="@android:color/secondary_text_light_nodisable"
         android:textSize="30sp"
         app:autoSizeMinTextSize="@android:dimen/notification_large_icon_height"
-        app:layout_constraintEnd_toStartOf="@+id/leaderboard_rank3_ScoreTextView2"
+        app:layout_constraintEnd_toStartOf="@+id/Leaderboard_Score3TextView"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/Leaderboard_rank1TextView"
-        app:layout_constraintTop_toBottomOf="@+id/leaderboard_Rank1_UsernameTextView2" />
+        app:layout_constraintStart_toEndOf="@+id/Leaderboard_Rank1TextView"
+        app:layout_constraintTop_toBottomOf="@+id/Leaderboard_Username2TextView" />
 
     <TextView
-        android:id="@+id/leaderboard_rank2TextView"
+        android:id="@+id/Leaderboard_Rank2TextView"
         android:layout_width="86dp"
         android:layout_height="47dp"
         android:layout_marginStart="12dp"
@@ -310,10 +310,10 @@
         android:textSize="30sp"
         app:autoSizeMinTextSize="@android:dimen/notification_large_icon_height"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Leaderboard_rank1TextView" />
+        app:layout_constraintTop_toBottomOf="@+id/Leaderboard_Rank1TextView" />
 
     <TextView
-        android:id="@+id/leaderboard_rank3TextView2"
+        android:id="@+id/Leaderboard_Rank3TextView"
         android:layout_width="86dp"
         android:layout_height="47dp"
         android:layout_marginStart="12dp"
@@ -327,10 +327,10 @@
         android:textSize="30sp"
         app:autoSizeMinTextSize="@android:dimen/notification_large_icon_height"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/leaderboard_rank2TextView" />
+        app:layout_constraintTop_toBottomOf="@+id/Leaderboard_Rank2TextView" />
 
     <TextView
-        android:id="@+id/leaderboard_rank4TextView"
+        android:id="@+id/Leaderboard_Rank4TextView"
         android:layout_width="86dp"
         android:layout_height="47dp"
         android:layout_marginStart="12dp"
@@ -344,10 +344,10 @@
         android:textSize="30sp"
         app:autoSizeMinTextSize="@android:dimen/notification_large_icon_height"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/leaderboard_rank3TextView2" />
+        app:layout_constraintTop_toBottomOf="@+id/Leaderboard_Rank3TextView" />
 
     <TextView
-        android:id="@+id/leaderboard_rank5TextView2"
+        android:id="@+id/Leaderboard_Rank5TextView"
         android:layout_width="86dp"
         android:layout_height="47dp"
         android:layout_marginStart="12dp"
@@ -361,10 +361,10 @@
         android:textSize="30sp"
         app:autoSizeMinTextSize="@android:dimen/notification_large_icon_height"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/leaderboard_rank4TextView" />
+        app:layout_constraintTop_toBottomOf="@+id/Leaderboard_Rank4TextView" />
 
     <TextView
-        android:id="@+id/leaderboard_rankUserTextView"
+        android:id="@+id/Leaderboard_RankUserTextView"
         android:layout_width="86dp"
         android:layout_height="47dp"
         android:layout_marginStart="12dp"
@@ -378,6 +378,6 @@
         android:textSize="30sp"
         app:autoSizeMinTextSize="@android:dimen/notification_large_icon_height"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/leaderboard_rank5TextView2" />
+        app:layout_constraintTop_toBottomOf="@+id/Leaderboard_Rank5TextView" />
 
 </android.support.constraint.ConstraintLayout>
