@@ -3,6 +3,7 @@ package edu.vcu.mymail.alberghinig.hackheist;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -11,10 +12,14 @@ import android.widget.Toast;
 
 public class Login extends AppCompatActivity {
 
+    ActiveUser activeUser = new ActiveUser(true);
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        final DBController controller = new DBController(this);
 
         final EditText usernameOrEmailTextBox = findViewById(R.id.Login_UsernameOrEmailInputField);
         final EditText passwordTextBox = findViewById(R.id.Login_PasswordInputField);
@@ -48,10 +53,13 @@ public class Login extends AppCompatActivity {
                 String usernameOrEmail = usernameOrEmailTextBox.getText().toString();
                 String password = passwordTextBox.getText().toString();
 
-                //TODO verify credientials
-
-                if(!isValidLoginCredentials(usernameOrEmail, password))
+                if(!isValidLoginCredentials(controller, usernameOrEmail, password)) {
+                    errorPopUp.setText("Your username or password is incorrect");
+                    errorPopUp.show();
                     return;
+                }
+
+                activeUser = new ActiveUser(loadUser(controller, usernameOrEmail, password));
 
                 Intent I = new Intent(getApplicationContext(), MainMenu.class);
                 startActivity(I);
@@ -72,10 +80,24 @@ public class Login extends AppCompatActivity {
         switchToSignupButton.setOnClickListener(switchToSignupScreen);
     }
 
-    private boolean isValidLoginCredentials(String userOrEmail, String password){
-        boolean isValid = false;
+    private boolean isValidLoginCredentials(DBController controller, String userOrEmail, String password){
 
-        return isValid;
+        for(User u : controller.getListOfUsers())
+            Log.d("User", u.toString());
+
+        for(User u : controller.getListOfUsers())
+            if(userOrEmail.equalsIgnoreCase(u.getUsername()) || userOrEmail.equalsIgnoreCase(u.getEmail()) && password.equals(u.getPassword()))
+               return true;
+
+        return false;
+    }
+
+    private User loadUser(DBController controller, String userOrEmail, String password){
+        for(User u : controller.getListOfUsers())
+            if(userOrEmail.equalsIgnoreCase(u.getUsername()) || userOrEmail.equalsIgnoreCase(u.getEmail()) && password.equals(u.getPassword()))
+                return u;
+
+        return null;
     }
 
 }

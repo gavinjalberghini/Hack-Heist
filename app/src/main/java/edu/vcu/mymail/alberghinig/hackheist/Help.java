@@ -24,7 +24,7 @@ public class Help extends AppCompatActivity {
         View.OnClickListener goBackEvent = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent I = new Intent(getApplicationContext(), Welcome.class);
+                Intent I = new Intent(getApplicationContext(), MainMenu.class);
                 startActivity(I);
             }
         };

@@ -1,18 +1,17 @@
 package edu.vcu.mymail.alberghinig.hackheist;
 
-import android.app.Application;
+import android.content.BroadcastReceiver;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-
+import java.util.List;
 import java.util.regex.Pattern;
 
 public class SignUp extends AppCompatActivity {
@@ -22,11 +21,15 @@ public class SignUp extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
 
+        final DBController controller = new DBController(this);
+        //controller.clearLocalDB();
+
         ImageButton backButton = findViewById(R.id.SignUp_BackButton);
         Button createAccountButton = findViewById(R.id.SignUp_CreateAccountButton);
         final EditText emailTextField = findViewById(R.id.SignUp_EmailInputField);
         final EditText usernameTextField = findViewById(R.id.SignUp_UsernameInputField);
-        final EditText nameTextField = findViewById(R.id.SignUp_NameInputField);
+        final EditText firstNameTextField = findViewById(R.id.SignUp_FirstNameInputField);
+        final EditText lastNameTextField = findViewById(R.id.SignUp_LastNameInputField);
         final EditText passwordTextField = findViewById(R.id.SignUp_PasswordInputField);
         final EditText confirmPasswordTextField = findViewById(R.id.SignUp_ConfirmPasswordInputField);
         final EditText securityQuestionTextField = findViewById(R.id.SignUp_SecurityQuestionInputField);
@@ -40,7 +43,8 @@ public class SignUp extends AppCompatActivity {
 
                 try{String email = emailTextField.getText().toString();}catch(Exception e){errorPopUp.setText("Invalid/Empty Email");errorPopUp.show();return;}
                 try{String username = usernameTextField.getText().toString();}catch(Exception e){errorPopUp.setText("Invalid/Empty Username");errorPopUp.show();return;}
-                try{String name = nameTextField.getText().toString();}catch(Exception e){errorPopUp.setText("Invalid/Empty Name");errorPopUp.show();return;}
+                try{String firstName = firstNameTextField.getText().toString();}catch(Exception e){errorPopUp.setText("Invalid/Empty Name");errorPopUp.show();return;}
+                try{String lastName = lastNameTextField.getText().toString();}catch(Exception e){errorPopUp.setText("Invalid/Empty Name");errorPopUp.show();return;}
                 try{String password = passwordTextField.getText().toString();}catch(Exception e){errorPopUp.setText("Invalid/Empty Password");errorPopUp.show();return;}
                 try{String confirmPassword = confirmPasswordTextField.getText().toString();}catch(Exception e){errorPopUp.setText("Invalid/Empty Password Confirmation");errorPopUp.show();return;}
                 try{String securityQuestion = securityQuestionTextField.getText().toString();}catch(Exception e){errorPopUp.setText("Invalid/Empty Security Question");errorPopUp.show();return;}
@@ -48,7 +52,8 @@ public class SignUp extends AppCompatActivity {
 
                 String email = emailTextField.getText().toString();
                 String username = usernameTextField.getText().toString();
-                String name = nameTextField.getText().toString();
+                String firstName = firstNameTextField.getText().toString();
+                String lastName = lastNameTextField.getText().toString();
                 String password = passwordTextField.getText().toString();
                 String confirmPassword = confirmPasswordTextField.getText().toString();
                 String securityQuestion = securityQuestionTextField.getText().toString();
@@ -56,7 +61,8 @@ public class SignUp extends AppCompatActivity {
 
                 if(email.equals("") ||
                     username.equals("") ||
-                    name.equals("")     ||
+                    firstName.equals("")     ||
+                    lastName.equals("")     ||
                     password.equals("") ||
                     confirmPassword.equals("") ||
                     securityQuestion.equals("") ||
@@ -72,7 +78,7 @@ public class SignUp extends AppCompatActivity {
                     return;
                 }
 
-                if(isUsernameTaken(username)){
+                if(isUsernameTaken(controller, username)){
                     errorPopUp.setText("This username is taken");
                     errorPopUp.show();
                     return;
@@ -90,8 +96,23 @@ public class SignUp extends AppCompatActivity {
                     return;
                 }
 
-                User userInstance = new User(true);
-                userInstance.buildNewUser(name, username, password, email, securityQuestion, securityQuestionAnswer);
+                if(securityQuestion.contains(password)){
+                    errorPopUp.setText("Security Question can not contain the password");
+                    errorPopUp.show();
+                    return;
+                }
+
+                if(isEmailTaken(controller, email)){
+                    errorPopUp.setText("This email is already tied to an account");
+                    errorPopUp.show();
+                    return;
+                }
+
+                User userInstance = new User(firstName, lastName, username, email, password, securityQuestion, securityQuestionAnswer);
+                ActiveUser primaryUser = new ActiveUser(userInstance);
+
+                controller.insertUser(userInstance);
+                controller.composeJSONfromSQLite();
 
                 Intent I = new Intent(getApplicationContext(), MainMenu.class);
                 startActivity(I);
@@ -120,8 +141,26 @@ public class SignUp extends AppCompatActivity {
         return pat.matcher(email).matches();
     }
 
-    public static boolean isUsernameTaken(String userName) {
-        //TODO when database is implemented
+    public static boolean isUsernameTaken(DBController controller, String username) {
+
+        for(User u : controller.getListOfUsers())
+            if(username.equalsIgnoreCase(u.getUsername()))
+                return true;
+
+        for(User u : controller.getListOfUsers())
+            Log.d("User", u.toString());
+
         return false;
     }
+
+    public static boolean isEmailTaken(DBController controller, String username){
+
+        for(User u : controller.getListOfUsers())
+            if(username.equalsIgnoreCase(u.getUsername()))
+                return true;
+
+        return  false;
+
+    }
+
 }

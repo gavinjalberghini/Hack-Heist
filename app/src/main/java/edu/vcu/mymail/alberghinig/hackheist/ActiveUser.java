@@ -1,22 +1,25 @@
 package edu.vcu.mymail.alberghinig.hackheist;
 
-public class User {
+import edu.vcu.mymail.alberghinig.hackheist.User;
 
-    private int ID;
-    private String firstName;
-    private String lastName;
-    private String username;
-    private String email;
-    private String password;
-    private String securityQuestion;
-    private String securityQuestionAnswer;
+public class ActiveUser {
 
-    public User(boolean clear){
+    private static int ID;
+    private static String firstName;
+    private static String lastName;
+    private static String username;
+    private static String email;
+    private static String password;
+    private static String securityQuestion;
+    private static String securityQuestionAnswer;
+
+    public ActiveUser(boolean clear){
         if(clear)
             clearCurrentUserData();
     }
 
-    public User(String firstName, String lastName, String username, String email, String password, String securityQuestion, String securityQuestionAnswer) {
+    public ActiveUser(int ID, String firstName, String lastName, String username, String email, String password, String securityQuestion, String securityQuestionAnswer) {
+        this.ID = ID;
         this.firstName = firstName;
         this.lastName = lastName;
         this.username = username;
@@ -26,8 +29,15 @@ public class User {
         this.securityQuestionAnswer = securityQuestionAnswer;
     }
 
-    public User(){
-
+    public ActiveUser(User user){
+        this.ID = user.getID();
+        this.firstName = user.getFirstName();
+        this.lastName = user.getLastName();
+        this.username = user.getUsername();
+        this.email = user.getEmail();
+        this.password = user.getPassword();
+        this.securityQuestion = user.getSecurityQuestion();
+        this.securityQuestionAnswer = user.getSecurityQuestionAnswer();
     }
 
     public int getID() {

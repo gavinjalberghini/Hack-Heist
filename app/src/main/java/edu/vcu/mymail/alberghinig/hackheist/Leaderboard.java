@@ -1,5 +1,6 @@
 package edu.vcu.mymail.alberghinig.hackheist;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,8 +11,22 @@ import android.widget.ImageButton;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.loopj.android.http.AsyncHttpClient;
+import com.loopj.android.http.RequestParams;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Leaderboard extends AppCompatActivity {
+
+    DBController controller = new DBController(this);
+    ProgressDialog prgDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,29 +34,6 @@ public class Leaderboard extends AppCompatActivity {
         setContentView(R.layout.activity_leaderboard);
 
         ImageButton backButton = findViewById(R.id.Leaderboard_BackButton);
-
-        TableLayout leaderboardTable = (TableLayout)findViewById(R.id.Leaderboard_LeaderboardTable);
-        leaderboardTable.setStretchAllColumns(true);
-        leaderboardTable.bringToFront();
-
-//        for(int i = 0; i < 10; i++){
-//            TableRow tr =  new TableRow(this);
-
-//            TextView c1 = new TextView(this);
-//            c1.setText(Username);
-//
-//            TextView c2 = new TextView(this);
-//            c2.setText(Badges Earned);
-//
-//            TextView c3 = new TextView(this);
-//            c3.setText(Keycards Earned);
-//
-//            tr.addView(c1);
-//            tr.addView(c2);
-//            tr.addView(c3);
-
-//            leaderboardTable.addView(tr);
-//        }
 
         View.OnClickListener goBackEvent = new View.OnClickListener() {
             @Override
@@ -53,4 +45,8 @@ public class Leaderboard extends AppCompatActivity {
 
         backButton.setOnClickListener(goBackEvent);
     }
+
+
+
+
 }
