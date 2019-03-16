@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 public class UserSettings extends AppCompatActivity {
 
@@ -14,12 +15,18 @@ public class UserSettings extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_settings);
 
+        final DBController controller = new DBController(this);
+
         Button resetAccountInfoButton = findViewById(R.id.UserSettings_ResetDataButton);
         Button deleteAccountButton = findViewById(R.id.UserSettings_DeleteAccountButton);
         Button setSecurityQuestionButton = findViewById(R.id.UserSettings_SetSecurityQuestionButton);
         Button changePasswordButton = findViewById(R.id.UserSettings_ChangePasswordButton);
         Button leaveAReviewButton = findViewById(R.id.UserSettings_LeaveReviewButton);
         ImageButton backButton = findViewById(R.id.UserSettings_BackButton);
+
+        final Toast deleteSuccessPopUp = Toast.makeText(getApplicationContext(),
+                "Account Deleted",
+                Toast.LENGTH_LONG);
 
         View.OnClickListener resetEvent = new View.OnClickListener() {
             @Override
@@ -31,7 +38,12 @@ public class UserSettings extends AppCompatActivity {
         View.OnClickListener deleteEvent = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                ActiveUser currentUser = new ActiveUser(false);
+                controller.deleteUser(currentUser);
+                ActiveUser clearUser = new ActiveUser(true);
+                deleteSuccessPopUp.show();
+                Intent I = new Intent(getApplicationContext(), Welcome.class);
+                startActivity(I);
             }
         };
 
@@ -75,4 +87,5 @@ public class UserSettings extends AppCompatActivity {
         leaveAReviewButton.setOnClickListener(leaveReviewEvent);
 
     }
+
 }

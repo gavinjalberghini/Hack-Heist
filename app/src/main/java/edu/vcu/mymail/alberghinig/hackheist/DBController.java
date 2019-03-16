@@ -139,6 +139,15 @@ public class DBController extends SQLiteOpenHelper {
             return true;
     }
 
+    public boolean deleteUser(ActiveUser user){
+        SQLiteDatabase db = this.getWritableDatabase();
+        long result = db.delete(USER_TABLE, USER_COL_1 + "=" + String.valueOf(user.getID()), null);
+        if (result == -1)
+            return false;
+        else
+            return true;
+    }
+
     /**
      * Get list of Users from SQLite DB as Array List
      *
