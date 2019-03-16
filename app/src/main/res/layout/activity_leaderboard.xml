@@ -20,8 +20,8 @@
 
     <ImageView
         android:id="@+id/Leaderboard_VCULogoImage"
-        android:layout_width="273dp"
-        android:layout_height="145dp"
+        android:layout_width="153dp"
+        android:layout_height="51dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
@@ -30,34 +30,354 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/rams_two_logo" />
 
-    <TableLayout
-        android:id="@+id/Leaderboard_LeaderboardTable"
-        android:layout_width="395dp"
-        android:layout_height="562dp"
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Leaderboard_VCULogoImage">
+        app:layout_constraintTop_toBottomOf="@+id/Leaderboard_VCULogoImage"
+        app:srcCompat="@drawable/Leaderboard_Heading" />
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:srcCompat="@drawable/Leaderboard_tableHeader" />
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="52dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toStartOf="@+id/Leaderboard_VCULogoImage"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/team_logo" />
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+    <TextView
+        android:id="@+id/Leaderboard_rank1TextView"
+        android:layout_width="86dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="8dp"
+        android:background="@android:color/black"
+        android:fontFamily="@font/ARCADECLASSIC"
+        android:gravity="center"
+        android:text="#1"
+        android:textAppearance="@style/CardView.Dark"
+        android:textColor="@android:color/secondary_text_light_nodisable"
+        android:textSize="30sp"
+        app:autoSizeMinTextSize="@android:dimen/notification_large_icon_height"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-    </TableLayout>
+    <TextView
+        android:id="@+id/leaderboard_rank2_ScoreTextView4"
+        android:layout_width="86dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@android:color/black"
+        android:fontFamily="@font/ARCADECLASSIC"
+        android:gravity="center"
+        android:text="000"
+        android:textAppearance="@style/CardView.Dark"
+        android:textColor="@android:color/secondary_text_light_nodisable"
+        android:textSize="30sp"
+        app:autoSizeMinTextSize="@android:dimen/notification_large_icon_height"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/leaderboard_rank1_ScoreTextView" />
+
+    <TextView
+        android:id="@+id/leaderboard_rank4_ScoreTextView3"
+        android:layout_width="86dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@android:color/black"
+        android:fontFamily="@font/ARCADECLASSIC"
+        android:gravity="center"
+        android:text="000"
+        android:textAppearance="@style/CardView.Dark"
+        android:textColor="@android:color/secondary_text_light_nodisable"
+        android:textSize="30sp"
+        app:autoSizeMinTextSize="@android:dimen/notification_large_icon_height"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.714"
+        app:layout_constraintStart_toEndOf="@+id/leaderboard_Rank1_UsernameTextView4"
+        app:layout_constraintTop_toBottomOf="@+id/leaderboard_rank3_ScoreTextView2" />
+
+    <TextView
+        android:id="@+id/leaderboard_rank5_ScoreTextView5"
+        android:layout_width="86dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@android:color/black"
+        android:fontFamily="@font/ARCADECLASSIC"
+        android:gravity="center"
+        android:text="000"
+        android:textAppearance="@style/CardView.Dark"
+        android:textColor="@android:color/secondary_text_light_nodisable"
+        android:textSize="30sp"
+        app:autoSizeMinTextSize="@android:dimen/notification_large_icon_height"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/leaderboard_rank4_ScoreTextView3" />
+
+    <TextView
+        android:id="@+id/leaderboard_rank5_ScoreTextView"
+        android:layout_width="86dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="4dp"
+        android:background="@android:color/black"
+        android:fontFamily="@font/ARCADECLASSIC"
+        android:gravity="center"
+        android:text="000"
+        android:textAppearance="@style/CardView.Dark"
+        android:textColor="@android:color/secondary_text_light_nodisable"
+        android:textSize="30sp"
+        app:autoSizeMinTextSize="@android:dimen/notification_large_icon_height"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/leaderboard_RankUser_UsernameTextView6"
+        app:layout_constraintTop_toBottomOf="@+id/leaderboard_rank5_ScoreTextView5" />
+
+    <TextView
+        android:id="@+id/leaderboard_rank3_ScoreTextView2"
+        android:layout_width="86dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@android:color/black"
+        android:fontFamily="@font/ARCADECLASSIC"
+        android:gravity="center"
+        android:text="000"
+        android:textAppearance="@style/CardView.Dark"
+        android:textColor="@android:color/secondary_text_light_nodisable"
+        android:textSize="30sp"
+        app:autoSizeMinTextSize="@android:dimen/notification_large_icon_height"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/leaderboard_rank2_ScoreTextView4" />
+
+    <TextView
+        android:id="@+id/leaderboard_rank1_ScoreTextView"
+        android:layout_width="86dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@android:color/black"
+        android:fontFamily="@font/ARCADECLASSIC"
+        android:gravity="center"
+        android:text="000"
+        android:textAppearance="@style/CardView.Dark"
+        android:textColor="@android:color/secondary_text_light_nodisable"
+        android:textSize="30sp"
+        app:autoSizeMinTextSize="@android:dimen/notification_large_icon_height"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
+    <TextView
+        android:id="@+id/Leaderboard_Rank1_UsernameTextView"
+        android:layout_width="218dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="8dp"
+        android:background="@android:color/black"
+        android:fontFamily="@font/ARCADECLASSIC"
+        android:gravity="center"
+        android:text="XXXXXXXXX"
+        android:textAppearance="@style/CardView.Dark"
+        android:textColor="@android:color/secondary_text_light_nodisable"
+        android:textSize="30sp"
+        app:autoSizeMinTextSize="@android:dimen/notification_large_icon_height"
+        app:layout_constraintEnd_toStartOf="@+id/leaderboard_rank2_ScoreTextView4"
+        app:layout_constraintStart_toEndOf="@+id/Leaderboard_rank1TextView"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
+    <TextView
+        android:id="@+id/leaderboard_Rank1_UsernameTextView2"
+        android:layout_width="218dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="8dp"
+        android:background="@android:color/black"
+        android:fontFamily="@font/ARCADECLASSIC"
+        android:gravity="center"
+        android:text="XXXXXXXXX"
+        android:textAppearance="@style/CardView.Dark"
+        android:textColor="@android:color/secondary_text_light_nodisable"
+        android:textSize="30sp"
+        app:autoSizeMinTextSize="@android:dimen/notification_large_icon_height"
+        app:layout_constraintEnd_toStartOf="@+id/leaderboard_rank2_ScoreTextView4"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/Leaderboard_rank1TextView"
+        app:layout_constraintTop_toBottomOf="@+id/Leaderboard_Rank1_UsernameTextView" />
+
+    <TextView
+        android:id="@+id/leaderboard_Rank1_UsernameTextView4"
+        android:layout_width="218dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="8dp"
+        android:background="@android:color/black"
+        android:fontFamily="@font/ARCADECLASSIC"
+        android:gravity="center"
+        android:text="XXXXXXXXX"
+        android:textAppearance="@style/CardView.Dark"
+        android:textColor="@android:color/secondary_text_light_nodisable"
+        android:textSize="30sp"
+        app:autoSizeMinTextSize="@android:dimen/notification_large_icon_height"
+        app:layout_constraintEnd_toStartOf="@+id/leaderboard_rank2_ScoreTextView4"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/Leaderboard_rank1TextView"
+        app:layout_constraintTop_toBottomOf="@+id/leaderboard_Rank1_UsernameTextView3" />
+
+    <TextView
+        android:id="@+id/leaderboard_Rank1_UsernameTextView5"
+        android:layout_width="218dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@android:color/black"
+        android:fontFamily="@font/ARCADECLASSIC"
+        android:gravity="center"
+        android:text="XXXXXXXXX"
+        android:textAppearance="@style/CardView.Dark"
+        android:textColor="@android:color/secondary_text_light_nodisable"
+        android:textSize="30sp"
+        app:autoSizeMinTextSize="@android:dimen/notification_large_icon_height"
+        app:layout_constraintEnd_toStartOf="@+id/leaderboard_rank5_ScoreTextView5"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/Leaderboard_rank1TextView"
+        app:layout_constraintTop_toBottomOf="@+id/leaderboard_Rank1_UsernameTextView4" />
+
+    <TextView
+        android:id="@+id/leaderboard_RankUser_UsernameTextView6"
+        android:layout_width="218dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="24dp"
+        android:background="@android:color/black"
+        android:fontFamily="@font/ARCADECLASSIC"
+        android:gravity="center"
+        android:text="XXXXXXXXX"
+        android:textAppearance="@style/CardView.Dark"
+        android:textColor="@android:color/secondary_text_light_nodisable"
+        android:textSize="30sp"
+        app:autoSizeMinTextSize="@android:dimen/notification_large_icon_height"
+        app:layout_constraintStart_toEndOf="@+id/leaderboard_rankUserTextView"
+        app:layout_constraintTop_toBottomOf="@+id/leaderboard_Rank1_UsernameTextView5" />
+
+    <TextView
+        android:id="@+id/leaderboard_Rank1_UsernameTextView3"
+        android:layout_width="218dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="8dp"
+        android:background="@android:color/black"
+        android:fontFamily="@font/ARCADECLASSIC"
+        android:gravity="center"
+        android:text="XXXXXXXXX"
+        android:textAppearance="@style/CardView.Dark"
+        android:textColor="@android:color/secondary_text_light_nodisable"
+        android:textSize="30sp"
+        app:autoSizeMinTextSize="@android:dimen/notification_large_icon_height"
+        app:layout_constraintEnd_toStartOf="@+id/leaderboard_rank3_ScoreTextView2"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/Leaderboard_rank1TextView"
+        app:layout_constraintTop_toBottomOf="@+id/leaderboard_Rank1_UsernameTextView2" />
+
+    <TextView
+        android:id="@+id/leaderboard_rank2TextView"
+        android:layout_width="86dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="8dp"
+        android:background="@android:color/black"
+        android:fontFamily="@font/ARCADECLASSIC"
+        android:gravity="center"
+        android:text="#2"
+        android:textAppearance="@style/CardView.Dark"
+        android:textColor="@android:color/secondary_text_light_nodisable"
+        android:textSize="30sp"
+        app:autoSizeMinTextSize="@android:dimen/notification_large_icon_height"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Leaderboard_rank1TextView" />
+
+    <TextView
+        android:id="@+id/leaderboard_rank3TextView2"
+        android:layout_width="86dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="8dp"
+        android:background="@android:color/black"
+        android:fontFamily="@font/ARCADECLASSIC"
+        android:gravity="center"
+        android:text="#3"
+        android:textAppearance="@style/CardView.Dark"
+        android:textColor="@android:color/secondary_text_light_nodisable"
+        android:textSize="30sp"
+        app:autoSizeMinTextSize="@android:dimen/notification_large_icon_height"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/leaderboard_rank2TextView" />
+
+    <TextView
+        android:id="@+id/leaderboard_rank4TextView"
+        android:layout_width="86dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="8dp"
+        android:background="@android:color/black"
+        android:fontFamily="@font/ARCADECLASSIC"
+        android:gravity="center"
+        android:text="#4"
+        android:textAppearance="@style/CardView.Dark"
+        android:textColor="@android:color/secondary_text_light_nodisable"
+        android:textSize="30sp"
+        app:autoSizeMinTextSize="@android:dimen/notification_large_icon_height"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/leaderboard_rank3TextView2" />
+
+    <TextView
+        android:id="@+id/leaderboard_rank5TextView2"
+        android:layout_width="86dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="8dp"
+        android:background="@android:color/black"
+        android:fontFamily="@font/ARCADECLASSIC"
+        android:gravity="center"
+        android:text="#5"
+        android:textAppearance="@style/CardView.Dark"
+        android:textColor="@android:color/secondary_text_light_nodisable"
+        android:textSize="30sp"
+        app:autoSizeMinTextSize="@android:dimen/notification_large_icon_height"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/leaderboard_rank4TextView" />
+
+    <TextView
+        android:id="@+id/leaderboard_rankUserTextView"
+        android:layout_width="86dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="24dp"
+        android:background="@android:color/black"
+        android:fontFamily="@font/ARCADECLASSIC"
+        android:gravity="center"
+        android:text="#xx"
+        android:textAppearance="@style/CardView.Dark"
+        android:textColor="@android:color/secondary_text_light_nodisable"
+        android:textSize="30sp"
+        app:autoSizeMinTextSize="@android:dimen/notification_large_icon_height"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/leaderboard_rank5TextView2" />
 
 </android.support.constraint.ConstraintLayout>
