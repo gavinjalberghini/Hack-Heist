@@ -95,6 +95,33 @@ public class DBController extends SQLiteOpenHelper {
             return true;
     }
 
+    public boolean updateUserSecurityColumn(ActiveUser user) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put(USER_COL_7,user.getSecurityQuestion());
+        cv.put(USER_COL_8,user.getSecurityQuestionAnswer());
+        String ID = String.valueOf(user.getID());
+
+        long result = db.update(USER_TABLE, cv, "ID = "+ID, null);
+        if (result == -1)
+            return false;
+        else
+            return true;
+    }
+
+    public boolean updateUserPasswordColumn(ActiveUser user) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put(USER_COL_6,user.getPassword());
+        String ID = String.valueOf(user.getID());
+
+        long result = db.update(USER_TABLE, cv, "ID = "+ID, null);
+        if (result == -1)
+            return false;
+        else
+            return true;
+    }
+
     public boolean insertUser(User user) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();

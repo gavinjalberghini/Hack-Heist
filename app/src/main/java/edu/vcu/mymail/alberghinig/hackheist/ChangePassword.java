@@ -3,6 +3,7 @@ package edu.vcu.mymail.alberghinig.hackheist;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -15,6 +16,8 @@ public class ChangePassword extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_change_password);
+
+        final DBController controller = new DBController(this);
 
         final EditText oldPasswordText = findViewById(R.id.ChangePassword_OldPasswordInputField);
         final EditText newPasswordText = findViewById(R.id.ChangePassword_NewPasswordInputField);
@@ -35,6 +38,14 @@ public class ChangePassword extends AppCompatActivity {
             public void onClick(View v) {
 
                 Toast errorPopUp = Toast.makeText(getApplicationContext(), "", Toast.LENGTH_LONG);
+
+                final Toast incorrectPasswordPopUp = Toast.makeText(getApplicationContext(),
+                        "Password Incorrect",
+                        Toast.LENGTH_LONG);
+
+                final Toast successPopUp = Toast.makeText(getApplicationContext(),
+                        "Password Updated",
+                        Toast.LENGTH_LONG);
 
                 try{String oldPassword = oldPasswordText.getText().toString();}catch(Exception e){errorPopUp.setText("Invalid/Empty Password");errorPopUp.show();return;}
                 try{String password = newPasswordText.getText().toString();}catch(Exception e){errorPopUp.setText("Invalid/Empty Password");errorPopUp.show();return;}
@@ -62,12 +73,35 @@ public class ChangePassword extends AppCompatActivity {
                     return;
                 }
 
-                //TODO: Update the database
+                ActiveUser currentUser = new ActiveUser(false);
+
+                if(isValidLoginCredentials(controller, currentUser.getUsername(), oldPassword)){
+                    currentUser.setPassword(password);
+                    controller.updateUserPasswordColumn(currentUser);
+                    successPopUp.show();
+                    Intent I = new Intent(getApplicationContext(), UserSettings.class);
+                    startActivity(I);
+                }else{
+                    incorrectPasswordPopUp.show();
+                    return;
+                }
             }
         };
 
         backButton.setOnClickListener(goBackEvent);
         submitPasswordUpdateButton.setOnClickListener(submitPasswordChange);
 
+    }
+
+    private boolean isValidLoginCredentials(DBController controller, String userOrEmail, String password){
+
+        for(User u : controller.getListOfUsers())
+            Log.d("User", u.toString());
+
+        for(User u : controller.getListOfUsers())
+            if(userOrEmail.equalsIgnoreCase(u.getUsername()) || userOrEmail.equalsIgnoreCase(u.getEmail()) && password.equals(u.getPassword()))
+                return true;
+
+        return false;
     }
 }

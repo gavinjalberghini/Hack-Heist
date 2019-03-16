@@ -109,10 +109,12 @@ public class SignUp extends AppCompatActivity {
                 }
 
                 User userInstance = new User(firstName, lastName, username, email, password, securityQuestion, securityQuestionAnswer);
-                ActiveUser primaryUser = new ActiveUser(userInstance);
 
                 controller.insertUser(userInstance);
                 controller.composeJSONfromSQLite();
+
+                userInstance = loadUser(controller, userInstance.getEmail(), userInstance.getPassword());
+                ActiveUser primaryUser = new ActiveUser(userInstance);
 
                 Intent I = new Intent(getApplicationContext(), MainMenu.class);
                 startActivity(I);
@@ -161,6 +163,14 @@ public class SignUp extends AppCompatActivity {
 
         return  false;
 
+    }
+
+    private User loadUser(DBController controller, String userOrEmail, String password){
+        for(User u : controller.getListOfUsers())
+            if(userOrEmail.equalsIgnoreCase(u.getUsername()) || userOrEmail.equalsIgnoreCase(u.getEmail()) && password.equals(u.getPassword()))
+                return u;
+
+        return null;
     }
 
 }

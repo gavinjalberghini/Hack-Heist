@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.InputType;
+import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
@@ -17,6 +18,8 @@ public class SetSecurityQuestion extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_set_security_question);
+
+        final DBController controller = new DBController(this);
 
         final EditText securityQuestion = findViewById(R.id.SetSecurityQuestion_QuestionInputField);
         final EditText securityQuestionAnswer = findViewById(R.id.SetSecurityQuestion_AnswerInputField);
@@ -63,12 +66,19 @@ public class SetSecurityQuestion extends AppCompatActivity {
                     return;
                 }
 
-                //compare inputed password to the current users password
-                //if the passwords match:
-                //update the database
-                //display toast for correct submission
-                //otherwise:
-                //display toast for invalid password
+                ActiveUser currentUser = new ActiveUser(false);
+
+                if(isValidLoginCredentials(controller, currentUser.getUsername(), passwordString)){
+                    currentUser.setSecurityQuestion(securityQuestionString);
+                    currentUser.setSecurityQuestionAnswer(securityQuestionAnswerString);
+                    controller.updateUserSecurityColumn(currentUser);
+                    successPopUp.show();
+                    Intent I = new Intent(getApplicationContext(), UserSettings.class);
+                    startActivity(I);
+                }else{
+                    incorrectPasswordPopUp.show();
+                    return;
+                }
 
             }
         };
@@ -77,4 +87,17 @@ public class SetSecurityQuestion extends AppCompatActivity {
         backButton.setOnClickListener(goBackEvent);
 
     }
+
+    private boolean isValidLoginCredentials(DBController controller, String userOrEmail, String password){
+
+        for(User u : controller.getListOfUsers())
+            Log.d("User", u.toString());
+
+        for(User u : controller.getListOfUsers())
+            if(userOrEmail.equalsIgnoreCase(u.getUsername()) || userOrEmail.equalsIgnoreCase(u.getEmail()) && password.equals(u.getPassword()))
+                return true;
+
+        return false;
+    }
+
 }
