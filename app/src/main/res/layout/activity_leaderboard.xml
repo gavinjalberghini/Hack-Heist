@@ -75,7 +75,7 @@
         android:background="@android:color/black"
         android:fontFamily="@font/arcade_classic"
         android:gravity="center"
-        android:text="#1"
+        android:text="Rank 1"
         android:textAppearance="@style/CardView.Dark"
         android:textColor="@android:color/secondary_text_light_nodisable"
         android:textSize="30sp"
@@ -136,6 +136,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Leaderboard_Score4TextView" />
 
+    <!--
     <TextView
         android:id="@+id/Leaderboard_ScoreUserTextView"
         android:layout_width="86dp"
@@ -153,7 +154,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/Leaderboard_UsernameUserTextView"
-        app:layout_constraintTop_toBottomOf="@+id/Leaderboard_Score5TextView" />
+        app:layout_constraintTop_toBottomOf="@+id/Leaderboard_Score5TextView" /> -->
 
     <TextView
         android:id="@+id/Leaderboard_Score3TextView"
@@ -261,6 +262,7 @@
         app:layout_constraintStart_toEndOf="@+id/Leaderboard_Rank1TextView"
         app:layout_constraintTop_toBottomOf="@+id/Leaderboard_Username4TextView" />
 
+    <!--
     <TextView
         android:id="@+id/Leaderboard_UsernameUserTextView"
         android:layout_width="218dp"
@@ -275,7 +277,7 @@
         android:textSize="30sp"
         app:autoSizeMinTextSize="@android:dimen/notification_large_icon_height"
         app:layout_constraintStart_toEndOf="@+id/Leaderboard_RankUserTextView"
-        app:layout_constraintTop_toBottomOf="@+id/Leaderboard_Username5TextView" />
+        app:layout_constraintTop_toBottomOf="@+id/Leaderboard_Username5TextView" /> -->
 
     <TextView
         android:id="@+id/Leaderboard_Username3TextView"
@@ -304,7 +306,7 @@
         android:background="@android:color/black"
         android:fontFamily="@font/arcade_classic"
         android:gravity="center"
-        android:text="#2"
+        android:text="Rank 2"
         android:textAppearance="@style/CardView.Dark"
         android:textColor="@android:color/secondary_text_light_nodisable"
         android:textSize="30sp"
@@ -321,7 +323,7 @@
         android:background="@android:color/black"
         android:fontFamily="@font/arcade_classic"
         android:gravity="center"
-        android:text="#3"
+        android:text="Rank 3"
         android:textAppearance="@style/CardView.Dark"
         android:textColor="@android:color/secondary_text_light_nodisable"
         android:textSize="30sp"
@@ -338,7 +340,7 @@
         android:background="@android:color/black"
         android:fontFamily="@font/arcade_classic"
         android:gravity="center"
-        android:text="#4"
+        android:text="Rank 4"
         android:textAppearance="@style/CardView.Dark"
         android:textColor="@android:color/secondary_text_light_nodisable"
         android:textSize="30sp"
@@ -355,7 +357,7 @@
         android:background="@android:color/black"
         android:fontFamily="@font/arcade_classic"
         android:gravity="center"
-        android:text="#5"
+        android:text="Rank 5"
         android:textAppearance="@style/CardView.Dark"
         android:textColor="@android:color/secondary_text_light_nodisable"
         android:textSize="30sp"
@@ -363,6 +365,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Leaderboard_Rank4TextView" />
 
+    <!--
     <TextView
         android:id="@+id/Leaderboard_RankUserTextView"
         android:layout_width="86dp"
@@ -378,6 +381,6 @@
         android:textSize="30sp"
         app:autoSizeMinTextSize="@android:dimen/notification_large_icon_height"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Leaderboard_Rank5TextView" />
+        app:layout_constraintTop_toBottomOf="@+id/Leaderboard_Rank5TextView" /> -->
 
 </android.support.constraint.ConstraintLayout>
