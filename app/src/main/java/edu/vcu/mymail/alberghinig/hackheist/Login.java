@@ -79,7 +79,7 @@ public class Login extends AppCompatActivity {
         loginButton.setOnClickListener(loginQuery);
         switchToSignupButton.setOnClickListener(switchToSignupScreen);
     }
-
+    
     private boolean isValidLoginCredentials(DBController controller, String userOrEmail, String password){
 
         for(User u : controller.getListOfUsers())
