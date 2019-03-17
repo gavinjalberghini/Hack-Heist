@@ -32,7 +32,7 @@
         android:layout_width="301dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="12dp"
         android:layout_marginEnd="8dp"
         android:ems="10"
         android:gravity="center"
@@ -40,20 +40,20 @@
         android:inputType="text"
         android:text=""
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.446"
+        app:layout_constraintHorizontal_bias="0.489"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Forgot_SendSecurityQuestionButton" />
+        app:layout_constraintTop_toBottomOf="@+id/Forgot_SecurityQuestionTextView" />
 
     <CheckBox
         android:id="@+id/Forgot_UsernameCheckBox"
         android:layout_width="155dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="150dp"
         android:text="Username"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.081"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Forgot_SecurityQuestionAnswerInputField" />
 
@@ -66,6 +66,7 @@
         android:layout_marginEnd="150dp"
         android:text="Password"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.08"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Forgot_UsernameCheckBox" />
 
@@ -97,14 +98,14 @@
         app:layout_constraintTop_toBottomOf="@+id/Forgot_FlavorTextView" />
 
     <Button
-        android:id="@+id/Forgot_SendSecurityQuestionButton"
+        android:id="@+id/Forgot_DisplaySecurityQuestionButton"
         android:layout_width="304dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:gravity="center"
-        android:text="Send My Security Question"
+        android:text="Display My Security Question"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Forgot_EmailInputField" />
@@ -132,5 +133,42 @@
         app:layout_constraintStart_toEndOf="@+id/Forgot_VCUImage"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/btn_dialog" />
+
+    <TextView
+        android:id="@+id/Forgot_SecurityQuestionTextView"
+        android:layout_width="303dp"
+        android:layout_height="121dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center_horizontal|center_vertical"
+        android:hint="Security Question"
+        app:layout_constraintEnd_toEndOf="@+id/Forgot_SecurityQuestionAnswerInputField"
+        app:layout_constraintStart_toStartOf="@+id/Forgot_SecurityQuestionAnswerInputField"
+        app:layout_constraintTop_toBottomOf="@+id/Forgot_DisplaySecurityQuestionButton" />
+
+    <TextView
+        android:id="@+id/Forgot_UsernameTextView"
+        android:layout_width="220dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="8dp"
+        android:gravity="center_horizontal|center_vertical"
+        android:hint="--Username--"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/Forgot_UsernameCheckBox"
+        app:layout_constraintTop_toBottomOf="@+id/Forgot_SecurityQuestionAnswerInputField" />
+
+    <TextView
+        android:id="@+id/Forgot_PasswordTextView"
+        android:layout_width="220dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:gravity="center_horizontal|center_vertical"
+        android:hint="--Password--"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/Forgot_UsernameCheckBox"
+        app:layout_constraintTop_toBottomOf="@+id/Forgot_UsernameTextView" />
 </android.support.constraint.ConstraintLayout>
 </ScrollView>
