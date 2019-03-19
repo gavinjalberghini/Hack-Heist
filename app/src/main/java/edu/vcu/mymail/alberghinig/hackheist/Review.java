@@ -45,11 +45,16 @@ public class Review extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                String emailBody = reviewAnswer.getText().toString();
+                String reviewScore = "Review Score : " + ratingBar.getRating();
+                emailBody += "\n\n"  + reviewScore;
+
+
                 Intent i = new Intent(Intent.ACTION_SEND);
                 i.setType("message/rfc822");
-                i.putExtra(Intent.EXTRA_EMAIL  , new String[]{"gavinjalberghini@gmail.com"});
-                i.putExtra(Intent.EXTRA_SUBJECT, "subject of email");
-                i.putExtra(Intent.EXTRA_TEXT   , "body of email");
+                i.putExtra(Intent.EXTRA_EMAIL  , new String[]{"gavinalberghini@yahoo.com"});
+                i.putExtra(Intent.EXTRA_SUBJECT, "Hack Heist Review");
+                i.putExtra(Intent.EXTRA_TEXT   , emailBody);
                 try {
                     startActivity(Intent.createChooser(i, "Send mail..."));
                 } catch (android.content.ActivityNotFoundException ex) {
