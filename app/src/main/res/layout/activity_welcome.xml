@@ -2,6 +2,7 @@
 
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:fillViewport="true">
@@ -43,16 +44,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Welcome_LoginButton" />
 
-    <Button
-        android:id="@+id/Welcome_HelpButton"
-        android:layout_width="157dp"
-        android:layout_height="56dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="16dp"
-        android:text="@string/help"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Welcome_SignupButton" />
-
     <ImageView
         android:id="@+id/Welcome_TitleImage"
         android:layout_width="275dp"
@@ -68,16 +59,13 @@
 
     <Button
         android:id="@+id/Welcome_ForgotButton"
-        android:layout_width="wrap_content"
+        android:layout_width="157dp"
         android:layout_height="56dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
         android:text="@string/forgot_something"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Welcome_InfoButton" />
+        app:layout_constraintTop_toBottomOf="@+id/Welcome_SignupButton" />
 
     <ImageView
         android:id="@+id/Welcome_MainLogoImage"

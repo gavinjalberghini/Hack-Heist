@@ -16,7 +16,6 @@ public class Welcome extends AppCompatActivity {
         Button loginButton = findViewById(R.id.Welcome_LoginButton);
         Button signUpButton = findViewById(R.id.Welcome_SignupButton);
         Button infoButton = findViewById(R.id.Welcome_InfoButton);
-        Button helpButton = findViewById(R.id.Welcome_HelpButton);
         Button forgotButton = findViewById(R.id.Welcome_ForgotButton);
 
         View.OnClickListener loginEvent = new View.OnClickListener() {
@@ -43,14 +42,6 @@ public class Welcome extends AppCompatActivity {
             }
         };
 
-        View.OnClickListener helpEvent = new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent I = new Intent(getApplicationContext(), Help.class);
-                startActivity(I);
-            }
-        };
-
         View.OnClickListener forgotEvent = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -62,7 +53,6 @@ public class Welcome extends AppCompatActivity {
         loginButton.setOnClickListener(loginEvent);
         signUpButton.setOnClickListener(signupEvent);
         infoButton.setOnClickListener(infoEvent);
-        helpButton.setOnClickListener(helpEvent);
         forgotButton.setOnClickListener(forgotEvent);
     }
 }

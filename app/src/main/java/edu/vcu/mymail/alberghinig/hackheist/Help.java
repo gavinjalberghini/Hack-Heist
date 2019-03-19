@@ -27,7 +27,7 @@ public class Help extends AppCompatActivity {
         View.OnClickListener goBackEvent = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent I = new Intent(getApplicationContext(), Welcome.class);
+                Intent I = new Intent(getApplicationContext(), MainMenu.class);
                 startActivity(I);
             }
         };
@@ -53,7 +53,7 @@ public class Help extends AppCompatActivity {
                 }
 
                 questionForDev.setText("");
-                Intent welc = new Intent(getApplicationContext(), Welcome.class);
+                Intent welc = new Intent(getApplicationContext(), MainMenu.class);
                 startActivity(welc);
             }
         };
