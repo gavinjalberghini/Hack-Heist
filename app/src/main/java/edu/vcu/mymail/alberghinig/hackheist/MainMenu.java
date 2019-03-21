@@ -18,6 +18,8 @@ public class MainMenu extends AppCompatActivity {
         Button resetDataButton = findViewById(R.id.MainMenu_ResetButton);
         Button helpButton = findViewById(R.id.MainMenu_HelpScreenButton);
         Button userSettingsButton = findViewById(R.id.MainMenu_UserSettingsButton);
+        Button logoutButton = findViewById(R.id.MainMenu_LogoutButton);
+
 
         View.OnClickListener campaignEvent = new View.OnClickListener() {
             @Override
@@ -57,11 +59,20 @@ public class MainMenu extends AppCompatActivity {
             }
         };
 
+        View.OnClickListener logoutEvent = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent I = new Intent(getApplicationContext(), Welcome.class);
+                startActivity(I);
+            }
+        };
+
         campaignButton.setOnClickListener(campaignEvent);
         leaderBoardButton.setOnClickListener(leaderboardEvent);
         resetDataButton.setOnClickListener(resetDataEvent);
         helpButton.setOnClickListener(helpEvent);
         userSettingsButton.setOnClickListener(userSettingsEvent);
+        logoutButton.setOnClickListener(logoutEvent);
 
     }
 }

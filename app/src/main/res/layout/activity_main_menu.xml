@@ -88,5 +88,18 @@
             app:layout_constraintEnd_toEndOf="@+id/MainMenu_PrimaryButtonsImage"
             app:layout_constraintTop_toBottomOf="@+id/MainMenu_HelpScreenButton" />
 
+        <Button
+            android:id="@+id/MainMenu_LogoutButton"
+            android:layout_width="374dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="LOGOUT"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/MainMenu_PrimaryButtonsImage" />
+
     </android.support.constraint.ConstraintLayout>
 </ScrollView>
