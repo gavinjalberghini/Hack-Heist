@@ -5,21 +5,21 @@
 | ------ | ------ | ------ | ------ | ------ | ------ | ------ | ------ | ------ | ------ | ------ | ------ |
 | What did you complete since last meeting? | Gavin | Organizational tasks performed with the team. Assigned meeting dates for sprint two and work distribution. | Made design decisions for remote database and design of game information table. |  |  |  |  |  |  |  |  |
 |  | Joseph | I have assigned issues for myself and set out progress goals for this sprint. I have installed Unity, the software we will be using to build the levels that will be placed within our app. | I cleaned up branches in preparation for the wave of work for this sprint. | I worked on my issues using Unity. I am researching how to create the foundation of the top-down 2D game. I also gathered assets to be placed that will create the mazes, and import objects for scenery and characters. |  |  |  |  |  |  |  |
-|  | Sinead | Documented meeting dates and times. Figured out what each team member will be working on for Sprint 2. | Documentation and added the logout button to the main menu screen. |  |  |  |  |  |  |  |  |
-|  | Austen | Successfully imported a Unity project into an existing Android Studio project. | Began level design and work on NPC sprites for the game |  |  |  |  |  |  |  |  |
+|  | Sinead | Documented meeting dates and times. Figured out what each team member will be working on for Sprint 2. | Documentation and added the logout button to the main menu screen. | Updated the README file to properly explain where different files can be found and worked on my other issues. |  |  |  |  |  |  |  |
+|  | Austen | Successfully imported a Unity project into an existing Android Studio project. | Began level design and work on NPC sprites for the game | completed sprite work as well as doing research into how to communicate between an Unity application and an Android application |  |  |  |  |  |  |  |
 | What will you accomplish before the next meeting? | Gavin | Hopefully the sprint one meeting with the client so that issues that weren't finished can be rolled over. | Extending the local database to contain game data. |  |  |  |  |  |  |  |  |
 |  | Joseph | I have many issues all tied to learning unity and creating the main functional game components. |  I have many issues all tied to learning unity and creating the main functional game components. |  I have many issues all tied to learning unity and creating the main functional game components. I create the layout of level in unity. |  |  |  |  |  |  |  |
-|  | Sinead | Begin working on assigned issues for Sprint 2 and complete testing from Sprint 1. | Work on my assigned issues, including updating the README and finishing tests. |  |  |  |  |  |  |  |  |
-|  | Austen | I will look more into communicating between a Unity project and an Android Studio app, as well as working on sprites and level designs for the app. | Continue designing sprites for NPCs in the game |  |  |  |  |  |  |  |  |
+|  | Sinead | Begin working on assigned issues for Sprint 2 and complete testing from Sprint 1. | Work on my assigned issues, including updating the README and finishing tests. | Continue documentation and working on assigned issues. |  |  |  |  |  |  |  |
+|  | Austen | I will look more into communicating between a Unity project and an Android Studio app, as well as working on sprites and level designs for the app. | Continue designing sprites for NPCs in the game | continue work on sprites as well as attempting to implement the method of communication between android and unity |  |  |  |  |  |  |  |
 | Do you have anything that's getting in the way of doing your work? | Gavin | Not currently. | Not currently. |  |  |  |  |  |  |  |  |
 |  | Joseph | I have two other tests during the later half of this sprint. | I have two other tests during the later half of this sprint. | I have two other tests during the later half of this sprint. |  |  |  |  |  |  |  |
-|  | Sinead | Not currently | Not currently |  |  |  |  |  |  |  |  |
-|  | Austen | Nothing is currently getting in the way of my work. | Nothing is currently getting in the way of my work |  |  |  |  |  |  |  |  |
+|  | Sinead | Not currently | Not currently | Handling car problems |  |  |  |  |  |  |  |
+|  | Austen | Nothing is currently getting in the way of my work. | Nothing is currently getting in the way of my work | not currently being able to communicate between a unity app and an android one |  |  |  |  |  |  |  |
 | What insights have you made? | Gavin | Recently discovered that we will have a mostly encapsulated game experience in Unity. | Nothing as of yet. |  |  |  |  |  |  |  |  |
 |  | Joseph | Working together is a good way to stay on it. | Working together is a good way to stay on it. | Working together is a good way to stay on it. |  |  |  |  |  |  |  |
-|  | Sinead | We get the most work done when we meet in person. | Nothing yet. |  |  |  |  |  |  |  |  |
-|  | Austen | Learning how to integrate Unity scenes into Android apps. | NPCs that don't move don't need to be animated |  |  |  |  |  |  |  |  |
+|  | Sinead | We get the most work done when we meet in person. | Nothing yet. | Nothing new |  |  |  |  |  |  |  |
+|  | Austen | Learning how to integrate Unity scenes into Android apps. | NPCs that don't move don't need to be animated | Sending data to a unity project running within an android app is not a simple task |  |  |  |  |  |  |  |
 | Do any changes to the project need to be made as a result of your work? | Gavin | Not currently. | Not Currently |  |  |  |  |  |  |  |  |
 |  | Joseph | No. | No. | No. |  |  |  |  |  |  |  |
-|  | Sinead | Not currently | No. |  |  |  |  |  |  |  |  |
-|  | Austen | No changes currently need to be made due to my work. | No changes currently need to be made due to my work |  |  |  |  |  |  |  |  |
+|  | Sinead | Not currently | No. | Not currently |  |  |  |  |  |  |  |
+|  | Austen | No changes currently need to be made due to my work. | No changes currently need to be made due to my work | No changes currently need to be made; however, if I cannot find an efficient mode of communication changes will need to be made. |  |  |  |  |  |  |  |
