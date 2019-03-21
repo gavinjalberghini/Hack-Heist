@@ -38,7 +38,7 @@ public class Help extends AppCompatActivity {
 
                 Toast errorPopUp = Toast.makeText(getApplicationContext(), "", Toast.LENGTH_LONG);
 
-                try{String question = questionForDev.getText().toString();}catch(Exception e){errorPopUp.setText("Invalid/Empty Email");errorPopUp.show();return;}
+                try{String question = questionForDev.getText().toString();}catch(Exception e){errorPopUp.setText("Invalid/Empty Question");errorPopUp.show();return;}
                 String emailBody = questionForDev.getText().toString();
 
                 Intent i = new Intent(Intent.ACTION_SEND);
@@ -46,6 +46,7 @@ public class Help extends AppCompatActivity {
                 i.putExtra(Intent.EXTRA_EMAIL  , new String[]{"gavinalberghini@yahoo.com"});
                 i.putExtra(Intent.EXTRA_SUBJECT, "Hack Heist Question");
                 i.putExtra(Intent.EXTRA_TEXT   , emailBody);
+
                 try {
                     startActivity(Intent.createChooser(i, "Send mail..."));
                 } catch (android.content.ActivityNotFoundException ex) {
@@ -53,8 +54,6 @@ public class Help extends AppCompatActivity {
                 }
 
                 questionForDev.setText("");
-                Intent welc = new Intent(getApplicationContext(), MainMenu.class);
-                startActivity(welc);
             }
         };
 
