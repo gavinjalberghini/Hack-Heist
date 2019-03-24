@@ -55,19 +55,21 @@ public class SignUpTest {
     @Test
     public void loginPageLoginButton() {
         //Check the login button on the start up screen goes to the help page
-        Espresso.onView(withId(R.id.SignUp_EmailInputField)).perform(clearText(), typeText("abd@gmail.com"));
+        Espresso.onView(withId(R.id.SignUp_EmailInputField)).perform(clearText(), typeText("smfoley2nd@gmail.com"));
         pauseTestFor(500);
-        Espresso.onView(withId(R.id.SignUp_UsernameInputField)).perform(scrollTo(), clearText(), typeText("12345678"));
+        Espresso.onView(withId(R.id.SignUp_UsernameInputField)).perform(scrollTo(), clearText(), typeText("smfoleyy"));
         pauseTestFor(500);
-        Espresso.onView(withId(R.id.SignUp_NameInputField)).perform(scrollTo(), clearText(), typeText("12345678"));
+        Espresso.onView(withId(R.id.SignUp_FirstNameInputField)).perform(scrollTo(), clearText(), typeText("Sinead"));
+        pauseTestFor(500);
+        Espresso.onView(withId(R.id.SignUp_LastNameInputField)).perform(scrollTo(), clearText(), typeText("Foley"));
         pauseTestFor(500);
         Espresso.onView(withId(R.id.SignUp_PasswordInputField)).perform(scrollTo(), clearText(), typeText("12345678"));
         pauseTestFor(500);
         Espresso.onView(withId(R.id.SignUp_ConfirmPasswordInputField)).perform(scrollTo(), clearText(), typeText("12345678"));
         pauseTestFor(500);
-        Espresso.onView(withId(R.id.SignUp_SecurityQuestionInputField)).perform(scrollTo(), clearText(), typeText("12345678"));
+        Espresso.onView(withId(R.id.SignUp_SecurityQuestionInputField)).perform(scrollTo(), clearText(), typeText("Pet's Name"));
         pauseTestFor(500);
-        Espresso.onView(withId(R.id.SignUp_SecurityQuestionAnswerInputField)).perform(scrollTo(), clearText(), typeText("12345678"));
+        Espresso.onView(withId(R.id.SignUp_SecurityQuestionAnswerInputField)).perform(scrollTo(), clearText(), typeText("Coastal"));
         pauseTestFor(500);
         Espresso.onView(withId(R.id.SignUp_CreateAccountButton)).perform(scrollTo(), click());
         intended(hasComponent(hasClassName(MainMenu.class.getName())));

@@ -38,13 +38,6 @@ public class WelcomeTest {
     public IntentsTestRule<Welcome> startupIntentsTestRule = new IntentsTestRule<Welcome>(Welcome.class);
 
     @Test
-    public void welcomePageHelpButton() {
-        //Check the help button on the start up screen goes to the help page
-        Espresso.onView(withId(R.id.Welcome_HelpButton)).perform(click());
-        intended(hasComponent(hasClassName(Help.class.getName())));
-    }
-
-    @Test
     public void welcomePageLoginButton() {
         //Check the login button on the start up screen goes to the login page
         Espresso.onView(withId(R.id.Welcome_LoginButton)).perform(click());

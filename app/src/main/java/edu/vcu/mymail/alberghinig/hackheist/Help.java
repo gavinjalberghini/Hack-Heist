@@ -19,8 +19,8 @@ public class Help extends AppCompatActivity {
         setContentView(R.layout.activity_help);
 
         ImageButton backButton = findViewById(R.id.Help_BackButton);
-        final EditText questionForDev = findViewById(R.id.Review_ReviewCommentInputField);
-        final Button submitButton = findViewById(R.id.Review_SubmitButton);
+        final EditText questionForDev = findViewById(R.id.Help_DevQuestionText);
+        final Button submitButton = findViewById(R.id.Help_SubmitButton);
         questionForDev.setImeOptions(EditorInfo.IME_ACTION_DONE);
         questionForDev.setRawInputType(InputType.TYPE_CLASS_TEXT);
 

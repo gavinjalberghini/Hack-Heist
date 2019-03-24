@@ -59,7 +59,7 @@ public class LoginTest {
     @Test
     public void loginPageLoginButton() {
         //Check the login button on the login screen goes to the main menu page
-        Espresso.onView(withId(R.id.Login_UsernameOrEmailInputField)).perform(clearText(), typeText("abd@gmail.com"));
+        Espresso.onView(withId(R.id.Login_UsernameOrEmailInputField)).perform(clearText(), typeText("smfoleyy"));
         pauseTestFor(500);
         Espresso.onView(withId(R.id.Login_PasswordInputField)).perform(scrollTo(), clearText(), typeText("12345678"));
         pauseTestFor(500);

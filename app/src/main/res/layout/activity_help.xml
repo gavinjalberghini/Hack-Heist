@@ -130,7 +130,7 @@
         app:srcCompat="@drawable/keycard" />
 
     <EditText
-        android:id="@+id/Review_ReviewCommentInputField"
+        android:id="@+id/Help_DevQuestionText"
         android:layout_width="314dp"
         android:layout_height="257dp"
         android:layout_marginTop="8dp"
@@ -146,7 +146,7 @@
         app:layout_constraintTop_toBottomOf="@+id/Help_QuestionsForDevsTextView" />
 
     <Button
-        android:id="@+id/Review_SubmitButton"
+        android:id="@+id/Help_SubmitButton"
         android:layout_width="325dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -155,7 +155,7 @@
         android:text="Submit"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Review_ReviewCommentInputField" />
+        app:layout_constraintTop_toBottomOf="@+id/Help_DevQuestionText" />
 
     <TextView
         android:id="@+id/Help_QuestionsForDevsTextView"
