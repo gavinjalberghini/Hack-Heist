@@ -42,7 +42,7 @@ public class DevInformationTests {
     @Test
     public void devInformationPageBackButton() {
         //Check the back button
-        Espresso.onView(withId(R.id.DevInformation_BackButton)).perform(scrollTo(), click());
+        Espresso.onView(withId(R.id.DevInformation_BackButton)).perform(click());
         intended(hasComponent(hasClassName(Welcome.class.getName())));
     }
 

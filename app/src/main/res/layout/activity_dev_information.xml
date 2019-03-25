@@ -25,7 +25,8 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
-        android:text="THe HackHeist development team consists of four Computer Science students at the Virginia Commonwealth University School of Engineering."
+        android:text="The HackHeist development team consists of four VCU Engineering students studying Computer Science: Gavin Alberghini, Austin Gralheer, Joseph Hamlett, and Sinead Foley. The team was tasked with creating an Android application that teaches college level students how to write pseudocode and Java programs. We hope that you enjoy playing our game and that it encourages you to kick off a career in coding! "
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/DevInformation_TeamAboutImage" />

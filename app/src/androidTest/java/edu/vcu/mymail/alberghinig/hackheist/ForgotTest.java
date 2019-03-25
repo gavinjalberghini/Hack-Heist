@@ -39,11 +39,35 @@ public class ForgotTest {
     @Rule
     public IntentsTestRule<Forgot> helpIntentsTestRule = new IntentsTestRule<Forgot>(Forgot.class);
 
+    private void pauseTestFor(long milliseconds) {
+        try {
+            Thread.sleep(milliseconds);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
     @Test
     public void ForgotPageBackButton() {
         //Check the back button
         Espresso.onView(withId(R.id.Forgot_BackButton)).perform(scrollTo(), click());
         intended(hasComponent(hasClassName(Welcome.class.getName())));
     }
+
+    /*@Test
+    public void displaySecurityQuestionButton() {
+        //Check the back button
+        Espresso.onView(withId(R.id.Forgot_EmailInputField)).perform(clearText(), typeText("smfoley2nd@gmail.com"));
+        pauseTestFor(500);
+        Espresso.onView(withId(R.id.Forgot_SecurityQuestionTextView)).perform(scrollTo(), clearText(), typeText("Dog's Name"));
+        pauseTestFor(500);
+        Espresso.onView(withId(R.id.Forgot_SecurityQuestionAnswerInputField)).perform(scrollTo(), clearText(), typeText("Coastal"));
+        pauseTestFor(500);
+        Espresso.onView(withId(R.id.Forgot_UsernameCheckBox)).perform(scrollTo(), click());
+        Espresso.onView(withId(R.id.Forgot_PasswordCheckBox)).perform(scrollTo(), click());
+        Espresso.onView(withId(R.id.Forgot_DisplaySecurityQuestionButton)).perform(scrollTo(), click());
+
+        //intended(hasComponent(hasClassName(Welcome.class.getName())));
+    }*/
 
 }
