@@ -10,6 +10,16 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 public class Login extends AppCompatActivity {
 
     ActiveUser activeUser = new ActiveUser(true);
@@ -19,7 +29,10 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        final DBController controller = new DBController(this);
+        final JSONHelper helper = new JSONHelper();
+
+        final RequestQueue requestQueue = VolleySingleton.getInstance(this.getApplicationContext()).
+                getRequestQueue();
 
         final EditText usernameOrEmailTextBox = findViewById(R.id.Login_UsernameOrEmailInputField);
         final EditText passwordTextBox = findViewById(R.id.Login_PasswordInputField);
@@ -41,10 +54,10 @@ public class Login extends AppCompatActivity {
 
                 Toast errorPopUp = Toast.makeText(getApplicationContext(), "", Toast.LENGTH_LONG);
 
-                try{
+                try {
                     String usernameOrEmail = usernameOrEmailTextBox.getText().toString();
                     String password = passwordTextBox.getText().toString();
-                } catch(Exception e){
+                } catch (Exception e) {
                     errorPopUp.setText("Invalid input");
                     errorPopUp.show();
                     return;
@@ -53,16 +66,7 @@ public class Login extends AppCompatActivity {
                 String usernameOrEmail = usernameOrEmailTextBox.getText().toString();
                 String password = passwordTextBox.getText().toString();
 
-                if(!isValidLoginCredentials(controller, usernameOrEmail, password)) {
-                    errorPopUp.setText("Your username or password is incorrect");
-                    errorPopUp.show();
-                    return;
-                }
-
-                activeUser = new ActiveUser(loadUser(controller, usernameOrEmail, password));
-
-                Intent I = new Intent(getApplicationContext(), MainMenu.class);
-                startActivity(I);
+                login(helper, requestQueue, usernameOrEmail, password, errorPopUp);
 
             }
         };
@@ -79,25 +83,46 @@ public class Login extends AppCompatActivity {
         loginButton.setOnClickListener(loginQuery);
         switchToSignupButton.setOnClickListener(switchToSignupScreen);
     }
-    
-    private boolean isValidLoginCredentials(DBController controller, String userOrEmail, String password){
 
-        for(User u : controller.getListOfUsers())
-            Log.d("User", u.toString());
+    private void login(final JSONHelper helper, RequestQueue requestQueue, String usernameOrEmail, String password, final Toast errorPopUp) {
 
-        for(User u : controller.getListOfUsers())
-            if(userOrEmail.equalsIgnoreCase(u.getUsername()) || userOrEmail.equalsIgnoreCase(u.getEmail()) && password.equals(u.getPassword()))
-               return true;
+        try {
 
-        return false;
-    }
+            JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, helper.getSingleUserURL(), helper.loginInfoAsJSON(usernameOrEmail, password),
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        Log.d("REPLY FROM PHP", response.toString());
+                        helper.decodeJSONIntoActiveUser(response);
 
-    private User loadUser(DBController controller, String userOrEmail, String password){
-        for(User u : controller.getListOfUsers())
-            if(userOrEmail.equalsIgnoreCase(u.getUsername()) || userOrEmail.equalsIgnoreCase(u.getEmail()) && password.equals(u.getPassword()))
-                return u;
+                        ActiveUser currentUser = new ActiveUser(false);
 
-        return null;
+                        if(currentUser.getFirstName() != null) {
+                            Intent I = new Intent(getApplicationContext(), MainMenu.class);
+                            startActivity(I);
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        String serverResp = "Error: " + error;
+                        Log.d("VOLLEY ERROR ", serverResp);
+                        errorPopUp.setText("Login credentials are incorrect");
+                        errorPopUp.show();
+                    }
+                });
+
+            Log.d("URL REQUEST", jsonObjectRequest.toString());
+
+            requestQueue.add(jsonObjectRequest);
+
+        }catch(Exception e){
+            String msg = "TRY CATCH FAILURE " + e.toString();
+            Log.d("VOLLEY ERROR ", msg);
+            e.printStackTrace();
+        }
+
     }
 
 }

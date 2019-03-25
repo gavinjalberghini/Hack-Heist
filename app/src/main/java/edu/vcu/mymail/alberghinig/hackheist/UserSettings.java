@@ -3,10 +3,19 @@ package edu.vcu.mymail.alberghinig.hackheist;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Toast;
+
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+
+import org.json.JSONObject;
 
 public class UserSettings extends AppCompatActivity {
 
@@ -15,7 +24,9 @@ public class UserSettings extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_settings);
 
-        final DBController controller = new DBController(this);
+        final JSONHelper helper = new JSONHelper();
+        final RequestQueue requestQueue = VolleySingleton.getInstance(this.getApplicationContext()).
+                getRequestQueue();
 
         Button resetAccountInfoButton = findViewById(R.id.UserSettings_ResetDataButton);
         Button deleteAccountButton = findViewById(R.id.UserSettings_DeleteAccountButton);
@@ -39,11 +50,7 @@ public class UserSettings extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 ActiveUser currentUser = new ActiveUser(false);
-                controller.deleteUser(currentUser);
-                ActiveUser clearUser = new ActiveUser(true);
-                deleteSuccessPopUp.show();
-                Intent I = new Intent(getApplicationContext(), Welcome.class);
-                startActivity(I);
+                deleteUser(helper, requestQueue, currentUser, deleteSuccessPopUp);
             }
         };
 
@@ -85,6 +92,44 @@ public class UserSettings extends AppCompatActivity {
         resetAccountInfoButton.setOnClickListener(resetEvent);
         deleteAccountButton.setOnClickListener(deleteEvent);
         leaveAReviewButton.setOnClickListener(leaveReviewEvent);
+
+    }
+
+    private void deleteUser(final JSONHelper helper, RequestQueue requestQueue, ActiveUser user, final Toast popUp) {
+
+        try {
+
+            JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, helper.getDeleteUserURL(), helper.wrapUserAsJson(user),
+                    new Response.Listener<JSONObject>() {
+                        @Override
+                        public void onResponse(JSONObject response) {
+                            Log.d("REPLY FROM PHP", response.toString());
+                            popUp.setText("Account Deleted");
+                            popUp.show();
+                            ActiveUser clearUser = new ActiveUser(true);
+                            Intent I = new Intent(getApplicationContext(), Welcome.class);
+                            startActivity(I);
+                        }
+                    },
+                    new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            String serverResp = "Error: " + error;
+                            Log.d("VOLLEY ERROR ", serverResp);
+                            popUp.setText("Deletion Failure");
+                            popUp.show();
+                        }
+                    });
+
+            Log.d("URL REQUEST", jsonObjectRequest.toString());
+
+            requestQueue.add(jsonObjectRequest);
+
+        }catch(Exception e){
+            String msg = "TRY CATCH FAILURE " + e.toString();
+            Log.d("VOLLEY ERROR ", msg);
+            e.printStackTrace();
+        }
 
     }
 

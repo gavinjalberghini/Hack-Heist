@@ -12,6 +12,14 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+
+import org.json.JSONObject;
+
 public class SetSecurityQuestion extends AppCompatActivity {
 
     @Override
@@ -19,7 +27,9 @@ public class SetSecurityQuestion extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_set_security_question);
 
-        final DBController controller = new DBController(this);
+        final JSONHelper helper = new JSONHelper();
+        final RequestQueue requestQueue = VolleySingleton.getInstance(this.getApplicationContext()).
+                getRequestQueue();
 
         final EditText securityQuestion = findViewById(R.id.SetSecurityQuestion_QuestionInputField);
         final EditText securityQuestionAnswer = findViewById(R.id.SetSecurityQuestion_AnswerInputField);
@@ -68,13 +78,11 @@ public class SetSecurityQuestion extends AppCompatActivity {
 
                 ActiveUser currentUser = new ActiveUser(false);
 
-                if(isValidLoginCredentials(controller, currentUser.getUsername(), passwordString)){
+                if(passwordString.equals(currentUser.getPassword())){
                     currentUser.setSecurityQuestion(securityQuestionString);
                     currentUser.setSecurityQuestionAnswer(securityQuestionAnswerString);
-                    controller.updateUserSecurityColumn(currentUser);
-                    successPopUp.show();
-                    Intent I = new Intent(getApplicationContext(), UserSettings.class);
-                    startActivity(I);
+                    updateUserInfo(helper, requestQueue, currentUser, incorrectPasswordPopUp);
+
                 }else{
                     incorrectPasswordPopUp.show();
                     return;
@@ -88,16 +96,42 @@ public class SetSecurityQuestion extends AppCompatActivity {
 
     }
 
-    private boolean isValidLoginCredentials(DBController controller, String userOrEmail, String password){
+    private void updateUserInfo(final JSONHelper helper, RequestQueue requestQueue, ActiveUser user, final Toast popUp) {
 
-        for(User u : controller.getListOfUsers())
-            Log.d("User", u.toString());
+        try {
 
-        for(User u : controller.getListOfUsers())
-            if(userOrEmail.equalsIgnoreCase(u.getUsername()) || userOrEmail.equalsIgnoreCase(u.getEmail()) && password.equals(u.getPassword()))
-                return true;
+            JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, helper.getUpdateUserURL(), helper.wrapUserAsJson(user),
+                    new Response.Listener<JSONObject>() {
+                        @Override
+                        public void onResponse(JSONObject response) {
+                            Log.d("REPLY FROM PHP", response.toString());
+                            popUp.setText("Update Successful");
+                            popUp.show();
+                            Intent I = new Intent(getApplicationContext(), UserSettings.class);
+                            startActivity(I);
+                        }
+                    },
+                    new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            String serverResp = "Error: " + error;
+                            Log.d("VOLLEY ERROR ", serverResp);
+                            popUp.setText("Login credentials are incorrect");
+                            popUp.show();
+                        }
+                    });
 
-        return false;
+            Log.d("URL REQUEST", jsonObjectRequest.toString());
+
+            requestQueue.add(jsonObjectRequest);
+
+        }catch(Exception e){
+            String msg = "TRY CATCH FAILURE " + e.toString();
+            Log.d("VOLLEY ERROR ", msg);
+            e.printStackTrace();
+        }
+
     }
+
 
 }

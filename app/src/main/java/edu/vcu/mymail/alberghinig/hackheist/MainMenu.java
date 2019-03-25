@@ -3,6 +3,7 @@ package edu.vcu.mymail.alberghinig.hackheist;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -12,6 +13,9 @@ public class MainMenu extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
+
+        ActiveUser user = new ActiveUser(false);
+        Log.d("LOGGED IN USER FROM MM", user.toString());
 
         Button campaignButton = findViewById(R.id.MainMenu_CampaignButton);
         Button leaderBoardButton = findViewById(R.id.MainMenu_LeaderboardButton);
