@@ -1,10 +1,13 @@
 package edu.vcu.mymail.alberghinig.hackheist;
 
 import android.content.Intent;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class Welcome extends AppCompatActivity {
 
@@ -55,4 +58,5 @@ public class Welcome extends AppCompatActivity {
         infoButton.setOnClickListener(infoEvent);
         forgotButton.setOnClickListener(forgotEvent);
     }
+
 }
