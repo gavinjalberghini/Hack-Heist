@@ -1,6 +1,5 @@
 package edu.vcu.mymail.alberghinig.hackheist;
 
-import android.content.BroadcastReceiver;
 import android.content.Intent;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
@@ -12,7 +11,15 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
-import java.util.List;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+
+import org.json.JSONObject;
+
+import java.util.ArrayList;
 import java.util.regex.Pattern;
 
 public class SignUp extends AppCompatActivity {
@@ -44,9 +51,9 @@ public class SignUp extends AppCompatActivity {
 
         startHandler();
 
-
-        final DBController controller = new DBController(this);
-        //controller.clearLocalDB();
+        final JSONHelper helper = new JSONHelper();
+        final RequestQueue requestQueue = VolleySingleton.getInstance(this.getApplicationContext()).
+                getRequestQueue();
 
         ImageButton backButton = findViewById(R.id.SignUp_BackButton);
         Button createAccountButton = findViewById(R.id.SignUp_CreateAccountButton);
@@ -102,12 +109,6 @@ public class SignUp extends AppCompatActivity {
                     return;
                 }
 
-                if(isUsernameTaken(controller, username)){
-                    errorPopUp.setText("This username is taken");
-                    errorPopUp.show();
-                    return;
-                }
-
                 if(password.length() < 8){
                     errorPopUp.setText("Password must be at least 8 characters");
                     errorPopUp.show();
@@ -126,22 +127,8 @@ public class SignUp extends AppCompatActivity {
                     return;
                 }
 
-                if(isEmailTaken(controller, email)){
-                    errorPopUp.setText("This email is already tied to an account");
-                    errorPopUp.show();
-                    return;
-                }
-
                 User userInstance = new User(firstName, lastName, username, email, password, securityQuestion, securityQuestionAnswer);
-
-                controller.insertUser(userInstance);
-                controller.composeJSONfromSQLite();
-
-                userInstance = loadUser(controller, userInstance.getEmail(), userInstance.getPassword());
-                ActiveUser primaryUser = new ActiveUser(userInstance);
-
-                Intent I = new Intent(getApplicationContext(), MainMenu.class);
-                startActivity(I);
+                loadAllUsersForSignUpValidation(helper, requestQueue, errorPopUp, email, username, userInstance);
 
             }
         };
@@ -167,34 +154,104 @@ public class SignUp extends AppCompatActivity {
         return pat.matcher(email).matches();
     }
 
-    public static boolean isUsernameTaken(DBController controller, String username) {
+    private void loadAllUsersForSignUpValidation(final JSONHelper helper, final RequestQueue requestQueue, final Toast errorPopUp, final String email, final String username, final User userInstance) {
 
-        for(User u : controller.getListOfUsers())
-            if(username.equalsIgnoreCase(u.getUsername()))
-                return true;
+        try {
 
-        for(User u : controller.getListOfUsers())
-            Log.d("User", u.toString());
+            JSONObject blank = new JSONObject();
 
-        return false;
+            JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, helper.getAllUsersURL(), blank,
+                    new Response.Listener<JSONObject>() {
+                        @Override
+                        public void onResponse(JSONObject response) {
+                            Log.d("REPLY FROM PHP", response.toString());
+
+                            if(validateUsernameAndEmail(helper.decodeJsonIntoUserList(response),email,username,errorPopUp)){
+                                ActiveUser primaryUser = new ActiveUser(userInstance);
+                                createNewUser(helper, requestQueue, primaryUser, errorPopUp);
+                            } else {
+                                return;
+                            }
+
+                        }
+                    },
+                    new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            String serverResp = "Error: " + error;
+                            Log.d("VOLLEY ERROR ", serverResp);
+                            errorPopUp.setText("Error loading leaderboard");
+                            errorPopUp.show();
+                        }
+                    });
+
+            Log.d("URL REQUEST", jsonObjectRequest.toString());
+
+            requestQueue.add(jsonObjectRequest);
+
+        }catch(Exception e){
+            String msg = "TRY CATCH FAILURE " + e.toString();
+            Log.d("VOLLEY ERROR ", msg);
+            e.printStackTrace();
+        }
+
     }
 
-    public static boolean isEmailTaken(DBController controller, String username){
+    private static boolean validateUsernameAndEmail(ArrayList<User> users, String email, String username, Toast errorPopUp){
 
-        for(User u : controller.getListOfUsers())
-            if(username.equalsIgnoreCase(u.getUsername()))
-                return true;
+        for(User u:users){
+            if(u.getUsername().equalsIgnoreCase(username)) {
+                errorPopUp.setText("This username is taken");
+                errorPopUp.show();
+                return false;
+            }
+        }
 
-        return  false;
+        for(User u:users){
+            if(u.getEmail().equalsIgnoreCase(email)) {
+                errorPopUp.setText("This email is already tied to an account");
+                errorPopUp.show();
+                return false;
+            }
+        }
 
+        return true;
     }
 
-    private User loadUser(DBController controller, String userOrEmail, String password){
-        for(User u : controller.getListOfUsers())
-            if(userOrEmail.equalsIgnoreCase(u.getUsername()) || userOrEmail.equalsIgnoreCase(u.getEmail()) && password.equals(u.getPassword()))
-                return u;
+    private void createNewUser(final JSONHelper helper, RequestQueue requestQueue, final ActiveUser newUser, final Toast errorPopUp) {
 
-        return null;
+        try {
+
+            JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, helper.getCreateUserURL(), helper.wrapUserAsJson(newUser),
+                    new Response.Listener<JSONObject>() {
+                        @Override
+                        public void onResponse(JSONObject response) {
+                            Log.d("REPLY FROM PHP", response.toString());
+                            helper.decodeJSONIntoActiveUser(response);
+                            Intent I = new Intent(getApplicationContext(), MainMenu.class);
+                            startActivity(I);
+                        }
+                    },
+                    new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            String serverResp = "Error: " + error;
+                            Log.d("VOLLEY ERROR ", serverResp);
+                            errorPopUp.setText("Login credentials are incorrect");
+                            errorPopUp.show();
+                        }
+                    });
+
+            Log.d("URL REQUEST", jsonObjectRequest.toString());
+
+            requestQueue.add(jsonObjectRequest);
+
+        }catch(Exception e){
+            String msg = "TRY CATCH FAILURE " + e.toString();
+            Log.d("VOLLEY ERROR ", msg);
+            e.printStackTrace();
+        }
+
     }
 
     public void stopHandler() {
@@ -237,5 +294,4 @@ public class SignUp extends AppCompatActivity {
         Log.d("onDestroy", "onDestroyActivity change");
 
     }
-
 }

@@ -38,6 +38,8 @@ public class MainMenu extends AppCompatActivity {
 
         startHandler();
 
+        ActiveUser user = new ActiveUser(false);
+        Log.d("LOGGED IN USER FROM MM", user.toString());
 
         Button campaignButton = findViewById(R.id.MainMenu_CampaignButton);
         Button leaderBoardButton = findViewById(R.id.MainMenu_LeaderboardButton);

@@ -13,6 +13,17 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+
+import org.json.JSONObject;
+import org.w3c.dom.Text;
+
+import java.util.ArrayList;
+
 public class Forgot extends AppCompatActivity {
 
     private static String TAG = "Forgot";
@@ -45,7 +56,9 @@ public class Forgot extends AppCompatActivity {
 
         final String[] emailInput = {""};
 
-        final DBController controller = new DBController(this);
+        final JSONHelper helper = new JSONHelper();
+        final RequestQueue requestQueue = VolleySingleton.getInstance(this.getApplicationContext()).
+                getRequestQueue();
 
         final EditText securityQuestionAnswer = findViewById(R.id.Forgot_SecurityQuestionAnswerInputField);
         final EditText emailEntryBox = findViewById(R.id.Forgot_EmailInputField);
@@ -70,75 +83,66 @@ public class Forgot extends AppCompatActivity {
         View.OnClickListener displaySecurityQuestionEvent = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                Toast errorPopUp = Toast.makeText(getApplicationContext(), "", Toast.LENGTH_LONG);
                 try{final String email = emailEntryBox.getText().toString();} catch(Exception e){return;}
                 String email =  emailEntryBox.getText().toString();
 
-                for(User u : controller.getListOfUsers()){
+                loadAllUsersForSQ(helper, requestQueue, email, errorPopUp, securityQuestion);
 
-                    if(u.getEmail().equals(email)){
-                        securityQuestion.setText(u.getSecurityQuestion());
-                        emailInput[0] =email;
-                    }
-
-                }
-
-                //TODO check if email is linked to account, if not show toast
-                //TODO if valid email then send security question
             }
         };
-//------------------------------------------------------------------------------------------------------------------------------------------------------------\\
+
         View.OnClickListener displayInformationEvent = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                //TODO retrieve the security question and answer from database
-                //TODO send security question via email and expect answer
-                //TODO retrieve the username and password from the database
                 Toast errorPopUp = Toast.makeText(getApplicationContext(), "", Toast.LENGTH_LONG);
 
-                try{final String securityQuestion = securityQuestionAnswer.getText().toString();} catch(Exception e){return;}
-                String securityQuestion =  securityQuestionAnswer.getText().toString();
-
-                for(User u : controller.getListOfUsers()){
-
-                    if(u.getEmail().equals(emailInput[0])){
-                            String securityAnswerInput = "";
-                            final String securityAnswerActual = u.getSecurityQuestionAnswer();
-                            final String usernameActual = "";
-                            final String passwordActual = "";
-                        usernameTextView.setText(usernameActual);
-                        passwordTextView.setText(passwordActual);
-
-                            try {
-                                securityAnswerInput = securityQuestionAnswer.getText().toString();
-                                boolean username = usernameCheckBox.isChecked();
-                                boolean password = passwordCheckBox.isChecked();
-
-                                if(securityAnswerInput.equals(securityAnswerActual) && !securityAnswerInput.equals("")){
-
-                                    if(!username && !password){
-                                        //No info output
-                                    } else if(username && password){
-                                        usernameTextView.setText(u.getUsername());
-                                        passwordTextView.setText(u.getPassword());
-                                    } else if(username){
-                                        usernameTextView.setText(u.getUsername());
-                                    } else if(password){
-                                        passwordTextView.setText(u.getPassword());
-                                    }
-                                }else{
-                                    errorPopUp.setText("Incorrect Security Question Answer");
-                                    errorPopUp.show();
-                                }
-                            } catch(Exception e){
-
-                            }
-
-
-                        }
-                    }
+                try {
+                    final String securityQuestion = securityQuestionAnswer.getText().toString();
+                } catch (Exception e) {
+                    return;
                 }
-            };
+                String securityQuestion = securityQuestionAnswer.getText().toString();
+
+                String securityAnswerInput = "";
+                ActiveUser currentUser = new ActiveUser(false);
+                final String securityAnswerActual = currentUser.getSecurityQuestionAnswer();
+                final String usernameActual = "";
+                final String passwordActual = "";
+                usernameTextView.setText(usernameActual);
+                passwordTextView.setText(passwordActual);
+
+                try {
+                    securityAnswerInput = securityQuestionAnswer.getText().toString();
+                    boolean username = usernameCheckBox.isChecked();
+                    boolean password = passwordCheckBox.isChecked();
+
+                    if(securityAnswerInput.equals(securityAnswerActual) && !securityAnswerInput.equals("")){
+
+                        if(!username && !password){
+                            //No info output
+                        } else if(username && password){
+                            usernameTextView.setText(currentUser.getUsername());
+                            passwordTextView.setText(currentUser.getPassword());
+                        } else if(username){
+                            usernameTextView.setText(currentUser.getUsername());
+                        } else if(password){
+                            passwordTextView.setText(currentUser.getPassword());
+                        }
+                    }else{
+                        errorPopUp.setText("Incorrect Security Question Answer");
+                        errorPopUp.show();
+                    }
+                } catch(Exception e){
+
+                }
+
+
+            }
+
+        };
 
         submitInfoRequestButton.setOnClickListener(displayInformationEvent);
         displaySecurityQuestionButton.setOnClickListener(displaySecurityQuestionEvent);
@@ -184,7 +188,60 @@ public class Forgot extends AppCompatActivity {
         super.onDestroy();
         stopHandler();
         Log.d("onDestroy", "onDestroyActivity change");
+    }
 
+    private void loadAllUsersForSQ(final JSONHelper helper, RequestQueue requestQueue, final String email, final Toast errorPopUp, final TextView sQ) {
+
+        try {
+
+            JSONObject blank = new JSONObject();
+
+            JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, helper.getAllUsersURL(), blank,
+                    new Response.Listener<JSONObject>() {
+                        @Override
+                        public void onResponse(JSONObject response) {
+                            Log.d("REPLY FROM PHP", response.toString());
+                            findUserInfo(email,helper.decodeJsonIntoUserList(response), sQ);
+                        }
+                    },
+                    new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            String serverResp = "Error: " + error;
+                            Log.d("VOLLEY ERROR ", serverResp);
+                            errorPopUp.setText("Error loading leaderboard");
+                            errorPopUp.show();
+                        }
+                    });
+
+            Log.d("URL REQUEST", jsonObjectRequest.toString());
+
+            requestQueue.add(jsonObjectRequest);
+
+        }catch(Exception e){
+            String msg = "TRY CATCH FAILURE " + e.toString();
+            Log.d("VOLLEY ERROR ", msg);
+            e.printStackTrace();
+        }
+
+    }
+
+    private void findUserInfo(String email, ArrayList<User> users, TextView securityQuestion){
+
+        ActiveUser currentUser = new ActiveUser(false);
+
+        for(User u:users)
+            if(email.equals(u.getEmail()))
+                currentUser = new ActiveUser(u);
+
+        if(currentUser.getFirstName() == null){
+            Toast toast = new Toast(this);
+            toast.setText("No user found with " + email);
+            toast.show();
+            securityQuestion.setText("");
+        } else {
+            securityQuestion.setText(currentUser.getSecurityQuestion());
+        }
     }
 
 }
