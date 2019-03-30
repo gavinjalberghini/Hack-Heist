@@ -75,7 +75,7 @@ public class JSONHelper {
     private void assemblePhpURLs(){
 
         String[] phpPages = new String[5];
-        String rootURL = "http://192.168.1.20//hackheist/";
+        String rootURL = "http://172.23.99.161//hackheist/";
         phpPages[getGetSingleUserIndex()] = rootURL + "getSingleUserInfo.php";
         phpPages[getGetAllUsersIndex()] = rootURL + "getAllUserInfo.php";
         phpPages[getCreateNewUserIndex()] = rootURL + "createNewUser.php";
