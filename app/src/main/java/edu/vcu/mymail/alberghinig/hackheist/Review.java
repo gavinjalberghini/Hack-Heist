@@ -1,5 +1,12 @@
 package edu.vcu.mymail.alberghinig.hackheist;
 
+
+/*
+ *Written by Imagination Terraformers
+ */
+
+
+//imports necessary libraries
 import android.content.Intent;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
@@ -14,17 +21,26 @@ import android.widget.ImageButton;
 import android.widget.RatingBar;
 import android.widget.Toast;
 
+
+/*
+ *Creates public class Review extending the app compatible activity
+ */
 public class Review extends AppCompatActivity {
 
     private static String TAG = "Review";
     private Handler handler;
     private Runnable runnable;
 
+    /*
+            Overrides the onCreate function
+            Sets the screen to the activity_review.xml
+    */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_review);
 
+        //creates handler and runnable to track time of inactivity
         handler = new Handler();
         runnable = new Runnable() {
 
@@ -42,9 +58,8 @@ public class Review extends AppCompatActivity {
 
         startHandler();
 
-
+        //Initializes rating bar, buttons, and grabs text fields
         final RatingBar ratingBar = findViewById(R.id.Review_RatingBar);
-        //final int ratingNumber = 0;//ratingBar.getNumStars();
 
         final EditText reviewAnswer = findViewById(R.id.Review_ReviewCommentInputField);
         reviewAnswer.setImeOptions(EditorInfo.IME_ACTION_DONE);
@@ -52,10 +67,12 @@ public class Review extends AppCompatActivity {
         final ImageButton backButton = findViewById(R.id.Review_BackButton);
         final Button submitButton = findViewById(R.id.Review_SubmitButton);
 
+        //thanks user for their input after submit review has been clicked
         final Toast successPopUp = Toast.makeText(getApplicationContext(),
                 "Thank You!",
                 Toast.LENGTH_LONG);
 
+        //Sets listener for the back button to be clicked and sends the program to the user settings class
         View.OnClickListener goBackEvent = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -64,6 +81,8 @@ public class Review extends AppCompatActivity {
             }
         };
 
+        //Sets listener for the submit button to be clicked and clears the input fields that the user had just filled
+        //emails the review and the rating to the developing team
         View.OnClickListener clearScreen = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -91,7 +110,7 @@ public class Review extends AppCompatActivity {
         };
 
 
-
+        //gets rating number
         ratingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
             @Override
             public void onRatingChanged(RatingBar ratingBar, float v, boolean b) {
@@ -99,20 +118,24 @@ public class Review extends AppCompatActivity {
             }
         });
 
+        //Listens for the activity to be started, depending on the button that the user clicked
         backButton.setOnClickListener(goBackEvent);
         submitButton.setOnClickListener(clearScreen);
     }
 
+    //stops the handler from recording the time inactive
     public void stopHandler() {
         handler.removeCallbacks(runnable);
         Log.d("HandlerRun", "stopHandlerMain");
     }
 
+    //starts the handler recording the time the user has been inactive
     public void startHandler() {
         handler.postDelayed(runnable, 5 * 60 * 1000);
         Log.d("HandlerRun", "startHandlerMain");
     }
 
+    //Overrides onUserInteraction: when user interacts with the screen, restart the handler
     @Override
     public void onUserInteraction() {
         super.onUserInteraction();
@@ -120,6 +143,7 @@ public class Review extends AppCompatActivity {
         startHandler();
     }
 
+    //Overrides onPause
     @Override
     protected void onPause() {
         stopHandler();
@@ -128,6 +152,7 @@ public class Review extends AppCompatActivity {
 
     }
 
+    //Overrides onResume
     @Override
     protected void onResume() {
         super.onResume();
@@ -136,6 +161,7 @@ public class Review extends AppCompatActivity {
 
     }
 
+    //Overrides onDestroy
     @Override
     protected void onDestroy() {
         super.onDestroy();

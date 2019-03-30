@@ -1,5 +1,12 @@
 package edu.vcu.mymail.alberghinig.hackheist;
 
+
+/*
+ *Written by Imagination Terraformers
+ */
+
+
+//imports necessary libraries
 import android.content.Intent;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
@@ -9,18 +16,26 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+
+/*
+ *Creates public class DevInformation settings extending the app compatible activity
+ */
 public class DevInformation extends AppCompatActivity {
 
     private static String TAG = "DevInformation";
     private Handler handler;
     private Runnable runnable;
 
-
+    /*
+                Overrides the onCreate function
+                Sets the screen to the activity_dev_information.xml
+    */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dev_information);
 
+        //creates handler and runnable to track time of inactivity
         handler = new Handler();
         runnable = new Runnable() {
 
@@ -41,6 +56,7 @@ public class DevInformation extends AppCompatActivity {
 
         ImageButton backButton = findViewById(R.id.DevInformation_BackButton);
 
+        //Sets listener for the back button to be clicked and sends the program to the welcome class
         View.OnClickListener goBackEvent = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -49,20 +65,24 @@ public class DevInformation extends AppCompatActivity {
             }
         };
 
+        //Listens for the activity to be started, depending on the button that the user clicked
         backButton.setOnClickListener(goBackEvent);
 
     }
 
+    //stops the handler from recording the time inactive
     public void stopHandler() {
         handler.removeCallbacks(runnable);
         Log.d("HandlerRun", "stopHandlerMain");
     }
 
+    //starts the handler recording the time the user has been inactive
     public void startHandler() {
         handler.postDelayed(runnable, 5 * 60 * 1000);
         Log.d("HandlerRun", "startHandlerMain");
     }
 
+    //Overrides onUserInteraction: when user interacts with the screen, restart the handler
     @Override
     public void onUserInteraction() {
         super.onUserInteraction();
@@ -70,6 +90,7 @@ public class DevInformation extends AppCompatActivity {
         startHandler();
     }
 
+    //Overrides onPause
     @Override
     protected void onPause() {
         stopHandler();
@@ -78,6 +99,7 @@ public class DevInformation extends AppCompatActivity {
 
     }
 
+    //Overrides onResume
     @Override
     protected void onResume() {
         super.onResume();
@@ -86,6 +108,7 @@ public class DevInformation extends AppCompatActivity {
 
     }
 
+    //Overrides onDestroy
     @Override
     protected void onDestroy() {
         super.onDestroy();

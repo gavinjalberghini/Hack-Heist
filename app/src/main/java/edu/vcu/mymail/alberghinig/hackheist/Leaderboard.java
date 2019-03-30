@@ -1,5 +1,12 @@
 package edu.vcu.mymail.alberghinig.hackheist;
 
+
+/*
+ *Written by Imagination Terraformers
+ */
+
+
+//imports necessary libraries
 import android.content.Intent;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
@@ -23,17 +30,25 @@ import java.util.Collections;
 import java.util.Comparator;
 
 
+/*
+ *Creates public class Leaderboard settings extending the app compatible activity
+ */
 public class Leaderboard extends AppCompatActivity {
 
     private static String TAG = "Leaderboard";
     private Handler handler;
     private Runnable runnable;
 
+    /*
+            Overrides the onCreate function
+            Sets the screen to the activity_leaderboard.xml
+    */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_leaderboard);
 
+        //creates handler and runnable to track time of inactivity
         handler = new Handler();
         runnable = new Runnable() {
 
@@ -51,15 +66,18 @@ public class Leaderboard extends AppCompatActivity {
 
         startHandler();
 
+        //creates JSONHelper and Request Queue
         JSONHelper helper = new JSONHelper();
         final RequestQueue requestQueue = VolleySingleton.getInstance(this.getApplicationContext()).
                 getRequestQueue();
 
+        //Initializes button and toast
         ImageButton backButton = findViewById(R.id.Leaderboard_BackButton);
         Toast errorMsg = new Toast(this);
 
         loadAllUsersForLeaderboard(helper, requestQueue, errorMsg);
 
+        //Sets listener for the back button to be clicked and sends the program to the main menu class
         View.OnClickListener goBackEvent = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -68,9 +86,11 @@ public class Leaderboard extends AppCompatActivity {
             }
         };
 
+        //Listens for the activity to be started, depending on the button that the user clicked
         backButton.setOnClickListener(goBackEvent);
     }
 
+    //loads all of the users information and scores to the leaderboard screen
     private void loadAllUsersForLeaderboard(final JSONHelper helper, RequestQueue requestQueue,final Toast errorPopUp) {
 
         try {
@@ -108,6 +128,7 @@ public class Leaderboard extends AppCompatActivity {
 
     }
 
+    //displays the top five users and their scores to the screen
     private void displayLeaderboard(ArrayList<User> leaderboard){
 
         //TODO display leaderboard code here
@@ -144,6 +165,7 @@ public class Leaderboard extends AppCompatActivity {
             }
         });
 
+        //fills the usernames and scores into the board
         for(int i=0; i<=5; i++){
 
             if(leaderboard.size() > i){
@@ -220,16 +242,19 @@ public class Leaderboard extends AppCompatActivity {
 
     }
 
+    //stops the handler from recording the time inactive
     public void stopHandler() {
         handler.removeCallbacks(runnable);
         Log.d("HandlerRun", "stopHandlerMain");
     }
 
+    //starts the handler recording the time the user has been inactive
     public void startHandler() {
         handler.postDelayed(runnable, 5 * 60 * 1000);
         Log.d("HandlerRun", "startHandlerMain");
     }
 
+    //Overrides onUserInteraction: when user interacts with the screen, restart the handler
     @Override
     public void onUserInteraction() {
         super.onUserInteraction();
@@ -237,6 +262,7 @@ public class Leaderboard extends AppCompatActivity {
         startHandler();
     }
 
+    //Overrides onPause
     @Override
     protected void onPause() {
         stopHandler();
@@ -245,6 +271,7 @@ public class Leaderboard extends AppCompatActivity {
 
     }
 
+    //Overrides onResume
     @Override
     protected void onResume() {
         super.onResume();
@@ -253,6 +280,7 @@ public class Leaderboard extends AppCompatActivity {
 
     }
 
+    //Overrides onDestroy
     @Override
     protected void onDestroy() {
         super.onDestroy();

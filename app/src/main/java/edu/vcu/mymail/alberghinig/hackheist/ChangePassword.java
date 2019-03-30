@@ -1,5 +1,11 @@
 package edu.vcu.mymail.alberghinig.hackheist;
 
+/*
+ *Written by Imagination Terraformers
+ */
+
+
+//imports necessary libraries
 import android.content.Intent;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
@@ -19,18 +25,26 @@ import com.android.volley.toolbox.JsonObjectRequest;
 
 import org.json.JSONObject;
 
+
+/*
+ *Creates public class ChangePassword settings extending the app compatible activity
+ */
 public class ChangePassword extends AppCompatActivity {
 
     private static String TAG = "ChangePassword";
     private Handler handler;
     private Runnable runnable;
 
-
+    /*
+                Overrides the onCreate function
+                Sets the screen to the activity_change_password.xml
+    */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_change_password);
 
+        //creates handler and runnable to track time of inactivity
         handler = new Handler();
         runnable = new Runnable() {
 
@@ -48,16 +62,19 @@ public class ChangePassword extends AppCompatActivity {
 
         startHandler();
 
+        //creates JSONHelper and Request Queue
         final JSONHelper helper = new JSONHelper();
         final RequestQueue requestQueue = VolleySingleton.getInstance(this.getApplicationContext()).
                 getRequestQueue();
 
+        //Initializes buttons and grabs text fields
         final EditText oldPasswordText = findViewById(R.id.ChangePassword_OldPasswordInputField);
         final EditText newPasswordText = findViewById(R.id.ChangePassword_NewPasswordInputField);
         final EditText newPasswordConformationText = findViewById(R.id.ChangePassword_NewPasswordConfirmInputField);
         final Button submitPasswordUpdateButton = findViewById(R.id.ChangePassword_SubmitButton);
         final ImageButton backButton = findViewById(R.id.ChangePassword_BackButton);
 
+        //Sets listener for the back button to be clicked and sends the program to the main menu class
         View.OnClickListener goBackEvent = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -66,6 +83,7 @@ public class ChangePassword extends AppCompatActivity {
             }
         };
 
+        //Sets listener for the submit button to be clicked and changes the user's password in the database
         View.OnClickListener submitPasswordChange = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -114,11 +132,13 @@ public class ChangePassword extends AppCompatActivity {
             }
         };
 
+        //Listens for the activity to be started, depending on the button that the user clicked
         backButton.setOnClickListener(goBackEvent);
         submitPasswordUpdateButton.setOnClickListener(submitPasswordChange);
 
     }
 
+    //updates the user's information in the database for their changed password
     private void updateUserInfo(final JSONHelper helper, RequestQueue requestQueue, ActiveUser user, final Toast popUp) {
 
         try {
@@ -156,16 +176,19 @@ public class ChangePassword extends AppCompatActivity {
 
     }
 
+    //stops the handler from recording the time inactive
     public void stopHandler() {
         handler.removeCallbacks(runnable);
         Log.d("HandlerRun", "stopHandlerMain");
     }
 
+    //starts the handler recording the time the user has been inactive
     public void startHandler() {
         handler.postDelayed(runnable, 5 * 60 * 1000);
         Log.d("HandlerRun", "startHandlerMain");
     }
 
+    //Overrides onUserInteraction: when user interacts with the screen, restart the handler
     @Override
     public void onUserInteraction() {
         super.onUserInteraction();
@@ -173,6 +196,7 @@ public class ChangePassword extends AppCompatActivity {
         startHandler();
     }
 
+    //Overrides onPause
     @Override
     protected void onPause() {
         stopHandler();
@@ -181,6 +205,7 @@ public class ChangePassword extends AppCompatActivity {
 
     }
 
+    //Overrides onResume
     @Override
     protected void onResume() {
         super.onResume();
@@ -189,6 +214,7 @@ public class ChangePassword extends AppCompatActivity {
 
     }
 
+    //Overrides onDestroy
     @Override
     protected void onDestroy() {
         super.onDestroy();

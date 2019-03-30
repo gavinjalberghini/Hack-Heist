@@ -1,5 +1,12 @@
 package edu.vcu.mymail.alberghinig.hackheist;
 
+
+/*
+ *Written by Imagination Terraformers
+ */
+
+
+//imports necessary libraries
 import android.content.Intent;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
@@ -9,18 +16,26 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+
+/*
+ *Creates public class MainMenu settings extending the app compatible activity
+ */
 public class MainMenu extends AppCompatActivity {
 
     private static String TAG = "MainMenu";
     private Handler handler;
     private Runnable runnable;
 
-
+    /*
+                Overrides the onCreate function
+                Sets the screen to the activity_main_menu.xml
+    */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
 
+        //creates handler and runnable to track time of inactivity
         handler = new Handler();
         runnable = new Runnable() {
 
@@ -38,9 +53,11 @@ public class MainMenu extends AppCompatActivity {
 
         startHandler();
 
+        //creates new instance of an active user
         ActiveUser user = new ActiveUser(false);
         Log.d("LOGGED IN USER FROM MM", user.toString());
 
+        //Initializes buttons
         Button campaignButton = findViewById(R.id.MainMenu_CampaignButton);
         Button leaderBoardButton = findViewById(R.id.MainMenu_LeaderboardButton);
         Button resetDataButton = findViewById(R.id.MainMenu_ResetButton);
@@ -48,7 +65,7 @@ public class MainMenu extends AppCompatActivity {
         Button userSettingsButton = findViewById(R.id.MainMenu_UserSettingsButton);
         Button logoutButton = findViewById(R.id.MainMenu_LogoutButton);
 
-
+        //Sets listener for the campaign button to be clicked and sends the program to the game
         View.OnClickListener campaignEvent = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -56,6 +73,7 @@ public class MainMenu extends AppCompatActivity {
             }
         };
 
+        //Sets listener for the leaderboard button to be clicked and sends the program to the leaderboard class
         View.OnClickListener leaderboardEvent = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -64,6 +82,7 @@ public class MainMenu extends AppCompatActivity {
             }
         };
 
+        //Sets listener for the reset data button to be clicked and sends the menu page after resetting the data
         View.OnClickListener resetDataEvent = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -71,6 +90,7 @@ public class MainMenu extends AppCompatActivity {
             }
         };
 
+        //Sets listener for the help button to be clicked and sends the program to the help class
         View.OnClickListener helpEvent = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -79,6 +99,7 @@ public class MainMenu extends AppCompatActivity {
             }
         };
 
+        //Sets listener for the settings button to be clicked and sends the program to the user settings class
         View.OnClickListener userSettingsEvent = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -87,6 +108,7 @@ public class MainMenu extends AppCompatActivity {
             }
         };
 
+        //Sets listener for the logout button to be clicked and sends the program to the welcome class
         View.OnClickListener logoutEvent = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -95,6 +117,7 @@ public class MainMenu extends AppCompatActivity {
             }
         };
 
+        //Listens for the activity to be started, depending on the button that the user clicked
         campaignButton.setOnClickListener(campaignEvent);
         leaderBoardButton.setOnClickListener(leaderboardEvent);
         resetDataButton.setOnClickListener(resetDataEvent);
@@ -104,16 +127,19 @@ public class MainMenu extends AppCompatActivity {
 
     }
 
+    //stops the handler from recording the time inactive
     public void stopHandler() {
         handler.removeCallbacks(runnable);
         Log.d("HandlerRun", "stopHandlerMain");
     }
 
+    //starts the handler recording the time the user has been inactive
     public void startHandler() {
         handler.postDelayed(runnable, 5 * 60 * 1000);
         Log.d("HandlerRun", "startHandlerMain");
     }
 
+    //Overrides onUserInteraction: when user interacts with the screen, restart the handler
     @Override
     public void onUserInteraction() {
         super.onUserInteraction();
@@ -121,6 +147,7 @@ public class MainMenu extends AppCompatActivity {
         startHandler();
     }
 
+    //Overrides onPause
     @Override
     protected void onPause() {
         stopHandler();
@@ -129,6 +156,7 @@ public class MainMenu extends AppCompatActivity {
 
     }
 
+    //Overrides onResume
     @Override
     protected void onResume() {
         super.onResume();
@@ -137,6 +165,7 @@ public class MainMenu extends AppCompatActivity {
 
     }
 
+    //Overrides onDestroy
     @Override
     protected void onDestroy() {
         super.onDestroy();

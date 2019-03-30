@@ -1,5 +1,11 @@
 package edu.vcu.mymail.alberghinig.hackheist;
 
+/*
+ *Written by Imagination Terraformers
+*/
+
+
+//imports necessary libraries
 import android.content.Intent;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
@@ -22,18 +28,26 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.regex.Pattern;
 
+
+/*
+ *Creates public class SignUp settings extending the app compatible activity
+ */
 public class SignUp extends AppCompatActivity {
 
     private static String TAG = "SignUp";
     private Handler handler;
     private Runnable runnable;
 
-
+    /*
+            Overrides the onCreate function
+            Sets the screen to the activity_sign_up.xml
+    */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
 
+        //creates handler and runnable to track time of inactivity
         handler = new Handler();
         runnable = new Runnable() {
 
@@ -51,10 +65,12 @@ public class SignUp extends AppCompatActivity {
 
         startHandler();
 
+        //creates JSONHelper and Request Queue
         final JSONHelper helper = new JSONHelper();
         final RequestQueue requestQueue = VolleySingleton.getInstance(this.getApplicationContext()).
                 getRequestQueue();
 
+        //Initializes buttons and grabs text fields
         ImageButton backButton = findViewById(R.id.SignUp_BackButton);
         Button createAccountButton = findViewById(R.id.SignUp_CreateAccountButton);
         final EditText emailTextField = findViewById(R.id.SignUp_EmailInputField);
@@ -66,6 +82,10 @@ public class SignUp extends AppCompatActivity {
         final EditText securityQuestionTextField = findViewById(R.id.SignUp_SecurityQuestionInputField);
         final EditText securityQuestionAnswerTextField = findViewById(R.id.SignUp_SecurityQuestionAnswerInputField);
 
+        /*
+         *Sets listener for the create account button to be clicked and sends the program to the main menu class
+         *after checking that all of the fields have been filled with the required information in the defined format
+        */
         View.OnClickListener createAccountQuery = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -81,6 +101,7 @@ public class SignUp extends AppCompatActivity {
                 try{String securityQuestion = securityQuestionTextField.getText().toString();}catch(Exception e){errorPopUp.setText("Invalid/Empty Security Question");errorPopUp.show();return;}
                 try{String securityQuestionAnswer = securityQuestionAnswerTextField.getText().toString();}catch(Exception e){errorPopUp.setText("Invalid/Empty Security Question Answer");errorPopUp.show();return;}
 
+                //grabs all entered information and sets it to strings
                 String email = emailTextField.getText().toString();
                 String username = usernameTextField.getText().toString();
                 String firstName = firstNameTextField.getText().toString();
@@ -90,6 +111,7 @@ public class SignUp extends AppCompatActivity {
                 String securityQuestion = securityQuestionTextField.getText().toString();
                 String securityQuestionAnswer = securityQuestionAnswerTextField.getText().toString();
 
+                //if a field is blank, informs the user
                 if(email.equals("") ||
                     username.equals("") ||
                     firstName.equals("")     ||
@@ -103,36 +125,42 @@ public class SignUp extends AppCompatActivity {
                     return;
                 }
 
+                //informs the user if their email address they entered is invalid
                 if(!isValidEmailAddress(email)){
                     errorPopUp.setText("Email is invalid");
                     errorPopUp.show();
                     return;
                 }
 
+                //informs the user if their password is less than the required 8 characters
                 if(password.length() < 8){
                     errorPopUp.setText("Password must be at least 8 characters");
                     errorPopUp.show();
                     return;
                 }
 
+                //informs the user whether the second password they entered isn't equal to the first password they entered
                 if(!(confirmPassword.equals(password))){
                     errorPopUp.setText("Password and Confirm Password do not match");
                     errorPopUp.show();
                     return;
                 }
 
+                //security question cannot contain the user's password - informs user
                 if(securityQuestion.contains(password)){
                     errorPopUp.setText("Security Question can not contain the password");
                     errorPopUp.show();
                     return;
                 }
 
+                //creates a new user in the database with the information the user has entered
                 User userInstance = new User(firstName, lastName, username, email, password, securityQuestion, securityQuestionAnswer);
                 loadAllUsersForSignUpValidation(helper, requestQueue, errorPopUp, email, username, userInstance);
 
             }
         };
 
+        //Sets listener for the back button to be clicked and sends the program to the welcome class
         View.OnClickListener goBackEvent = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -141,11 +169,13 @@ public class SignUp extends AppCompatActivity {
             }
         };
 
+        //Listens for the activity to be started, depending on the button that the user clicked
         backButton.setOnClickListener(goBackEvent);
         createAccountButton.setOnClickListener(createAccountQuery);
 
     }
 
+    //checks email is a valid email address
     public static boolean isValidEmailAddress(String email) {
         String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\."+"[a-zA-Z0-9_+&*-]+)*@"+"(?:[a-zA-Z0-9-]+\\.)+[a-z"+"A-Z]{2,7}$";
         Pattern pat = Pattern.compile(emailRegex);
@@ -154,6 +184,7 @@ public class SignUp extends AppCompatActivity {
         return pat.matcher(email).matches();
     }
 
+    //performs validation of signup by checking to see if a user exists with the same information in the database
     private void loadAllUsersForSignUpValidation(final JSONHelper helper, final RequestQueue requestQueue, final Toast errorPopUp, final String email, final String username, final User userInstance) {
 
         try {
@@ -197,6 +228,7 @@ public class SignUp extends AppCompatActivity {
 
     }
 
+    //checks that the email address and username entered do not already exist
     private static boolean validateUsernameAndEmail(ArrayList<User> users, String email, String username, Toast errorPopUp){
 
         for(User u:users){
@@ -218,6 +250,7 @@ public class SignUp extends AppCompatActivity {
         return true;
     }
 
+    //creates a new user in the database
     private void createNewUser(final JSONHelper helper, RequestQueue requestQueue, final ActiveUser newUser, final Toast errorPopUp) {
 
         try {
@@ -254,16 +287,19 @@ public class SignUp extends AppCompatActivity {
 
     }
 
+    //stops the handler from recording the time inactive
     public void stopHandler() {
         handler.removeCallbacks(runnable);
         Log.d("HandlerRun", "stopHandlerMain");
     }
 
+    //starts the handler recording the time the user has been inactive
     public void startHandler() {
         handler.postDelayed(runnable, 5 * 60 * 1000);
         Log.d("HandlerRun", "startHandlerMain");
     }
 
+    //Overrides onUserInteraction: when user interacts with the screen, restart the handler
     @Override
     public void onUserInteraction() {
         super.onUserInteraction();
@@ -271,6 +307,7 @@ public class SignUp extends AppCompatActivity {
         startHandler();
     }
 
+    //Overrides onPause
     @Override
     protected void onPause() {
         stopHandler();
@@ -279,6 +316,7 @@ public class SignUp extends AppCompatActivity {
 
     }
 
+    //Overrides onResume
     @Override
     protected void onResume() {
         super.onResume();
@@ -287,6 +325,7 @@ public class SignUp extends AppCompatActivity {
 
     }
 
+    //Overrides onDestroy
     @Override
     protected void onDestroy() {
         super.onDestroy();

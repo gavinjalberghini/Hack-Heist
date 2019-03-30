@@ -11,6 +11,13 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+
+/*
+ *Written by Imagination Terraformers
+ */
+
+
+//imports necessary libraries
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -21,6 +28,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+/*
+ *Creates public class Login settings extending the app compatible activity
+ */
 public class Login extends AppCompatActivity {
 
     private static String TAG = "Login";
@@ -29,11 +39,16 @@ public class Login extends AppCompatActivity {
 
     ActiveUser activeUser = new ActiveUser(true);
 
+    /*
+            Overrides the onCreate function
+            Sets the screen to the activity_login.xml
+    */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        //creates handler and runnable to track time of inactivity
         handler = new Handler();
         runnable = new Runnable() {
 
@@ -51,17 +66,19 @@ public class Login extends AppCompatActivity {
 
         startHandler();
 
+        //creates JSONHelper and Request Queue
         final JSONHelper helper = new JSONHelper();
-
         final RequestQueue requestQueue = VolleySingleton.getInstance(this.getApplicationContext()).
                 getRequestQueue();
 
+        //Initializes buttons and grabs text fields
         final EditText usernameOrEmailTextBox = findViewById(R.id.Login_UsernameOrEmailInputField);
         final EditText passwordTextBox = findViewById(R.id.Login_PasswordInputField);
         final Button switchToSignupButton = findViewById(R.id.Login_SignupButton);
         final Button loginButton = findViewById(R.id.Login_LoginButton);
         final ImageButton backButton = findViewById(R.id.Login_BackButton);
 
+        //Sets listener for the sign up button to be clicked and sends the program to the sign up class
         View.OnClickListener switchToSignupScreen = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -70,6 +87,7 @@ public class Login extends AppCompatActivity {
             }
         };
 
+        //Sets listener for the login button to be clicked and sends the program to the main menu class after successfully logging in
         View.OnClickListener loginQuery = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -93,6 +111,7 @@ public class Login extends AppCompatActivity {
             }
         };
 
+        //Sets listener for the back button to be clicked and sends the program to the welcome class
         View.OnClickListener goBackEvent = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -101,11 +120,13 @@ public class Login extends AppCompatActivity {
             }
         };
 
+        //Listens for the activity to be started, depending on the button that the user clicked
         backButton.setOnClickListener(goBackEvent);
         loginButton.setOnClickListener(loginQuery);
         switchToSignupButton.setOnClickListener(switchToSignupScreen);
     }
 
+    //logs the user in based off of their information matching an existing account in the database
     private void login(final JSONHelper helper, RequestQueue requestQueue, String usernameOrEmail, String password, final Toast errorPopUp) {
 
         try {
@@ -147,16 +168,19 @@ public class Login extends AppCompatActivity {
 
     }
 
+    //stops the handler from recording the time inactive
     public void stopHandler() {
         handler.removeCallbacks(runnable);
         Log.d("HandlerRun", "stopHandlerMain");
     }
 
+    //starts the handler recording the time the user has been inactive
     public void startHandler() {
         handler.postDelayed(runnable, 5 * 60 * 1000);
         Log.d("HandlerRun", "startHandlerMain");
     }
 
+    //Overrides onUserInteraction: when user interacts with the screen, restart the handler
     @Override
     public void onUserInteraction() {
         super.onUserInteraction();
@@ -164,6 +188,7 @@ public class Login extends AppCompatActivity {
         startHandler();
     }
 
+    //Overrides onPause
     @Override
     protected void onPause() {
         stopHandler();
@@ -172,6 +197,7 @@ public class Login extends AppCompatActivity {
 
     }
 
+    //Overrides onResume
     @Override
     protected void onResume() {
         super.onResume();
@@ -180,6 +206,7 @@ public class Login extends AppCompatActivity {
 
     }
 
+    //Overrides onDestroy
     @Override
     protected void onDestroy() {
         super.onDestroy();

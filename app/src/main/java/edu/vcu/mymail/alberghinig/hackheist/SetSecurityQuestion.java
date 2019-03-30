@@ -1,5 +1,11 @@
 package edu.vcu.mymail.alberghinig.hackheist;
 
+/*
+ *Written by Imagination Terraformers
+ */
+
+
+//imports necessary libraries
 import android.content.Intent;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
@@ -21,17 +27,26 @@ import com.android.volley.toolbox.JsonObjectRequest;
 
 import org.json.JSONObject;
 
+
+/*
+ *Creates public class SetSecurityQuestion settings extending the app compatible activity
+ */
 public class SetSecurityQuestion extends AppCompatActivity {
 
     private static String TAG = "SetSecurityQuestion";
     private Handler handler;
     private Runnable runnable;
 
+    /*
+            Overrides the onCreate function
+            Sets the screen to the activity_set_security_question.xml
+    */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_set_security_question);
 
+        //creates handler and runnable to track time of inactivity
         handler = new Handler();
         runnable = new Runnable() {
 
@@ -49,10 +64,12 @@ public class SetSecurityQuestion extends AppCompatActivity {
 
         startHandler();
 
+        //creates JSONHelper and Request Queue
         final JSONHelper helper = new JSONHelper();
         final RequestQueue requestQueue = VolleySingleton.getInstance(this.getApplicationContext()).
                 getRequestQueue();
 
+        //Initializes buttons and grabs text fields
         final EditText securityQuestion = findViewById(R.id.SetSecurityQuestion_QuestionInputField);
         final EditText securityQuestionAnswer = findViewById(R.id.SetSecurityQuestion_AnswerInputField);
         final EditText password = findViewById(R.id.SetSecurityQuestion_PasswordInputField);
@@ -61,18 +78,22 @@ public class SetSecurityQuestion extends AppCompatActivity {
         securityQuestion.setImeOptions(EditorInfo.IME_ACTION_DONE);
         securityQuestion.setRawInputType(InputType.TYPE_CLASS_TEXT);
 
+        //informs the user that their security question has been updated in the database
         final Toast successPopUp = Toast.makeText(getApplicationContext(),
                 "Security Question Updated",
                 Toast.LENGTH_LONG);
 
+        //informs the user of missing or invalid input
         final Toast missingEntryPopUp = Toast.makeText(getApplicationContext(),
                 "Invalid or Missing Input",
                 Toast.LENGTH_LONG);
 
+        //informs the user that the password that they ave entered does not match the one saved in the database
         final Toast incorrectPasswordPopUp = Toast.makeText(getApplicationContext(),
                 "Password Incorrect",
                 Toast.LENGTH_LONG);
 
+        //Sets listener for the back button to be clicked and sends the program to the user settings class
         View.OnClickListener goBackEvent = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -81,6 +102,7 @@ public class SetSecurityQuestion extends AppCompatActivity {
             }
         };
 
+        //Sets listener for the update button to be clicked and updates the user's security question in the database
         View.OnClickListener updateSecurityQuestionEvent = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -113,11 +135,15 @@ public class SetSecurityQuestion extends AppCompatActivity {
             }
         };
 
+        //Listens for the activity to be started, depending on the button that the user clicked
         submitSecurityUpdateButton.setOnClickListener(updateSecurityQuestionEvent);
         backButton.setOnClickListener(goBackEvent);
 
     }
 
+    //updates the user's information in the database
+    //looks at current state of user in app and checks that the current username and password are the
+    //same in the app and if not it updates it in the database
     private void updateUserInfo(final JSONHelper helper, RequestQueue requestQueue, ActiveUser user, final Toast popUp) {
 
         try {
@@ -155,16 +181,19 @@ public class SetSecurityQuestion extends AppCompatActivity {
 
     }
 
+    //stops the handler from recording the time inactive
     public void stopHandler() {
         handler.removeCallbacks(runnable);
         Log.d("HandlerRun", "stopHandlerMain");
     }
 
+    //starts the handler recording the time the user has been inactive
     public void startHandler() {
         handler.postDelayed(runnable, 5 * 60 * 1000);
         Log.d("HandlerRun", "startHandlerMain");
     }
 
+    //Overrides onUserInteraction: when user interacts with the screen, restart the handler
     @Override
     public void onUserInteraction() {
         super.onUserInteraction();
@@ -172,6 +201,7 @@ public class SetSecurityQuestion extends AppCompatActivity {
         startHandler();
     }
 
+    //Overrides onPause
     @Override
     protected void onPause() {
         stopHandler();
@@ -180,6 +210,7 @@ public class SetSecurityQuestion extends AppCompatActivity {
 
     }
 
+    //Overrides onResume
     @Override
     protected void onResume() {
         super.onResume();
@@ -188,6 +219,7 @@ public class SetSecurityQuestion extends AppCompatActivity {
 
     }
 
+    //Overrides onDestroy
     @Override
     protected void onDestroy() {
         super.onDestroy();

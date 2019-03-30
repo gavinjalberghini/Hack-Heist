@@ -1,5 +1,12 @@
 package edu.vcu.mymail.alberghinig.hackheist;
 
+
+/*
+ *Written by Imagination Terraformers
+ */
+
+
+//imports necessary libraries
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -24,18 +31,25 @@ import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
+/*
+ *Creates public class Forgot settings extending the app compatible activity
+ */
 public class Forgot extends AppCompatActivity {
 
     private static String TAG = "Forgot";
     private Handler handler;
     private Runnable runnable;
 
-
+    /*
+                Overrides the onCreate function
+                Sets the screen to the activity_forgot.xml
+    */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forgot);
 
+        //creates handler and runnable to track time of inactivity
         handler = new Handler();
         runnable = new Runnable() {
 
@@ -56,10 +70,12 @@ public class Forgot extends AppCompatActivity {
 
         final String[] emailInput = {""};
 
+        //creates JSONHelper and Request Queue
         final JSONHelper helper = new JSONHelper();
         final RequestQueue requestQueue = VolleySingleton.getInstance(this.getApplicationContext()).
                 getRequestQueue();
 
+        //Initializes buttons and grabs text fields and checked boxes
         final EditText securityQuestionAnswer = findViewById(R.id.Forgot_SecurityQuestionAnswerInputField);
         final EditText emailEntryBox = findViewById(R.id.Forgot_EmailInputField);
         final CheckBox usernameCheckBox = findViewById(R.id.Forgot_UsernameCheckBox);
@@ -71,7 +87,7 @@ public class Forgot extends AppCompatActivity {
         final TextView usernameTextView = findViewById(R.id.Forgot_UsernameTextView);
         final TextView passwordTextView = findViewById(R.id.Forgot_PasswordTextView);
 
-
+        //Sets listener for the back button to be clicked and sends the program to the welcome class
         View.OnClickListener goBackEvent = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -80,6 +96,7 @@ public class Forgot extends AppCompatActivity {
             }
         };
 
+        //Sets listener for the security question and displays the security question that the user has set in the database
         View.OnClickListener displaySecurityQuestionEvent = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -93,6 +110,7 @@ public class Forgot extends AppCompatActivity {
             }
         };
 
+        //Sets listener for the display information and shows the user's information that they forgot
         View.OnClickListener displayInformationEvent = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -144,22 +162,26 @@ public class Forgot extends AppCompatActivity {
 
         };
 
+        //Listens for the activity to be started, depending on the button that the user clicked
         submitInfoRequestButton.setOnClickListener(displayInformationEvent);
         displaySecurityQuestionButton.setOnClickListener(displaySecurityQuestionEvent);
         backButton.setOnClickListener(goBackEvent);
 
     }
 
+    //stops the handler from recording the time inactive
     public void stopHandler() {
         handler.removeCallbacks(runnable);
         Log.d("HandlerRun", "stopHandlerMain");
     }
 
+    //starts the handler recording the time the user has been inactive
     public void startHandler() {
         handler.postDelayed(runnable, 5 * 60 * 1000);
         Log.d("HandlerRun", "startHandlerMain");
     }
 
+    //Overrides onUserInteraction: when user interacts with the screen, restart the handler
     @Override
     public void onUserInteraction() {
         super.onUserInteraction();
@@ -167,6 +189,7 @@ public class Forgot extends AppCompatActivity {
         startHandler();
     }
 
+    //Overrides onPause
     @Override
     protected void onPause() {
         stopHandler();
@@ -175,6 +198,7 @@ public class Forgot extends AppCompatActivity {
 
     }
 
+    //Overrides onResume
     @Override
     protected void onResume() {
         super.onResume();
@@ -183,6 +207,7 @@ public class Forgot extends AppCompatActivity {
 
     }
 
+    //Overrides onDestroy
     @Override
     protected void onDestroy() {
         super.onDestroy();
@@ -190,6 +215,7 @@ public class Forgot extends AppCompatActivity {
         Log.d("onDestroy", "onDestroyActivity change");
     }
 
+    //loads all of the users and their information from the database for their security question
     private void loadAllUsersForSQ(final JSONHelper helper, RequestQueue requestQueue, final String email, final Toast errorPopUp, final TextView sQ) {
 
         try {
@@ -226,6 +252,7 @@ public class Forgot extends AppCompatActivity {
 
     }
 
+    //find the user's information based off of the correct answer to the security question
     private void findUserInfo(String email, ArrayList<User> users, TextView securityQuestion){
 
         ActiveUser currentUser = new ActiveUser(false);
