@@ -69,7 +69,8 @@ public class MainMenu extends AppCompatActivity {
         View.OnClickListener campaignEvent = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //TODO: Will launch the game from this button
+                Intent I = new Intent(getApplicationContext(), UnityLauncher.class);
+                startActivity(I);
             }
         };
 
