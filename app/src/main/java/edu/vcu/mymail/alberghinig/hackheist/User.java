@@ -10,13 +10,17 @@ public class User {
     private String password;
     private String securityQuestion;
     private String securityQuestionAnswer;
+    private String keyCards;
+    private String badges;
+    private int numOfCorrectQuestions;
+    private int score;
 
     public User(boolean clear){
         if(clear)
             clearCurrentUserData();
     }
 
-    public User(String firstName, String lastName, String username, String email, String password, String securityQuestion, String securityQuestionAnswer) {
+    public User(String firstName, String lastName, String username, String email, String password, String securityQuestion, String securityQuestionAnswer, String badges, String keyCards, int numOfCorrectQ, int score) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.username = username;
@@ -24,6 +28,10 @@ public class User {
         this.password = password;
         this.securityQuestion = securityQuestion;
         this.securityQuestionAnswer = securityQuestionAnswer;
+        this.badges = badges;
+        this.keyCards = keyCards;
+        this.numOfCorrectQuestions = numOfCorrectQ;
+        this.score = score;
     }
 
     public User(){
@@ -94,6 +102,38 @@ public class User {
         this.securityQuestionAnswer = securityQuestionAnswer;
     }
 
+    public String getKeyCards() {
+        return keyCards;
+    }
+
+    public void setKeyCards(String keyCards) {
+        this.keyCards = keyCards;
+    }
+
+    public String getBadges() {
+        return badges;
+    }
+
+    public void setBadges(String badges) {
+        this.badges = badges;
+    }
+
+    public int getNumOfCorrectQuestions() {
+        return numOfCorrectQuestions;
+    }
+
+    public void setNumOfCorrectQuestions(int numOfCorrectQuestions) {
+        this.numOfCorrectQuestions = numOfCorrectQuestions;
+    }
+
+    public int getScore() {
+        return score;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
+    }
+
     private void clearCurrentUserData() {
         setUsername("");
         setPassword("");
@@ -102,19 +142,10 @@ public class User {
         setLastName("");
         setSecurityQuestion("");
         setSecurityQuestionAnswer("");
-    }
-
-    public void buildNewUser(String firstName, String lastName, String username, String email, String password,
-                             String securityQ, String securityQA){
-        clearCurrentUserData();
-        setFirstName(firstName);
-        setLastName(lastName);
-        setUsername(username);
-        setPassword(password);
-        setEmail(email);
-        setSecurityQuestion(securityQ);
-        setSecurityQuestionAnswer(securityQA);
-
+        setBadges("");
+        setKeyCards("");
+        setNumOfCorrectQuestions(0);
+        setScore(0);
     }
 
     public String toString(){
@@ -126,7 +157,11 @@ public class User {
         result += "Email : " + getEmail() + "\n";
         result += "Password : " + getPassword() + "\n";
         result += "Security Question : " + getSecurityQuestion() + "\n";
-        result += "Security Question Answer : " + getSecurityQuestionAnswer() + "\n\n";
+        result += "Security Question Answer : " + getSecurityQuestionAnswer() + "\n";
+        result += "Badge Key : " + getBadges() + "\n";
+        result += "Key Cards : " + getKeyCards() + "\n";
+        result += "Number of Correctly Answered Questions : " + getNumOfCorrectQuestions() + "\n";
+        result += "Score : " + getScore() + "\n\n";
 
         return result;
     }

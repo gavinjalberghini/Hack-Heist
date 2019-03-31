@@ -84,7 +84,8 @@ public class UserSettings extends AppCompatActivity {
         View.OnClickListener resetEvent = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                ActiveUser currentUser = new ActiveUser(false);
+                resetUser(helper, requestQueue, currentUser, deleteSuccessPopUp);
             }
         };
 
@@ -212,6 +213,46 @@ public class UserSettings extends AppCompatActivity {
                             String serverResp = "Error: " + error;
                             Log.d("VOLLEY ERROR ", serverResp);
                             popUp.setText("Deletion Failure");
+                            popUp.show();
+                        }
+                    });
+
+            Log.d("URL REQUEST", jsonObjectRequest.toString());
+
+            requestQueue.add(jsonObjectRequest);
+
+        }catch(Exception e){
+            String msg = "TRY CATCH FAILURE " + e.toString();
+            Log.d("VOLLEY ERROR ", msg);
+            e.printStackTrace();
+        }
+    }
+
+    private void resetUser(final JSONHelper helper, RequestQueue requestQueue, final ActiveUser user, final Toast popUp) {
+
+        try {
+
+            JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, helper.getResetUserURL(), helper.wrapResetUserAsJson(user),
+                    new Response.Listener<JSONObject>() {
+                        @Override
+                        public void onResponse(JSONObject response) {
+                            Log.d("REPLY FROM PHP", response.toString());
+                            popUp.setText("Account Reset");
+                            popUp.show();
+                            user.setScore(0);
+                            user.setKeyCards("0000000");
+                            user.setBadges("0000000");
+                            user.setNumOfCorrectQuestions(0);
+                            Intent I = new Intent(getApplicationContext(), UserSettings.class);
+                            startActivity(I);
+                        }
+                    },
+                    new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            String serverResp = "Error: " + error;
+                            Log.d("VOLLEY ERROR ", serverResp);
+                            popUp.setText("Reset Failure");
                             popUp.show();
                         }
                     });

@@ -15,6 +15,7 @@ public class JSONHelper {
     private final int DELETE_USER_INDEX = 2;
     private final int CREATE_NEW_USER_INDEX = 3;
     private final int UPDATE_EXISTING_USER_INDEX = 4;
+    private final int RESET_USER_INFO_INDEX = 5;
     private String[] phpPages;
 
 
@@ -42,6 +43,10 @@ public class JSONHelper {
 
     public int getUpdateExistingUserIndex() {
         return UPDATE_EXISTING_USER_INDEX;
+    }
+
+    public int getResetUserInfoIndex() {
+        return RESET_USER_INFO_INDEX;
     }
 
     public String[] getPhpPages() {
@@ -72,21 +77,47 @@ public class JSONHelper {
         return phpPages[getCreateNewUserIndex()];
     }
 
+    public String getResetUserURL() {return phpPages[getResetUserInfoIndex()];}
+
     private void assemblePhpURLs(){
 
-        String[] phpPages = new String[5];
-        String rootURL = "http://172.23.99.161//hackheist/";
+        String[] phpPages = new String[6];
+        String rootURL = "http://192.168.88.100//hackheist/";
         phpPages[getGetSingleUserIndex()] = rootURL + "getSingleUserInfo.php";
         phpPages[getGetAllUsersIndex()] = rootURL + "getAllUserInfo.php";
         phpPages[getCreateNewUserIndex()] = rootURL + "createNewUser.php";
         phpPages[getDeleteUserIndex()] = rootURL + "deleteUser.php";
         phpPages[getUpdateExistingUserIndex()] = rootURL + "updateExistingUserInfo.php";
+        phpPages[getResetUserInfoIndex()] = rootURL + "updateGameInformation.php";
 
         setPhpPages(phpPages);
     }
 
     private static void logJSON(JSONObject json){
         Log.d("JSON DUMP FROM HELPER", json.toString());
+    }
+
+    public JSONObject wrapResetUserAsJson(ActiveUser user){
+        JSONObject jObj = new JSONObject();
+
+        try{
+            jObj.put("ID", user.getID());
+            jObj.put("First_Name", user.getFirstName());
+            jObj.put("Last_Name", user.getLastName());
+            jObj.put("playerUsername", user.getUsername());
+            jObj.put("Email", user.getEmail());
+            jObj.put("Password", user.getPassword());
+            jObj.put("Security_Question", user.getSecurityQuestion());
+            jObj.put("Security_Question_Answer", user.getSecurityQuestionAnswer());
+            jObj.put("badges", "0000000");
+            jObj.put("keyCards", "0000000");
+            jObj.put("numOfCorrectQuestions", 0);
+            jObj.put("score", 0);
+        }catch(JSONException e){
+            Log.d("JSON BUILD ERROR", e.toString());
+        }
+
+        return jObj;
     }
 
     public JSONObject wrapUserAsJson(ActiveUser user){
@@ -102,6 +133,10 @@ public class JSONHelper {
             jObj.put("Password", user.getPassword());
             jObj.put("Security_Question", user.getSecurityQuestion());
             jObj.put("Security_Question_Answer", user.getSecurityQuestionAnswer());
+            jObj.put("Badges", user.getBadges());
+            jObj.put("Key_Cards", user.getKeyCards());
+            jObj.put("Number_Questions_Correct", user.getNumOfCorrectQuestions());
+            jObj.put("Score", user.getScore());
         }catch(JSONException e){
             Log.d("JSON BUILD ERROR", e.toString());
         }
@@ -136,6 +171,10 @@ public class JSONHelper {
             result.setPassword((String)jObj.get("Password"));
             result.setSecurityQuestion((String)jObj.get("Security_Question"));
             result.setSecurityQuestionAnswer((String)jObj.get("Security_Question_Answer"));
+            result.setBadges((String)jObj.get("Badges"));
+            result.setKeyCards((String)jObj.get("Key_Cards"));
+            result.setNumOfCorrectQuestions(Integer.parseInt((String)jObj.get("Number_Questions_Correct")));
+            result.setScore(Integer.parseInt((String)jObj.get("Score")));
             ActiveUser newActiveUser = new ActiveUser(result);
         }catch(JSONException e){
             Log.d("JSON UNPACK ERROR", e.toString());
@@ -145,7 +184,7 @@ public class JSONHelper {
 
     public ArrayList<User> decodeJsonIntoUserList(JSONObject jObj){
 
-        ArrayList<User> result = new ArrayList<>();
+        ArrayList<User> results = new ArrayList<>();
         String i = "0";
 
         try {
@@ -162,15 +201,18 @@ public class JSONHelper {
                 newUser.setPassword(thisJObj.getString("Password"));
                 newUser.setSecurityQuestion(thisJObj.getString("Security_Question"));
                 newUser.setSecurityQuestionAnswer(thisJObj.getString("Security_Question_Answer"));
-
-                result.add(newUser);
+                newUser.setScore(Integer.parseInt((String)thisJObj.get("Score")));
+                newUser.setNumOfCorrectQuestions(Integer.parseInt((String)thisJObj.get("Number_Questions_Correct")));
+                newUser.setKeyCards((String)thisJObj.get("Key_Cards"));
+                newUser.setBadges((String)thisJObj.get("Badges"));
+                results.add(newUser);
                 i = String.valueOf(Integer.parseInt(i)+1);
             }
         }catch(JSONException e){
             Log.d("JSON UNPACK ERROR", e.toString());
         }
 
-        return result;
+        return results;
 
     }
 

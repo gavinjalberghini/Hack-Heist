@@ -12,13 +12,17 @@ public class ActiveUser {
     private static String password;
     private static String securityQuestion;
     private static String securityQuestionAnswer;
+    private static String keyCards;
+    private static String badges;
+    private static int numOfCorrectQuestions;
+    private static int score;
 
     public ActiveUser(boolean clear){
         if(clear)
             clearCurrentUserData();
     }
 
-    public ActiveUser(int ID, String firstName, String lastName, String username, String email, String password, String securityQuestion, String securityQuestionAnswer) {
+    public ActiveUser(int ID, String firstName, String lastName, String username, String email, String password, String securityQuestion, String securityQuestionAnswer, String badges, String keyCards, int numOfCorrectQ, int score) {
         this.ID = ID;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -27,6 +31,10 @@ public class ActiveUser {
         this.password = password;
         this.securityQuestion = securityQuestion;
         this.securityQuestionAnswer = securityQuestionAnswer;
+        this.badges = badges;
+        this.keyCards = keyCards;
+        this.numOfCorrectQuestions = numOfCorrectQ;
+        this.score = score;
     }
 
     public ActiveUser(User user){
@@ -38,6 +46,11 @@ public class ActiveUser {
         this.password = user.getPassword();
         this.securityQuestion = user.getSecurityQuestion();
         this.securityQuestionAnswer = user.getSecurityQuestionAnswer();
+        this.badges = user.getBadges();
+        this.keyCards = user.getKeyCards();
+        this.numOfCorrectQuestions = user.getNumOfCorrectQuestions();
+        this.score = user.getScore();
+
     }
 
     public int getID() {
@@ -104,6 +117,38 @@ public class ActiveUser {
         this.securityQuestionAnswer = securityQuestionAnswer;
     }
 
+    public static String getKeyCards() {
+        return keyCards;
+    }
+
+    public static void setKeyCards(String keyCards) {
+        ActiveUser.keyCards = keyCards;
+    }
+
+    public static String getBadges() {
+        return badges;
+    }
+
+    public static void setBadges(String badges) {
+        ActiveUser.badges = badges;
+    }
+
+    public static int getNumOfCorrectQuestions() {
+        return numOfCorrectQuestions;
+    }
+
+    public static void setNumOfCorrectQuestions(int numOfCorrectQuestions) {
+        ActiveUser.numOfCorrectQuestions = numOfCorrectQuestions;
+    }
+
+    public static int getScore() {
+        return score;
+    }
+
+    public static void setScore(int score) {
+        ActiveUser.score = score;
+    }
+
     private void clearCurrentUserData() {
         setUsername("");
         setPassword("");
@@ -112,19 +157,10 @@ public class ActiveUser {
         setLastName("");
         setSecurityQuestion("");
         setSecurityQuestionAnswer("");
-    }
-
-    public void buildNewUser(String firstName, String lastName, String username, String email, String password,
-                             String securityQ, String securityQA){
-        clearCurrentUserData();
-        setFirstName(firstName);
-        setLastName(lastName);
-        setUsername(username);
-        setPassword(password);
-        setEmail(email);
-        setSecurityQuestion(securityQ);
-        setSecurityQuestionAnswer(securityQA);
-
+        setBadges("");
+        setKeyCards("");
+        setNumOfCorrectQuestions(0);
+        setScore(0);
     }
 
     public String toString(){
@@ -136,7 +172,11 @@ public class ActiveUser {
         result += "Email : " + getEmail() + "\n";
         result += "Password : " + getPassword() + "\n";
         result += "Security Question : " + getSecurityQuestion() + "\n";
-        result += "Security Question Answer : " + getSecurityQuestionAnswer() + "\n\n";
+        result += "Security Question Answer : " + getSecurityQuestionAnswer() + "\n";
+        result += "Badge Key : " + getBadges() + "\n";
+        result += "Key Cards : " + getKeyCards() + "\n";
+        result += "Number of Correctly Answered Questions : " + getNumOfCorrectQuestions() + "\n";
+        result += "Score : " + getScore() + "\n\n";
 
         return result;
     }
