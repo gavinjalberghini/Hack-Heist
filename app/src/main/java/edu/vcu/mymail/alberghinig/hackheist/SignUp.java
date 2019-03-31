@@ -154,7 +154,7 @@ public class SignUp extends AppCompatActivity {
                 }
 
                 //creates a new user in the database with the information the user has entered
-                User userInstance = new User(firstName, lastName, username, email, password, securityQuestion, securityQuestionAnswer);
+                User userInstance = new User(firstName, lastName, username, email, password, securityQuestion, securityQuestionAnswer, "", "", 0, 0);
                 loadAllUsersForSignUpValidation(helper, requestQueue, errorPopUp, email, username, userInstance);
 
             }

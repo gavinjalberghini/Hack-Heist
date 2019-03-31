@@ -159,9 +159,7 @@ public class Leaderboard extends AppCompatActivity {
         Collections.sort(leaderboard, new Comparator<User>()  {
             @Override
             public int compare(User o1, User o2) {
-                String userName1 = o1.getUsername();
-                String userName2 = o2.getUsername();
-                return userName1.compareTo(userName2);
+                return o1.getScore() - o2.getScore();
             }
         });
 
