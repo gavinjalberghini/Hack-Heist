@@ -1,15 +1,24 @@
 package edu.vcu.mymail.alberghinig.hackheist;
+import android.content.Context;
+import android.net.wifi.WifiInfo;
+import android.net.wifi.WifiManager;
+import android.text.format.Formatter;
 import android.util.Log;
-
-import com.android.volley.toolbox.StringRequest;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.math.BigInteger;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+import java.nio.ByteOrder;
 import java.util.ArrayList;
+
+import static android.content.Context.WIFI_SERVICE;
 
 public class JSONHelper {
 
+    public static String baseIP = "192.168.1.20";
     private final int GET_SINGLE_USER_INDEX = 0;
     private final int GET_ALL_USERS_INDEX = 1;
     private final int DELETE_USER_INDEX = 2;
@@ -82,7 +91,7 @@ public class JSONHelper {
     private void assemblePhpURLs(){
 
         String[] phpPages = new String[6];
-        String rootURL = "http://192.168.88.100//hackheist/";
+        String rootURL = "http://"+baseIP+"//hackheist/";
         phpPages[getGetSingleUserIndex()] = rootURL + "getSingleUserInfo.php";
         phpPages[getGetAllUsersIndex()] = rootURL + "getAllUserInfo.php";
         phpPages[getCreateNewUserIndex()] = rootURL + "createNewUser.php";
@@ -215,6 +224,8 @@ public class JSONHelper {
         return results;
 
     }
+
+
 
 }
 
