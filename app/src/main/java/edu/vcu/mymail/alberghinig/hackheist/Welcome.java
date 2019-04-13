@@ -31,6 +31,7 @@ public class Welcome extends AppCompatActivity {
         Button signUpButton = findViewById(R.id.Welcome_SignupButton);
         Button infoButton = findViewById(R.id.Welcome_InfoButton);
         Button forgotButton = findViewById(R.id.Welcome_ForgotButton);
+        Button levelsContentButton = findViewById(R.id.Welcome_LevelsContentButton);
 
         //Sets listener for the login button to be clicked and sends the program to the login class
         View.OnClickListener loginEvent = new View.OnClickListener() {
@@ -68,11 +69,22 @@ public class Welcome extends AppCompatActivity {
             }
         };
 
+        //Sets listener for the forgot something button to be clicked and sends the program to the forgot class
+        View.OnClickListener levelsContentEvent = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent I = new Intent(getApplicationContext(), LevelContents.class);
+                startActivity(I);
+            }
+        };
+
+
         //Listens for the activity to be started, depending on the button that the user clicked
         loginButton.setOnClickListener(loginEvent);
         signUpButton.setOnClickListener(signupEvent);
         infoButton.setOnClickListener(infoEvent);
         forgotButton.setOnClickListener(forgotEvent);
+        levelsContentButton.setOnClickListener(levelsContentEvent);
     }
 
 }
