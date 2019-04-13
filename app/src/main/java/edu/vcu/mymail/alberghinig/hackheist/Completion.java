@@ -1,11 +1,5 @@
 package edu.vcu.mymail.alberghinig.hackheist;
 
-/*
- *Written by Imagination Terraformers
- */
-
-
-//imports necessary libraries
 import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
@@ -16,15 +10,8 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
-/*
- *Creates public class Completion settings extending the app compatible activity
- */
 public class Completion extends AppCompatActivity {
 
-    /*
-            Overrides the onCreate function
-            Sets the screen to the activity_completion.xml
-    */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,7 +30,7 @@ public class Completion extends AppCompatActivity {
             }
         };
 
-        //Sets listener for the email button to be clicked and sends the program to the email
+        //Sets listener for the menu button to be clicked and sends the program to the main menu class
         View.OnClickListener emailScreen = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -55,6 +42,7 @@ public class Completion extends AppCompatActivity {
         backButton.setOnClickListener(goBackEvent);
         emailButton.setOnClickListener(emailScreen);
     }
+
 
     protected void sendEmail() {
         Log.i("Send email", "");
@@ -81,6 +69,7 @@ public class Completion extends AppCompatActivity {
             Toast.makeText(Completion.this,
                     "There is no email client installed.", Toast.LENGTH_SHORT).show();
         }
-    }
 
+
+    }
 }
