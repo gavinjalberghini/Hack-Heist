@@ -7,9 +7,7 @@
     android:layout_height="fill_parent"
     android:fillViewport="true">
 
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<android.support.constraint.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     tools:context=".Welcome">
@@ -92,5 +90,17 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/team_logo"
         android:contentDescription="@string/todo" />
+
+    <Button
+        android:id="@+id/Welcome_LevelsContentButton"
+        android:layout_width="152dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="130dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="130dp"
+        android:text="LEVELS CONTENT"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Welcome_InfoButton" />
 </android.support.constraint.ConstraintLayout>
 </ScrollView>
