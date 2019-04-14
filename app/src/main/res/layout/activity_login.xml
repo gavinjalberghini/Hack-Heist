@@ -95,15 +95,16 @@
 
         <ImageView
             android:id="@+id/Login_MainLogoImage"
-            android:layout_width="259dp"
-            android:layout_height="199dp"
+            android:layout_width="274dp"
+            android:layout_height="219dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="120dp"
             android:layout_marginEnd="8dp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.735"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/game_logo" />
+            app:srcCompat="@drawable/hh_logo" />
 
         <ImageView
             android:id="@+id/Login_TeamLogoImage"
