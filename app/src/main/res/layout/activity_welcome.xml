@@ -67,16 +67,17 @@
 
     <ImageView
         android:id="@+id/Welcome_MainLogoImage"
-        android:layout_width="211dp"
-        android:layout_height="223dp"
+        android:layout_width="278dp"
+        android:layout_height="279dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="36dp"
         android:layout_marginEnd="8dp"
+        android:contentDescription="@string/todo"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.803"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/game_logo"
-        android:contentDescription="@string/todo" />
+        app:srcCompat="@drawable/hh_logo" />
 
     <ImageView
         android:id="@+id/Welcome_TeamImage"
