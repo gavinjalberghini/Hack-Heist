@@ -5,7 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:fillViewport="true">
+    android:fillViewport="true"
+    android:background="@drawable/hacker_code_background">
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
@@ -19,10 +20,12 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="32dp"
             android:layout_marginEnd="8dp"
+            android:background="#E6FFFFFF"
             android:ems="10"
             android:gravity="center"
             android:hint="Username / Email"
             android:inputType="textPersonName"
+            android:padding="1dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.493"
             app:layout_constraintStart_toStartOf="parent"
@@ -33,10 +36,12 @@
             android:layout_width="314dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:background="#E6FFFFFF"
             android:ems="10"
             android:gravity="center"
             android:hint="Password"
             android:inputType="textPersonName|textPassword"
+            android:padding="1dp"
             app:layout_constraintEnd_toEndOf="@+id/Login_UsernameOrEmailInputField"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/Login_UsernameOrEmailInputField"
@@ -62,7 +67,9 @@
             android:layout_width="159dp"
             android:layout_height="22dp"
             android:layout_marginTop="32dp"
+            android:background="#FFFFFFFF"
             android:gravity="center"
+            android:padding="1dp"
             android:text="Don't have an account?"
             app:layout_constraintEnd_toEndOf="@+id/Login_PasswordInputField"
             app:layout_constraintTop_toBottomOf="@+id/Login_PasswordInputField" />

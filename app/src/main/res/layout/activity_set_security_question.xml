@@ -5,7 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:fillViewport="true">
+    android:fillViewport="true"
+    android:background="@drawable/hacker_code_background">
 
 <android.support.constraint.ConstraintLayout
     android:layout_width="match_parent"
@@ -14,15 +15,15 @@
 
     <EditText
         android:id="@+id/SetSecurityQuestion_QuestionInputField"
-        android:hint="@string/security_question_hint"
         android:layout_width="293dp"
         android:layout_height="150dp"
-        android:gravity="center"
         android:layout_marginStart="8dp"
         android:layout_marginTop="164dp"
         android:layout_marginEnd="8dp"
-        android:background="@null"
+        android:background="#FFFFFFFF"
         android:ems="10"
+        android:gravity="center"
+        android:hint="@string/security_question_hint"
         android:importantForAutofill="no"
         android:inputType="textMultiLine"
         android:maxLines="5"
@@ -38,12 +39,14 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="8dp"
+        android:background="#E6FFFFFF"
         android:ems="10"
         android:gravity="center"
         android:hint="@string/security_question_answer_hint"
         android:importantForAutofill="no"
         android:inputType="text"
         android:maxLines="1"
+        android:padding="1dp"
         android:text=""
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -56,10 +59,12 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="8dp"
+        android:background="#E6FFFFFF"
         android:ems="10"
         android:gravity="center"
         android:hint="@string/password_hint"
         android:inputType="textPassword"
+        android:padding="1dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/SetSecurityQuestion_AnswerInputField" />

@@ -5,7 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:fillViewport="true">
+    android:fillViewport="true"
+    android:background="@drawable/hacker_code_background">
 
 <android.support.constraint.ConstraintLayout
     android:layout_width="match_parent"
@@ -18,11 +19,13 @@
         android:layout_height="43dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="4dp"
+        android:background="#E6FFFFFF"
         android:ems="10"
         android:gravity="center"
         android:hint="Last Name"
         android:importantForAutofill="no"
         android:inputType="text"
+        android:padding="1dp"
         android:singleLine="false"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         app:layout_constraintEnd_toEndOf="parent"
@@ -50,16 +53,19 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
+        android:background="#E6FFFFFF"
         android:ems="10"
         android:gravity="center"
         android:hint="@string/email"
+        android:importantForAutofill="no"
         android:inputType="text"
+        android:padding="1dp"
         android:singleLine="false"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/SignUp_TopBanner"
-        android:importantForAutofill="no" tools:targetApi="o" />
+        tools:targetApi="o" />
 
     <EditText
         android:id="@+id/SignUp_UsernameInputField"
@@ -68,16 +74,19 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
+        android:background="#E6FFFFFF"
         android:ems="10"
         android:gravity="center"
         android:hint="@string/username"
+        android:importantForAutofill="no"
         android:inputType="text"
+        android:padding="1dp"
         android:singleLine="false"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/SignUp_EmailInputField"
-        android:importantForAutofill="no" tools:targetApi="o" />
+        tools:targetApi="o" />
 
     <EditText
         android:id="@+id/SignUp_FirstNameInputField"
@@ -85,11 +94,13 @@
         android:layout_height="43dp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="8dp"
+        android:background="#E6FFFFFF"
         android:ems="10"
         android:gravity="center"
         android:hint="First Name"
         android:importantForAutofill="no"
         android:inputType="text"
+        android:padding="1dp"
         android:singleLine="false"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         app:layout_constraintStart_toStartOf="parent"
@@ -103,16 +114,19 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
+        android:background="#E6FFFFFF"
         android:ems="10"
         android:gravity="center"
         android:hint="@string/password"
+        android:importantForAutofill="no"
         android:inputType="text"
+        android:padding="1dp"
         android:singleLine="false"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/SignUp_FirstNameInputField"
-        android:importantForAutofill="no" tools:targetApi="o" />
+        tools:targetApi="o" />
 
     <EditText
         android:id="@+id/SignUp_ConfirmPasswordInputField"
@@ -121,16 +135,19 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
+        android:background="#E6FFFFFF"
         android:ems="10"
         android:gravity="center"
         android:hint="@string/confirm_password"
+        android:importantForAutofill="no"
         android:inputType="text"
+        android:padding="1dp"
         android:singleLine="false"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/SignUp_PasswordInputField"
-        android:importantForAutofill="no" tools:targetApi="o" />
+        tools:targetApi="o" />
 
     <EditText
         android:id="@+id/SignUp_SecurityQuestionInputField"
@@ -139,16 +156,19 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
+        android:background="#E6FFFFFF"
         android:ems="10"
         android:gravity="center"
         android:hint="@string/security_question"
+        android:importantForAutofill="no"
         android:inputType="text"
+        android:padding="1dp"
         android:singleLine="false"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/SignUp_ConfirmPasswordInputField"
-        android:importantForAutofill="no" tools:targetApi="o" />
+        tools:targetApi="o" />
 
     <EditText
         android:id="@+id/SignUp_SecurityQuestionAnswerInputField"
@@ -157,16 +177,19 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
+        android:background="#E6FFFFFF"
         android:ems="10"
         android:gravity="center"
         android:hint="@string/security_question_answer"
+        android:importantForAutofill="no"
         android:inputType="text"
+        android:padding="1dp"
         android:singleLine="false"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/SignUp_SecurityQuestionInputField"
-        android:importantForAutofill="no" tools:targetApi="o" />
+        tools:targetApi="o" />
 
     <ImageView
         android:id="@+id/SignUp_CreateAccountButtonImage"

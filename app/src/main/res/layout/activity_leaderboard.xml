@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Leaderboard">
+    tools:context=".Leaderboard"
+    android:background="@drawable/hacker_code_background">
 
     <ImageButton
         android:id="@+id/Leaderboard_BackButton"
