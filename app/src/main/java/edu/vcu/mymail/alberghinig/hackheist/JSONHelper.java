@@ -18,7 +18,7 @@ import static android.content.Context.WIFI_SERVICE;
 
 public class JSONHelper {
 
-    public static String baseIP = "192.168.1.249";
+    public static String baseIP = "172.23.28.228";
     private final int GET_SINGLE_USER_INDEX = 0;
     private final int GET_ALL_USERS_INDEX = 1;
     private final int DELETE_USER_INDEX = 2;
