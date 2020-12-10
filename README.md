@@ -1,4 +1,4 @@
-# project-a-group1-imaginationterraformers
+# Imagination Terraformers -- Hack Heist
 project-a-group1-imaginationterraformers created by GitHub Classroom
 
 Members/Roles:
